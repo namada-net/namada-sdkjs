@@ -20,7 +20,8 @@
     "test-wasm:ci": "yarn wasm:ts:node && cd ./lib && RUSTFLAGS='--cfg getrandom_backend=\"wasm_js\"' wasm-pack test --node -- --features nodejs --no-default-features",
     "wasm:build:node:multicore": "yarn wasm:ts:node && node ./scripts/build.js --target nodejs --release --multicore",
     "wasm:build:node:dev": "yarn wasm:ts:node && node ./scripts/build.js --target nodejs",
-    "wasm:build:node:dev:multicore": "yarn wasm:ts:node && node ./scripts/build.js --target nodejs --multicore"
+    "wasm:build:node:dev:multicore": "yarn wasm:ts:node && node ./scripts/build.js --target nodejs --multicore",
+    "wasm:clean": "cd lib && cargo clean"
   },
   "dependencies": {
     "@dao-xyz/borsh": "^5.1.5",

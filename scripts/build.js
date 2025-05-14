@@ -29,9 +29,10 @@ const {
 const mode = release ? "release" : "development";
 const multicoreLabel = multicore ? "on" : "off";
 const target = targets.includes(maybeTarget) ? maybeTarget : "web";
+const sdkTarget = `sdk${multicore ? "-multicore" : ""}`;
 
 execSync("rm -rf dist");
-execSync("rm -rf src/sdk");
+execSync(`rm -rf src/wasm/${target}/${sdkTarget}`);
 
 console.log(
   `Building \"sdk\" in ${mode} mode for ${target} target. Multicore is ${multicoreLabel}.`,
@@ -48,7 +49,7 @@ if (!release) {
   profile = "--dev";
 }
 
-const outDir = `${__dirname}/../src/sdk`;
+const outDir = `${__dirname}/../src/wasm/${target}/${sdkTarget}`;
 
 execSync(`rm -rf ${outDir}}`);
 const { status } = spawnSync(
