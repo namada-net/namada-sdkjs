@@ -1,4 +1,4 @@
-import { Bip44Path, Zip32Path } from "@namada/types";
+import { Bip44Path, Zip32Path } from "types";
 
 /**
  * Return a properly formatted BIP-044 path array
@@ -8,7 +8,7 @@ import { Bip44Path, Zip32Path } from "@namada/types";
  */
 export const makeBip44PathArray = (
   coinType: number,
-  path: Bip44Path
+  path: Bip44Path,
 ): Uint32Array => {
   const { account, change = 0, index = 0 } = path;
   return new Uint32Array([44, coinType, account, change, index]);
@@ -24,7 +24,7 @@ export const makeBip44PathArray = (
 export const makeBip44Path = (
   coinType: number,
   bip44Path: Bip44Path,
-  fullPath = true
+  fullPath = true,
 ): string => {
   const prefix = `m/44'/${coinType}'`;
   const { account, change = 0, index = 0 } = bip44Path;
@@ -42,7 +42,7 @@ export const makeBip44Path = (
 export const makeSaplingPath = (
   coinType: number,
   zip32Path: Zip32Path,
-  fullPath = true
+  fullPath = true,
 ): string => {
   const { account, index } = zip32Path;
   const prefix = `m/32'/${coinType}'`;
@@ -61,7 +61,7 @@ export const makeSaplingPath = (
 export const makeSaplingPathArray = (
   coinType: number,
   account: number,
-  index?: number
+  index?: number,
 ): Uint32Array => {
   const pathArray = [32, coinType, account];
   if (typeof index === "number") pathArray.push(index);

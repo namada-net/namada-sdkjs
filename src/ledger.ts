@@ -1,6 +1,5 @@
 import Transport from "@ledgerhq/hw-transport";
 import TransportUSB from "@ledgerhq/hw-transport-webusb";
-import { chains } from "@namada/chains";
 import {
   LedgerError,
   NamadaApp,
@@ -14,7 +13,7 @@ import {
 import semver from "semver";
 import { makeBip44Path, makeSaplingPath } from "./utils";
 
-const { coinType } = chains.namada.bip44;
+import { NAMADA_COIN_TYPE as coinType } from "types";
 
 export type LedgerAddressAndPublicKey = { address: string; publicKey: string };
 export type LedgerViewingKey = {
@@ -140,7 +139,7 @@ export class Ledger {
    * @returns Address and public key
    */
   public async getAddressAndPublicKey(
-    path: string = DEFAULT_LEDGER_BIP44_PATH
+    path: string = DEFAULT_LEDGER_BIP44_PATH,
   ): Promise<LedgerAddressAndPublicKey> {
     const { address, pubkey } = await this.namadaApp.getAddressAndPubKey(path);
 
@@ -160,7 +159,7 @@ export class Ledger {
    * @returns Address and public key
    */
   public async showAddressAndPublicKey(
-    path: string = DEFAULT_LEDGER_BIP44_PATH
+    path: string = DEFAULT_LEDGER_BIP44_PATH,
   ): Promise<LedgerAddressAndPublicKey> {
     try {
       const { address, pubkey } =
@@ -238,7 +237,7 @@ export class Ledger {
    */
   public async getViewingKey(
     path: string = DEFAULT_LEDGER_ZIP32_PATH,
-    promptUser = true
+    promptUser = true,
   ): Promise<LedgerViewingKey> {
     try {
       await this.validateZip32Support();
@@ -246,7 +245,7 @@ export class Ledger {
       const { xfvk }: ResponseViewKey = await this.namadaApp.retrieveKeys(
         path,
         NamadaKeys.ViewKey,
-        promptUser
+        promptUser,
       );
 
       if (!xfvk) {
@@ -271,7 +270,7 @@ export class Ledger {
    */
   public async getProofGenerationKey(
     path: string = DEFAULT_LEDGER_ZIP32_PATH,
-    promptUser = true
+    promptUser = true,
   ): Promise<LedgerProofGenerationKey> {
     try {
       await this.validateZip32Support();
@@ -280,7 +279,7 @@ export class Ledger {
         await this.namadaApp.retrieveKeys(
           path,
           NamadaKeys.ProofGenerationKey,
-          promptUser
+          promptUser,
         );
 
       if (!ak || !nsk) {
@@ -306,7 +305,7 @@ export class Ledger {
    */
   public async sign(
     tx: Uint8Array,
-    path: string = DEFAULT_LEDGER_BIP44_PATH
+    path: string = DEFAULT_LEDGER_BIP44_PATH,
   ): Promise<ResponseSign> {
     const buffer = Buffer.from(tx);
 
@@ -378,7 +377,7 @@ export class Ledger {
 
       throw new Error(
         `This method requires Zip32 and is unsupported in ${appVersion}! ` +
-          `Please update to at least ${LEDGER_MIN_VERSION_ZIP32}!`
+          `Please update to at least ${LEDGER_MIN_VERSION_ZIP32}!`,
       );
     }
   }

@@ -1,4 +1,4 @@
-import { Query as QueryWasm, Sdk as SdkWasm } from "@namada/shared";
+import { Query as QueryWasm, Sdk as SdkWasm } from "wasm";
 import { webcrypto } from "node:crypto";
 import { Sdk } from "./sdk";
 export * from "./index";
@@ -23,7 +23,7 @@ export function getSdk(
   url: string,
   maspIndexerUrl: string,
   storagePath: string,
-  token: string
+  token: string,
 ): Sdk {
   // We change empty string to undefined so it "maps" to the Option<String> in Rust
   const maspIndexerUrlOpt =

@@ -1,1 +1,2 @@
-export { initThreadPool } from "./shared/shared";
+// TODO: Fix this export
+export { initThreadPool } from "./web/sdk-multicore";

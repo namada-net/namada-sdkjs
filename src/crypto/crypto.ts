@@ -7,7 +7,7 @@ import {
   Salt,
   VecU8Pointer,
   readVecU8Pointer,
-} from "@namada/crypto";
+} from "wasm";
 import { Argon2Config, CryptoRecord, EncryptionParams, KdfType } from "./types";
 
 /**
@@ -17,7 +17,7 @@ export class Crypto {
   /**
    * @param cryptoMemory - WebAssembly Memory for crypto
    */
-  constructor(protected readonly cryptoMemory: WebAssembly.Memory) { }
+  constructor(protected readonly cryptoMemory: WebAssembly.Memory) {}
 
   /**
    * Provide object for storing encrypted data
@@ -31,7 +31,7 @@ export class Crypto {
     cipherText: Uint8Array,
     params: Argon2ParamsWasm,
     iv: Uint8Array,
-    salt: string
+    salt: string,
   ): CryptoRecord {
     const { m_cost, t_cost, p_cost } = params;
     return {
@@ -98,7 +98,7 @@ export class Crypto {
   private encryptWithAES(
     key: VecU8Pointer,
     iv: Uint8Array,
-    plainText: string
+    plainText: string,
   ): Uint8Array {
     const aes = new AES(key, iv);
     const cipherText = aes.encrypt(plainText);

@@ -4,13 +4,13 @@ import {
   Query as QueryWasm,
   Sdk as SdkWasm,
   TransferToEthereum,
-} from "@namada/shared";
+} from "wasm";
 import {
   BroadcastTxError,
   DatedViewingKey,
   TxResponseMsgValue,
   TxResponseProps,
-} from "@namada/types";
+} from "types";
 
 import {
   Balance,
@@ -36,7 +36,7 @@ export class Rpc {
    */
   constructor(
     protected readonly sdk: SdkWasm,
-    protected readonly query: QueryWasm
+    protected readonly query: QueryWasm,
   ) {}
 
   /**
@@ -50,7 +50,7 @@ export class Rpc {
   async queryBalance(
     owner: string,
     tokens: string[],
-    chainId: string
+    chainId: string,
   ): Promise<Balance> {
     return await this.query.query_balance(owner, tokens, chainId);
   }
@@ -94,7 +94,7 @@ export class Rpc {
    */
   async queryTotalDelegations(
     owners: string[],
-    epoch?: bigint
+    epoch?: bigint,
   ): Promise<DelegationTotals> {
     return await this.query.get_total_delegations(owners, epoch);
   }
@@ -132,7 +132,7 @@ export class Rpc {
           unbonds,
           withdrawable,
         };
-      }
+      },
     );
   }
 
@@ -153,7 +153,7 @@ export class Rpc {
           validator,
           amount,
           startEpoch,
-        })
+        }),
       ),
       unbonds: unbonds.map(
         ([
@@ -168,7 +168,7 @@ export class Rpc {
           amount,
           startEpoch,
           withdrawableEpoch,
-        })
+        }),
       ),
     };
   }
@@ -213,7 +213,7 @@ export class Rpc {
         acc[path] = hash;
         return acc;
       },
-      {} as Record<string, string>
+      {} as Record<string, string>,
     );
 
     return checksums;
@@ -228,7 +228,7 @@ export class Rpc {
    */
   async broadcastTx(
     signedTxBytes: Uint8Array,
-    deadline: bigint = BigInt(60)
+    deadline: bigint = BigInt(60),
   ): Promise<TxResponseProps> {
     const response = await this.sdk
       .broadcast_tx(signedTxBytes, deadline)
@@ -247,7 +247,7 @@ export class Rpc {
    */
   async shieldedSync(vks: DatedViewingKey[], chainId: string): Promise<void> {
     const datedViewingKeys = vks.map(
-      (vk) => new DatedViewingKeyWasm(vk.key, String(vk.birthday))
+      (vk) => new DatedViewingKeyWasm(vk.key, String(vk.birthday)),
     );
 
     await this.query.shielded_sync(datedViewingKeys, chainId);
@@ -295,7 +295,7 @@ export class Rpc {
           kdGain,
           lockedAmountTarget,
         };
-      }
+      },
     );
   }
 
@@ -310,7 +310,7 @@ export class Rpc {
   async shieldedRewardsPerToken(
     owner: string,
     token: string,
-    chainId: string
+    chainId: string,
   ): Promise<string> {
     return await this.sdk.shielded_rewards_per_token(owner, token, chainId);
   }
@@ -325,7 +325,7 @@ export class Rpc {
   async simulateShieldedRewards(
     chainId: string,
     token: string,
-    amount: string
+    amount: string,
   ): Promise<string> {
     return await this.sdk.simulate_shielded_rewards(chainId, token, amount);
   }

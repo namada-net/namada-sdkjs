@@ -1,5 +1,5 @@
-import { Sdk as SdkWasm } from "@namada/shared";
-import { Message, TxMsgValue, TxProps } from "@namada/types";
+import { Sdk as SdkWasm } from "wasm";
+import { Message, TxMsgValue, TxProps } from "types";
 
 type Signature = [string, string];
 
@@ -11,7 +11,7 @@ export class Signing {
    * Signing constructor
    * @param sdk - Instance of Sdk struct from wasm lib
    */
-  constructor(protected readonly sdk: SdkWasm) { }
+  constructor(protected readonly sdk: SdkWasm) {}
 
   /**
    * Sign Namada transaction
@@ -23,7 +23,7 @@ export class Signing {
   async sign(
     txProps: TxProps,
     signingKey: string | string[],
-    chainId?: string
+    chainId?: string,
   ): Promise<Uint8Array> {
     const txMsgValue = new TxMsgValue(txProps);
     const msg = new Message<TxMsgValue>();

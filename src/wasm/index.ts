@@ -1,7 +1,9 @@
 import { Proposal, Proposals } from "./borsh-schemas";
-import { Query as RustQuery } from "./shared/shared";
-export * from "./shared/shared";
+// TODO: How to handle these imports?
+import { Query as RustQuery } from "./web/sdk-multicore";
+export * from "./web/sdk-multicore";
 export * from "./types";
+export * from "./utils";
 
 type TimeoutOpts = {
   // Timeout in milliseconds
@@ -23,7 +25,7 @@ const DEFAULT_OPTS: Required<TimeoutOpts> = {
 const promiseWithTimeout =
   <U extends unknown[], T>(
     fn: (...args: U) => Promise<T>,
-    opts?: TimeoutOpts
+    opts?: TimeoutOpts,
   ) =>
   (...args: U): Promise<T> => {
     const { timeout, error } = { ...DEFAULT_OPTS, ...opts };
@@ -44,15 +46,15 @@ export class Query extends RustQuery {
   query_balance = super.query_balance.bind(this);
   query_epoch = promiseWithTimeout(super.query_epoch.bind(this));
   query_all_validator_addresses = promiseWithTimeout(
-    super.query_all_validator_addresses.bind(this)
+    super.query_all_validator_addresses.bind(this),
   );
   query_my_validators = promiseWithTimeout(
-    super.query_my_validators.bind(this)
+    super.query_my_validators.bind(this),
   );
   query_total_bonds = promiseWithTimeout(super.query_total_bonds.bind(this));
   delegators_votes = promiseWithTimeout(super.delegators_votes.bind(this));
   get_total_delegations = promiseWithTimeout(
-    super.get_total_delegations.bind(this)
+    super.get_total_delegations.bind(this),
   );
 }
 

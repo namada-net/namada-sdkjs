@@ -1,4 +1,4 @@
-import { Sdk as SdkWasm } from "@namada/shared";
+import { Sdk as SdkWasm } from "wasm";
 
 /**
  * Class representing utilities related to MASP

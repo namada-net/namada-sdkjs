@@ -1,4 +1,4 @@
-import { TxType } from "./shared/shared";
+import { TxType } from "./web/sdk-multicore";
 
 export type SupportedTx = Extract<
   TxType,

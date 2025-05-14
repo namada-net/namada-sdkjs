@@ -1,2 +1,2 @@
-export { TxType, TxTypeLabel } from "@namada/shared";
-export type { SupportedTx } from "@namada/shared";
+export { TxType, TxTypeLabel } from "wasm";
+export type { SupportedTx } from "wasm";

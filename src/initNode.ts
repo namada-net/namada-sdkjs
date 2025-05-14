@@ -1,6 +1,6 @@
-import * as crypto from "@namada/crypto";
+import * as crypto from "wasm";
 // We have to use relative imports here othewise ts-patch is getting confused and produces wrong paths after compialtion
-import { initThreadPool } from "../../shared/src/init-thread-pool";
+import { initThreadPool } from "wasm";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const cryptoMemory = (crypto as any).__wasm.memory;

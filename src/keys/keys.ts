@@ -4,16 +4,14 @@ import {
   readStringPointer,
   ShieldedHDWallet,
   StringPointer,
-} from "@namada/crypto";
-import {
   Address as AddressWasm,
   ExtendedSpendingKey,
   ExtendedViewingKey,
   gen_payment_address,
   public_key_to_bech32,
-} from "sdk";
-import { Bip44Path, Zip32Path } from "@namada/types";
-import { makeBip44PathArray, makeSaplingPathArray } from "../utils";
+} from "wasm";
+import { Bip44Path, Zip32Path } from "types";
+import { makeBip44PathArray, makeSaplingPathArray } from "utils";
 import {
   Address,
   DEFAULT_BIP44_PATH,
@@ -23,8 +21,7 @@ import {
   ShieldedKeys,
   TransparentKeys,
 } from "./types";
-
-const NAMADA_COIN_TYPE = 877;
+import { NAMADA_COIN_TYPE as coinType } from "types";
 
 /**
  * Namespace for key related functions
@@ -82,7 +79,7 @@ export class Keys {
         : undefined;
     const seedPtr = mnemonic.to_seed(passphrasePtr);
     const hdWallet = new HDWallet(seedPtr);
-    const bip44Path = makeBip44PathArray(NAMADA_COIN_TYPE, path);
+    const bip44Path = makeBip44PathArray(coinType, path);
     const key = hdWallet.derive(new Uint32Array(bip44Path));
     const privateKeyStringPtr = key.to_hex();
     const privateKey = readStringPointer(
@@ -113,7 +110,7 @@ export class Keys {
     path: Bip44Path = DEFAULT_BIP44_PATH,
   ): TransparentKeys {
     const hdWallet = HDWallet.from_seed(seed);
-    const bip44Path = makeBip44PathArray(NAMADA_COIN_TYPE, path);
+    const bip44Path = makeBip44PathArray(coinType, path);
     const key = hdWallet.derive(new Uint32Array(bip44Path));
     const privateKeyStringPtr = key.to_hex();
     const privateKey = readStringPointer(
@@ -147,7 +144,7 @@ export class Keys {
     const bip44Path: Bip44Path = MODIFIED_ZIP32_PATH;
     const shieldedHdWallet = new ShieldedHDWallet(
       seed,
-      makeBip44PathArray(NAMADA_COIN_TYPE, bip44Path),
+      makeBip44PathArray(coinType, bip44Path),
     );
     return this.deriveFromShieldedWallet(
       shieldedHdWallet,

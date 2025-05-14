@@ -1,4 +1,4 @@
-import { Sdk as SdkWasm } from "@namada/shared";
+import { Sdk as SdkWasm } from "wasm";
 
 /**
  * Class representing utilities related to Wallet
@@ -38,7 +38,7 @@ export class Wallet {
   async addKeypair(
     secretKey: string,
     alias: string,
-    password?: string
+    password?: string,
   ): Promise<void> {
     return await this.sdk.add_keypair(secretKey, alias, password);
   }

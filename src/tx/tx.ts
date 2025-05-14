@@ -4,7 +4,7 @@ import {
   TxType,
   deserialize_tx,
   get_inner_tx_hashes,
-} from "@namada/shared";
+} from "wasm";
 import {
   BondMsgValue,
   BondProps,
@@ -41,7 +41,7 @@ import {
   WithdrawProps,
   WrapperTxMsgValue,
   WrapperTxProps,
-} from "@namada/types";
+} from "types";
 import { ResponseSign } from "@zondax/ledger-namada";
 import BigNumber from "bignumber.js";
 import { WasmHash } from "../rpc";
@@ -64,18 +64,18 @@ export class Tx {
    */
   async buildTransparentTransfer(
     wrapperTxProps: WrapperTxProps,
-    transferProps: TransparentTransferProps
+    transferProps: TransparentTransferProps,
   ): Promise<TxMsgValue> {
     const transferMsg = new Message<TransparentTransferMsgValue>();
 
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedTransfer = transferMsg.encode(
-      new TransparentTransferMsgValue(transferProps)
+      new TransparentTransferMsgValue(transferProps),
     );
 
     const serializedTx = await this.sdk.build_transparent_transfer(
       encodedTransfer,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -89,18 +89,18 @@ export class Tx {
    */
   async buildShieldedTransfer(
     wrapperTxProps: WrapperTxProps,
-    shieldedTransferProps: ShieldedTransferProps
+    shieldedTransferProps: ShieldedTransferProps,
   ): Promise<TxMsgValue> {
     const shieldedTransferMsg = new Message<ShieldedTransferMsgValue>();
 
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedTransfer = shieldedTransferMsg.encode(
-      new ShieldedTransferMsgValue(shieldedTransferProps)
+      new ShieldedTransferMsgValue(shieldedTransferProps),
     );
 
     const serializedTx = await this.sdk.build_shielded_transfer(
       encodedTransfer,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -114,19 +114,19 @@ export class Tx {
    */
   async buildShieldingTransfer(
     wrapperTxProps: WrapperTxProps,
-    shieldingTransferProps: ShieldingTransferProps
+    shieldingTransferProps: ShieldingTransferProps,
   ): Promise<TxMsgValue> {
     const shieldingTransferMsg = new Message<ShieldingTransferMsgValue>();
 
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
 
     const encodedTransfer = shieldingTransferMsg.encode(
-      new ShieldingTransferMsgValue(shieldingTransferProps)
+      new ShieldingTransferMsgValue(shieldingTransferProps),
     );
 
     const serializedTx = await this.sdk.build_shielding_transfer(
       encodedTransfer,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -140,18 +140,18 @@ export class Tx {
    */
   async buildUnshieldingTransfer(
     wrapperTxProps: WrapperTxProps,
-    unshieldingTransferProps: UnshieldingTransferProps
+    unshieldingTransferProps: UnshieldingTransferProps,
   ): Promise<TxMsgValue> {
     const shieldingTransferMsg = new Message<UnshieldingTransferMsgValue>();
 
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedTransfer = shieldingTransferMsg.encode(
-      new UnshieldingTransferMsgValue(unshieldingTransferProps)
+      new UnshieldingTransferMsgValue(unshieldingTransferProps),
     );
 
     const serializedTx = await this.sdk.build_unshielding_transfer(
       encodedTransfer,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -177,14 +177,14 @@ export class Tx {
    */
   async buildBond(
     wrapperTxProps: WrapperTxProps,
-    bondProps: BondProps
+    bondProps: BondProps,
   ): Promise<TxMsgValue> {
     const bondMsg = new Message<BondMsgValue>();
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedBond = bondMsg.encode(new BondMsgValue(bondProps));
     const serializedTx = await this.sdk.build_bond(
       encodedBond,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -198,7 +198,7 @@ export class Tx {
    */
   async buildUnbond(
     wrapperTxProps: WrapperTxProps,
-    unbondProps: UnbondProps
+    unbondProps: UnbondProps,
   ): Promise<TxMsgValue> {
     const unbondMsg = new Message<UnbondMsgValue>();
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
@@ -206,7 +206,7 @@ export class Tx {
 
     const serializedTx = await this.sdk.build_unbond(
       encodedUnbond,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -220,14 +220,14 @@ export class Tx {
    */
   async buildWithdraw(
     wrapperTxProps: WrapperTxProps,
-    withdrawProps: WithdrawProps
+    withdrawProps: WithdrawProps,
   ): Promise<TxMsgValue> {
     const bondMsg = new Message<WithdrawProps>();
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedWithdraw = bondMsg.encode(new WithdrawMsgValue(withdrawProps));
     const serializedTx = await this.sdk.build_withdraw(
       encodedWithdraw,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -241,16 +241,16 @@ export class Tx {
    */
   async buildRedelegate(
     wrapperTxProps: WrapperTxProps,
-    redelegateProps: RedelegateProps
+    redelegateProps: RedelegateProps,
   ): Promise<TxMsgValue> {
     const redelegateMsg = new Message<RedelegateMsgValue>();
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedRedelegate = redelegateMsg.encode(
-      new RedelegateMsgValue(redelegateProps)
+      new RedelegateMsgValue(redelegateProps),
     );
     const serializedTx = await this.sdk.build_redelegate(
       encodedRedelegate,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -266,16 +266,16 @@ export class Tx {
    */
   async buildIbcTransfer(
     wrapperTxProps: WrapperTxProps,
-    ibcTransferProps: IbcTransferProps
+    ibcTransferProps: IbcTransferProps,
   ): Promise<TxMsgValue> {
     const ibcTransferMsg = new Message<IbcTransferProps>();
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedIbcTransfer = ibcTransferMsg.encode(
-      new IbcTransferMsgValue(ibcTransferProps)
+      new IbcTransferMsgValue(ibcTransferProps),
     );
     const serializedTx = await this.sdk.build_ibc_transfer(
       encodedIbcTransfer,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -289,16 +289,16 @@ export class Tx {
    */
   async buildEthBridgeTransfer(
     wrapperTxProps: WrapperTxProps,
-    ethBridgeTransferProps: EthBridgeTransferProps
+    ethBridgeTransferProps: EthBridgeTransferProps,
   ): Promise<TxMsgValue> {
     const ethBridgeTransferMsg = new Message<EthBridgeTransferProps>();
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedEthBridgeTransfer = ethBridgeTransferMsg.encode(
-      new EthBridgeTransferMsgValue(ethBridgeTransferProps)
+      new EthBridgeTransferMsgValue(ethBridgeTransferProps),
     );
     const serializedTx = await this.sdk.build_eth_bridge_transfer(
       encodedEthBridgeTransfer,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -312,17 +312,17 @@ export class Tx {
    */
   async buildVoteProposal(
     wrapperTxProps: WrapperTxProps,
-    voteProposalProps: VoteProposalProps
+    voteProposalProps: VoteProposalProps,
   ): Promise<TxMsgValue> {
     const voteProposalMsg = new Message<VoteProposalProps>();
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedVoteProposal = voteProposalMsg.encode(
-      new VoteProposalMsgValue(voteProposalProps)
+      new VoteProposalMsgValue(voteProposalProps),
     );
 
     const serializedTx = await this.sdk.build_vote_proposal(
       encodedVoteProposal,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -336,16 +336,16 @@ export class Tx {
    */
   async buildClaimRewards(
     wrapperTxProps: WrapperTxProps,
-    claimRewardsProps: ClaimRewardsProps
+    claimRewardsProps: ClaimRewardsProps,
   ): Promise<TxMsgValue> {
     const claimRewardsMsg = new Message<ClaimRewardsProps>();
     const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
     const encodedClaimRewards = claimRewardsMsg.encode(
-      new ClaimRewardsMsgValue(claimRewardsProps)
+      new ClaimRewardsMsgValue(claimRewardsProps),
     );
     const serializedTx = await this.sdk.build_claim_rewards(
       encodedClaimRewards,
-      encodedWrapperArgs
+      encodedWrapperArgs,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -376,7 +376,7 @@ export class Tx {
   appendMaspSignature(
     txBytes: Uint8Array,
     signingData: Uint8Array[],
-    signature: Uint8Array
+    signature: Uint8Array,
   ): Uint8Array {
     return this.sdk.sign_masp_ledger(txBytes, signingData, signature);
   }
@@ -389,7 +389,7 @@ export class Tx {
    */
   appendSignature(
     txBytes: Uint8Array,
-    ledgerSignatureResponse: ResponseSign
+    ledgerSignatureResponse: ResponseSign,
   ): Uint8Array {
     const { signature } = ledgerSignatureResponse;
     if (!signature) {
@@ -442,7 +442,7 @@ export class Tx {
    */
   deserialize(
     txBytes: Uint8Array,
-    checksums: Record<string, string>
+    checksums: Record<string, string>,
   ): TxDetails {
     const wasmHashes: WasmHash[] = [];
     for (const path in checksums) {
@@ -492,7 +492,7 @@ export class Tx {
           maspTxIn,
           maspTxOut,
           ...getProps(txType, data),
-        })
+        }),
       ),
     };
   }
@@ -511,13 +511,13 @@ export class Tx {
     target: string,
     token: string,
     amount: BigNumber,
-    channelId: string
+    channelId: string,
   ): Promise<string> {
     return this.sdk.generate_ibc_shielding_memo(
       target,
       token,
       amount.toString(),
-      channelId
+      channelId,
     );
   }
 

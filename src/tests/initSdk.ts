@@ -1,4 +1,4 @@
-import { Query as QueryWasm, Sdk as SdkWasm } from "@namada/shared";
+import { Query as QueryWasm, Sdk as SdkWasm } from "wasm";
 import init from "../initNode";
 import { Sdk } from "../sdk";
 import { NATIVE_TOKEN as nativeToken, RPC_URL as rpcUrl } from "./data";

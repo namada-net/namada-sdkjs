@@ -3,7 +3,7 @@ import {
   StringPointer,
   readVecStringPointer,
   readVecU8Pointer,
-} from "@namada/crypto";
+} from "wasm";
 
 export enum PhraseSize {
   N12 = 12,
@@ -45,9 +45,9 @@ export class Mnemonic {
   toSeed(phrase: string, passphrase?: string): Uint8Array {
     const mnemonic = MnemonicWasm.from_phrase(phrase);
     const passphrasePtr =
-      typeof passphrase === "string" ?
-        new StringPointer(passphrase)
-      : undefined;
+      typeof passphrase === "string"
+        ? new StringPointer(passphrase)
+        : undefined;
 
     const seedPtr = mnemonic.to_seed(passphrasePtr);
 

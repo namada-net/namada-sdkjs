@@ -1,4 +1,4 @@
-import { Query as QueryWasm, Sdk as SdkWasm } from "@namada/shared";
+import { Query as QueryWasm, Sdk as SdkWasm } from "wasm";
 import { Sdk } from "./index";
 export * from "./index";
 export * from "./utils";
@@ -19,7 +19,7 @@ export function getSdk(
   url: string,
   maspIndexerUrl: string,
   dbName: string,
-  token: string
+  token: string,
 ): Sdk {
   // We change empty string to undefined so it "maps" to the Option<String> in Rust
   const maspIndexerUrlOpt =
