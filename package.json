@@ -8,8 +8,8 @@
   "scripts": {
     "prebuild": "node -p \"'export const NAMADA_LIB_VERSION = ' + JSON.stringify(require('./package.json').version) + ';'\" > packages/lib/src/version.ts",
     "prepare": "husky install",
-    "ts:web": "tspc -p packages/sdk/tsconfig.web.json",
-    "ts:web-multicore": "cd packages/sdk-multicore && tspc -p tsconfig.web.json",
+    "ts:web": "cd packages/sdk && tspc -p tsconfig.json",
+    "ts:web-multicore": "cd packages/sdk-multicore && tspc -p tsconfig.json",
     "ts:node": "tspc -p packages/sdk-node/tsconfig.json",
     "wasm:check": "cd ./crate && cargo check && cargo clippy",
     "wasm:ts:node": "tspc -p tsconfig.lib.node.json",

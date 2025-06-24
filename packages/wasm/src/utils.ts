@@ -1,4 +1,4 @@
-import { StringPointer, VecStringPointer, VecU8Pointer } from "./sdk";
+import { StringPointer, VecStringPointer, VecU8Pointer } from "./sdk/sdk";
 
 const decoder = new TextDecoder("utf-8", { ignoreBOM: true, fatal: true });
 

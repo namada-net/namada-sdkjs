@@ -15,7 +15,16 @@ const { target } = parseArgs({
 
 const pkg = `sdk${target ? "-" + target : ""}`;
 
-execSync(`cp -r ./packages/wasm/src/sdk ./packages/${pkg}/dist/wasm/src/`);
 execSync(
-  `cp -r ./packages/wasm/src/sdk/sdk_bg.wasm ./packages/${pkg}/dist/sdk.namada.wasm`,
+  `cp ./packages/wasm/src/sdk/sdk_bg.wasm ./packages/${pkg}/dist/wasm/src/sdk/`,
 );
+
+execSync(
+  `cp  ./packages/wasm/src/sdk/sdk_bg.wasm ./packages/${pkg}/dist/sdk.namada.wasm`,
+);
+
+if (target === "multicore") {
+  execSync(
+    `echo 'export * from "./sdk";' > ./packages/${pkg}/dist/wasm/src/sdk/index.js`,
+  );
+}

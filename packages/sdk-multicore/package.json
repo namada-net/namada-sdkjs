@@ -35,8 +35,6 @@
     "@dao-xyz/borsh": "^5.1.5",
     "@ledgerhq/hw-transport": "^6.31.4",
     "@ledgerhq/hw-transport-webusb": "^6.29.4",
-    "@namada/lib": "workspace:^",
-    "@namada/wasm": "workspace:^",
     "@zondax/ledger-namada": "^2.0.0",
     "bignumber.js": "^9.1.1",
     "buffer": "^6.0.3",
@@ -49,5 +47,8 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
-  }
+  },
+  "sideEffects": [
+    "./wasm/src/sdk/snippets/*"
+  ]
 }
