@@ -8,7 +8,7 @@ import { Mnemonic } from "./mnemonic";
 import { Rpc } from "./rpc";
 import { Signing } from "./signing";
 import { Tx } from "./tx";
-import { NAMADA_LIB_VERSION as sdkVersion } from "version";
+import { NAMADA_LIB_VERSION as sdkVersion } from "./version";
 
 export { ProgressBarNames, SdkEvents } from "@namada/wasm";
 
