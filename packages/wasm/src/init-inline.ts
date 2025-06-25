@@ -1,4 +1,4 @@
-import initWasm, { InitOutput } from "./sdk";
+import initWasm, { InitOutput } from "./sdk/sdk";
 // @ts-ignore
 import wasm from "./sdk/sdk_bg.wasm?url";
 
