@@ -1,4 +1,4 @@
-import { TxType } from "./sdk/sdk";
+import { TxType } from "./sdk";
 
 export type SupportedTx = Extract<
   TxType,

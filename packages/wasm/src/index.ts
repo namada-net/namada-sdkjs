@@ -1,9 +1,9 @@
 // @ts-nocheck
 // TODO: How can we remove the above?
 import { Proposal, Proposals } from "./borsh-schemas";
-import { Query as RustQuery } from "./sdk/sdk";
+import { Query as RustQuery } from "./sdk";
 
-export * from "./sdk/sdk";
+export * from "./sdk";
 export * from "./types";
 export * from "./utils";
 

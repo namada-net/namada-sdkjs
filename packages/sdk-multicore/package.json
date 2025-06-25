@@ -19,6 +19,10 @@
     "./inline": {
       "import": "./sdk-multicore/src/initInline.js",
       "types": "./sdk-multicore/src/initInline.d.ts"
+    },
+    "./wasm/src/sdk": {
+      "import": "./wasm/src/sdk/sdk.js",
+      "types": "./wasm/src/sdk/sdk.d.ts"
     }
   },
   "files": [

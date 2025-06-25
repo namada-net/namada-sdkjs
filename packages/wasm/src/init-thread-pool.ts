@@ -1,1 +1,1 @@
-export { initThreadPool } from "./sdk/sdk";
+export { initThreadPool } from "./sdk";

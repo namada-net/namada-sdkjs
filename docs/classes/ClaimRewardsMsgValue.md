@@ -1,0 +1,54 @@
+[@namada/lib](../README.md) / [Exports](../modules.md) / ClaimRewardsMsgValue
+
+# Class: ClaimRewardsMsgValue
+
+## Table of contents
+
+### Constructors
+
+- [constructor](ClaimRewardsMsgValue.md#constructor)
+
+### Properties
+
+- [source](ClaimRewardsMsgValue.md#source)
+- [validator](ClaimRewardsMsgValue.md#validator)
+
+## Constructors
+
+### constructor
+
+• **new ClaimRewardsMsgValue**(`data`): [`ClaimRewardsMsgValue`](ClaimRewardsMsgValue.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`ClaimRewardsMsgValue`](ClaimRewardsMsgValue.md) |
+
+#### Returns
+
+[`ClaimRewardsMsgValue`](ClaimRewardsMsgValue.md)
+
+#### Defined in
+
+[packages/lib/src/types/schema/claimRewards.ts:12](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/claimRewards.ts#L12)
+
+## Properties
+
+### source
+
+• `Optional` **source**: `string`
+
+#### Defined in
+
+[packages/lib/src/types/schema/claimRewards.ts:10](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/claimRewards.ts#L10)
+
+___
+
+### validator
+
+• **validator**: `string`
+
+#### Defined in
+
+[packages/lib/src/types/schema/claimRewards.ts:7](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/claimRewards.ts#L7)

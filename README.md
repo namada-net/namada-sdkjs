@@ -1,116 +1,161 @@
-# namada-sdk
+# namada-sdkjs
 
-The Namada SDK package
+The Namada JS SDK package repo. This supports the following packages:
 
-## Usage
+- [@namada/sdk](./packages/sdk/README.md)
+- [@namada/sdk-multicore](./packages/sdk-multicore/README.md)
+- [@namada/sdk-node](./packages/sdk-node/README.md)
 
-### Installation
+## Building
+
+If this is your first time building the SDK, see the following sections:
+
+- [Setting up your Node environment](#setting-up-your-node-environment)
+- [Setting up your Rust environment](#setting-up-your-rust-environment)
+
+There are three build targets for the JS SDK. At the root of this repo, issue one of the following commands:
 
 ```bash
-npm install @namada/sdk
+# Build web SDK - target build directory in packages/sdk/dist
+yarn build:sdk
 
-# Or, via yarn
-yarn add @namada/sdk
+# Build web multicore SDK - target build directory in packages/sdk-multicore/dist
+yarn build:sdk:multicore
+
+# Build NodeJS SDK - target build directory in packages/sdk-node/dist
+yarn build:node
 ```
 
-### Initializing the SDK
+## Types
 
-As this package depends on Wasm compiled from Rust to integrate with Namada, this must be loaded asynchronously when
-developing for the Web. The following is a quick overview of some of the features of the SDK package:
-
-```typescript
-import { Sdk, getSdk } from "@namada/sdk/web";
-import sdkInit from "@namada/sdk/web-init";
-
-// Load Tx props from types package
-import { BondProps, WrapperTxProps } from "@namada/types";
-
-// Amounts are defined as BigNumber
-import BigNumber from "bignumber.js";
-
-// Define the following values:
-const rpcUrl = "https://rpc.example.net";
-const tokenAddress = "tnam1qxgfw7myv4dh0qna4hq0xdg6lx77fzl7dcem8h7e"; // bech32m encoded NAM address
-const chainId = "namada-testnet-1";
-
-const init = async (): Promise<void> => {
-  const { cryptoMemory } = await sdkInit();
-  const sdk = getSdk(rpcUrl, tokenAddress, cryptoMemory);
-
-  // Access various modules of the SDK
-  const { keys, mnemonic, rpc, signing, tx } = sdk; // Alternatively, invoke getters directly, e.g., sdk.getRpc(), etc.
-
-  // Examples:
-
-  // Generate a 24 word mnemonic
-  const mnemonicPhrase = mnemonic.generate(24).join(" ");
-
-  // Mnemonic to seed
-  const seed = mnemonic.toSeed(mnemonicPhrase);
-
-  // Derive a keypair and address
-  const bip44Path = {
-    account: 0,
-    change: 0,
-    index: 0,
-  };
-  const { address, publicKey, privateKey } = keys.deriveFromSeed(
-    seed,
-    bip44Path
-  );
-
-  // Construct a Bond transaction
-  const bondProps: BondProps = {
-    source: address,
-    validator: "tnam1q9vhfdur7gadtwx4r223agpal0fvlqhywylf2mzx",
-    amount: BigNumber(123),
-  };
-
-  // Define Wrapper Tx props
-  const wrapperTxProps: WrapperTxProps = {
-    token: tokenAddress,
-    feeAmount: BigNumber(1),
-    gasLimit: BigNumber(1000),
-    chainId: "",
-    publicKey,
-    memo: "A bond transaction",
-  };
-
-  // Build a Bond transaction
-  const bondTx = await tx.buildBond(bondProps, wrapperTxProps);
-
-  // Sign a Bond transaction with a private key
-  const signedBondTxBytes = await signing.sign(bondTx, privateKey);
-
-  // Broadcast the signed transaction to a node
-  const txResponse = await rpc.broadcastTx(signedBondTxBytes, wrapperTxProps);
-};
-
-init();
-```
-
-### Types
-
-Explore the generated type docs here: [modules.md](./docs/modules.md)
+Explore the generated type docs of the SDK library here: [modules.md](./docs/modules.md)
 
 ## Development
 
-In order to compile the required Rust libraries locally (`@namada/crypto` and `@namada/shared`), issue one
+The development build of the SDK is recommended for local development, as it allows the Rust wasm
+to provide more useful errors. In order to compile development builds of the SDK ([crate](./crate)), issue one
 of the following commands, depending on the environment you are targeting:
 
 ```bash
-# Build wasm for single core, release mode
-yarn wasm:build[:node]
+# Build web SDK in development mode
+yarn build:sdk:dev
 
-# Build wasm for multicore, release mode
-yarn wasm:build[:node]:multicore
+# Build web multicore SDK in development mode
+yarn build:sdk:multicore:dev
 
-# Build wasm with debugging for single core
-yarn wasm:build[:node]:dev
+# Build NodeJS SDK in development mode
+yarn build:node:dev
+```
 
-# Build wasm with debugging for multicore
-yarn wasm:build[:node]:dev:multicore
+To regenerate the type docs for `@namada/lib`, enter the following:
 
-# Generate new docs
+```bash
 yarn build:docs
+```
+
+## Setting up your Node environment
+
+The following are additional Node requirements of this repo:
+
+```bash
+# Install yarn and JS dependencies
+npm install -g yarn
+
+# within namada-interface/ base folder:
+yarn
+
+# Initialize Husky - recommended if you are contributing to this codebase:
+yarn prepare
+```
+
+## Setting up your Rust environment
+
+Rust is required to build the WebAssembly dependency of the SDK. To achieve this, issue the following commands depending on your environment:
+
+### Ubuntu
+
+_NOTE_ These instructions may work with other Ubuntu-based systems, but are only confirmed to work in Ubuntu.
+
+```bash
+# Install rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Add WASM target
+rustup target add wasm32-unknown-unknown
+
+# Install clang
+sudo apt-get install -y clang
+
+# Install pkg-config
+sudo apt-get install -y pkg-config
+
+# Install openssl development packages
+sudo apt-get install -y libssl-dev
+
+# Install protoc
+sudo apt-get install -y protobuf-compiler
+
+# Install curl
+sudo apt-get install -y curl
+
+# Install npm
+sudo apt-get install -y npm
+
+# Install wasm-pack
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
+
+### macOS
+
+```bash
+# Install xcode
+xcode-select --install
+
+# Install rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Add WASM target
+rustup target add wasm32-unknown-unknown
+
+# Install clang
+brew install clang
+
+# Install pkg-config
+brew install pkg-config
+
+# Install openssl development packages
+brew install libssl-dev
+
+# Install protoc
+brew install protobuf
+
+# Install wasm-pack
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
+
+Finally, update your shell environment (e.g., in `~/.zshrc`) to set the following variables:
+
+```bash
+export CC=/usr/local/opt/llvm/bin/clang
+AR=/usr/local/opt/llvm/bin/llvm-ar
+```
+
+#### Apple Silicon
+
+On macOS, when using Apple Silicon architecture, in order to compile some packages for our wasm dependencies, you will need to install
+the following:
+
+```bash
+# Mac M1/M2 only - install brew's version of llvm
+brew install llvm
+```
+
+Then, in your shell profile (e.g., `~/.zshrc`), export the following environment variables:
+
+```bash
+# Mac M1/M2 only
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export CC=/opt/homebrew/opt/llvm/bin/clang
+export AR=/opt/homebrew/opt/llvm/bin/llvm-ar
 ```

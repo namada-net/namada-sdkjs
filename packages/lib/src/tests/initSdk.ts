@@ -1,5 +1,5 @@
 import { Sdk } from "../sdk";
-import { initSdk as init } from "@namada/wasm";
+import { initSdk as init } from "@namada/sdk";
 
 import { NATIVE_TOKEN as nativeToken, RPC_URL as rpcUrl } from "./data";
 
