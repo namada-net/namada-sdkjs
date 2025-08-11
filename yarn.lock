@@ -1904,7 +1904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@namada/lib@workspace:^, @namada/lib@workspace:packages/lib":
+"@namada/lib@workspace:packages/lib":
   version: 0.0.0-use.local
   resolution: "@namada/lib@workspace:packages/lib"
   dependencies:
@@ -1961,8 +1961,6 @@ __metadata:
     "@dao-xyz/borsh": "npm:^5.1.5"
     "@ledgerhq/hw-transport": "npm:^6.31.4"
     "@ledgerhq/hw-transport-webusb": "npm:^6.29.4"
-    "@namada/lib": "workspace:^"
-    "@namada/wasm": "workspace:^"
     "@zondax/ledger-namada": "npm:^2.0.0"
     bignumber.js: "npm:^9.1.1"
     buffer: "npm:^6.0.3"
@@ -1994,7 +1992,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@namada/wasm@workspace:^, @namada/wasm@workspace:packages/wasm":
+"@namada/wasm@workspace:packages/wasm":
   version: 0.0.0-use.local
   resolution: "@namada/wasm@workspace:packages/wasm"
   dependencies:
