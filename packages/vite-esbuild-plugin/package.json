@@ -1,0 +1,19 @@
+{
+  "name": "@namada/vite-esbuild-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "fields": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "esbuild": "^0.25.8",
+    "typescript": "^5.9.2"
+  }
+}

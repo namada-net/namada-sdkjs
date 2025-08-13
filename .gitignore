@@ -1,3 +1,4 @@
 node_modules
 dist
-lib/target
+crate/target
+docs/README.md
