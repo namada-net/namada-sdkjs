@@ -11,6 +11,7 @@
     "outDir": "./dist",
     "module": "node16",
     "moduleResolution": "node16",
+    "sourceMap": false,
     "plugins": [
       // Transform paths in output .js files
       { "transform": "typescript-transform-paths" },
