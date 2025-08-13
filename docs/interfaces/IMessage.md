@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[packages/lib/src/types/messages/index.ts:5](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/messages/index.ts#L5)
+[packages/lib/src/types/messages/index.ts:5](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/messages/index.ts#L5)

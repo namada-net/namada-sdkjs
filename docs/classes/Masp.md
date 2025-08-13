@@ -44,7 +44,7 @@ Class representing utilities related to MASP
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:10](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L10)
+[packages/lib/src/masp/masp.ts:10](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L10)
 
 ## Properties
 
@@ -56,7 +56,7 @@ Instance of Sdk struct from wasm lib
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:10](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L10)
+[packages/lib/src/masp/masp.ts:10](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L10)
 
 ## Methods
 
@@ -83,7 +83,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:85](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L85)
+[packages/lib/src/masp/masp.ts:85](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L85)
 
 ___
 
@@ -110,7 +110,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:63](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L63)
+[packages/lib/src/masp/masp.ts:63](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L63)
 
 ___
 
@@ -137,7 +137,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:74](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L74)
+[packages/lib/src/masp/masp.ts:74](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L74)
 
 ___
 
@@ -161,7 +161,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:103](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L103)
+[packages/lib/src/masp/masp.ts:103](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L103)
 
 ___
 
@@ -187,7 +187,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:41](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L41)
+[packages/lib/src/masp/masp.ts:41](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L41)
 
 ___
 
@@ -214,7 +214,7 @@ Get spend notes descriptor map
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:19](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L19)
+[packages/lib/src/masp/masp.ts:19](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L19)
 
 ___
 
@@ -234,7 +234,7 @@ True if MASP parameters are loaded
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:31](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L31)
+[packages/lib/src/masp/masp.ts:31](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L31)
 
 ___
 
@@ -261,7 +261,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:52](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L52)
+[packages/lib/src/masp/masp.ts:52](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L52)
 
 ___
 
@@ -280,4 +280,4 @@ the MASP address
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:94](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/masp/masp.ts#L94)
+[packages/lib/src/masp/masp.ts:94](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/masp/masp.ts#L94)

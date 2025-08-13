@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/bparams.ts:47](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/bparams.ts#L47)
+[packages/lib/src/types/schema/bparams.ts:47](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/bparams.ts#L47)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/bparams.ts:45](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/bparams.ts#L45)
+[packages/lib/src/types/schema/bparams.ts:45](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/bparams.ts#L45)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/bparams.ts:42](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/bparams.ts#L42)
+[packages/lib/src/types/schema/bparams.ts:42](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/bparams.ts#L42)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/bparams.ts:39](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/bparams.ts#L39)
+[packages/lib/src/types/schema/bparams.ts:39](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/bparams.ts#L39)

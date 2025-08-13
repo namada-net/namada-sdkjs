@@ -34,7 +34,7 @@ Used only for serializing transfers during build
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:225](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L225)
+[packages/lib/src/types/schema/transfer.ts:225](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L225)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:219](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L219)
+[packages/lib/src/types/schema/transfer.ts:219](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L219)
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:222](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L222)
+[packages/lib/src/types/schema/transfer.ts:222](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L222)

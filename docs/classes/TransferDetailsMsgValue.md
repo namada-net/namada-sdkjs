@@ -35,7 +35,7 @@ shieldedSectionHash encoded as hex instead of Uint8Array
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:240](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L240)
+[packages/lib/src/types/schema/transfer.ts:240](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L240)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:234](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L234)
+[packages/lib/src/types/schema/transfer.ts:234](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L234)
 
 ___
 
@@ -55,4 +55,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:237](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L237)
+[packages/lib/src/types/schema/transfer.ts:237](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L237)

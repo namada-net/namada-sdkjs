@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/voteProposal.ts:15](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/voteProposal.ts#L15)
+[packages/lib/src/types/schema/voteProposal.ts:15](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/voteProposal.ts#L15)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/voteProposal.ts:10](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/voteProposal.ts#L10)
+[packages/lib/src/types/schema/voteProposal.ts:10](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/voteProposal.ts#L10)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/voteProposal.ts:7](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/voteProposal.ts#L7)
+[packages/lib/src/types/schema/voteProposal.ts:7](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/voteProposal.ts#L7)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/voteProposal.ts:13](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/voteProposal.ts#L13)
+[packages/lib/src/types/schema/voteProposal.ts:13](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/voteProposal.ts#L13)

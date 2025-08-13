@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/redelegate.ts:19](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/redelegate.ts#L19)
+[packages/lib/src/types/schema/redelegate.ts:19](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/redelegate.ts#L19)
 
 ## Properties
 
@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/redelegate.ts:17](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/redelegate.ts#L17)
+[packages/lib/src/types/schema/redelegate.ts:17](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/redelegate.ts#L17)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/redelegate.ts:14](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/redelegate.ts#L14)
+[packages/lib/src/types/schema/redelegate.ts:14](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/redelegate.ts#L14)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/redelegate.ts:8](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/redelegate.ts#L8)
+[packages/lib/src/types/schema/redelegate.ts:8](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/redelegate.ts#L8)
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/redelegate.ts:11](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/redelegate.ts#L11)
+[packages/lib/src/types/schema/redelegate.ts:11](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/redelegate.ts#L11)

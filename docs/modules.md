@@ -162,7 +162,7 @@ Address and public key type
 
 #### Defined in
 
-[packages/lib/src/keys/types.ts:6](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/keys/types.ts#L6)
+[packages/lib/src/keys/types.ts:6](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/keys/types.ts#L6)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/crypto/types.ts:23](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/crypto/types.ts#L23)
+[packages/lib/src/crypto/types.ts:23](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/crypto/types.ts#L23)
 
 ___
 
@@ -185,7 +185,7 @@ Balance
 
 #### Defined in
 
-[packages/lib/src/rpc/types.ts:78](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/rpc/types.ts#L78)
+[packages/lib/src/rpc/types.ts:78](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/rpc/types.ts#L78)
 
 ___
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:31](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L31)
+[packages/lib/src/types/types.ts:31](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L31)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/account.ts:1](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/account.ts#L1)
+[packages/lib/src/types/account.ts:1](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/account.ts#L1)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:32](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L32)
+[packages/lib/src/types/types.ts:32](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L32)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/rpc/types.ts:27](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/rpc/types.ts#L27)
+[packages/lib/src/rpc/types.ts:27](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/rpc/types.ts#L27)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:54](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L54)
+[packages/lib/src/types/types.ts:54](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L54)
 
 ___
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:72](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L72)
+[packages/lib/src/types/types.ts:72](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L72)
 
 ___
 
@@ -290,7 +290,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/crypto/types.ts:42](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/crypto/types.ts#L42)
+[packages/lib/src/crypto/types.ts:42](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/crypto/types.ts#L42)
 
 ___
 
@@ -309,7 +309,7 @@ ViewingKey with optional birthday
 
 #### Defined in
 
-[packages/lib/src/types/account.ts:15](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/account.ts#L15)
+[packages/lib/src/types/account.ts:15](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/account.ts#L15)
 
 ___
 
@@ -322,7 +322,7 @@ Record<address, totalDelegations>
 
 #### Defined in
 
-[packages/lib/src/rpc/types.ts:60](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/rpc/types.ts#L60)
+[packages/lib/src/rpc/types.ts:60](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/rpc/types.ts#L60)
 
 ___
 
@@ -335,7 +335,7 @@ Record<address, boolean>
 
 #### Defined in
 
-[packages/lib/src/rpc/types.ts:66](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/rpc/types.ts#L66)
+[packages/lib/src/rpc/types.ts:66](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/rpc/types.ts#L66)
 
 ___
 
@@ -354,7 +354,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/crypto/types.ts:30](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/crypto/types.ts#L30)
+[packages/lib/src/crypto/types.ts:30](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/crypto/types.ts#L30)
 
 ___
 
@@ -364,7 +364,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:33](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L33)
+[packages/lib/src/types/types.ts:33](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L33)
 
 ___
 
@@ -383,7 +383,7 @@ Result of generating next payment address
 
 #### Defined in
 
-[packages/lib/src/keys/types.ts:32](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/keys/types.ts#L32)
+[packages/lib/src/keys/types.ts:32](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/keys/types.ts#L32)
 
 ___
 
@@ -393,7 +393,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:34](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L34)
+[packages/lib/src/types/types.ts:34](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L34)
 
 ___
 
@@ -410,7 +410,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:18](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L18)
+[packages/lib/src/ledger.ts:18](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L18)
 
 ___
 
@@ -427,7 +427,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:22](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L22)
+[packages/lib/src/ledger.ts:22](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L22)
 
 ___
 
@@ -446,7 +446,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:27](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L27)
+[packages/lib/src/ledger.ts:27](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L27)
 
 ___
 
@@ -462,7 +462,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:19](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L19)
+[packages/lib/src/ledger.ts:19](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L19)
 
 ___
 
@@ -472,7 +472,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:44](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L44)
+[packages/lib/src/types/types.ts:44](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L44)
 
 ___
 
@@ -482,7 +482,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:45](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L45)
+[packages/lib/src/types/types.ts:45](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L45)
 
 ___
 
@@ -492,7 +492,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:35](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L35)
+[packages/lib/src/types/types.ts:35](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L35)
 
 ___
 
@@ -502,7 +502,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:57](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L57)
+[packages/lib/src/types/types.ts:57](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L57)
 
 ___
 
@@ -512,7 +512,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/index.ts:49](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/index.ts#L49)
+[packages/lib/src/types/schema/index.ts:49](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/index.ts#L49)
 
 ___
 
@@ -534,7 +534,7 @@ SDK initialization props
 
 #### Defined in
 
-[packages/lib/src/types/sdk.ts:4](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/sdk.ts#L4)
+[packages/lib/src/types/sdk.ts:4](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/sdk.ts#L4)
 
 ___
 
@@ -556,7 +556,7 @@ Shielded keys and address
 
 #### Defined in
 
-[packages/lib/src/keys/types.ts:21](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/keys/types.ts#L21)
+[packages/lib/src/keys/types.ts:21](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/keys/types.ts#L21)
 
 ___
 
@@ -566,7 +566,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:38](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L38)
+[packages/lib/src/types/types.ts:38](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L38)
 
 ___
 
@@ -576,7 +576,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:37](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L37)
+[packages/lib/src/types/types.ts:37](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L37)
 
 ___
 
@@ -586,7 +586,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:40](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L40)
+[packages/lib/src/types/types.ts:40](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L40)
 
 ___
 
@@ -596,7 +596,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:39](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L39)
+[packages/lib/src/types/types.ts:39](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L39)
 
 ___
 
@@ -606,7 +606,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:36](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L36)
+[packages/lib/src/types/types.ts:36](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L36)
 
 ___
 
@@ -616,7 +616,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:51](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L51)
+[packages/lib/src/types/types.ts:51](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L51)
 
 ___
 
@@ -633,7 +633,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/rpc/types.ts:42](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/rpc/types.ts#L42)
+[packages/lib/src/rpc/types.ts:42](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/rpc/types.ts#L42)
 
 ___
 
@@ -653,7 +653,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/rpc/types.ts:19](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/rpc/types.ts#L19)
+[packages/lib/src/rpc/types.ts:19](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/rpc/types.ts#L19)
 
 ___
 
@@ -663,7 +663,7 @@ ___
 
 #### Defined in
 
-[packages/wasm/src/types.ts:3](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/wasm/src/types.ts#L3)
+[packages/wasm/src/types.ts:3](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/wasm/src/types.ts#L3)
 
 ___
 
@@ -673,7 +673,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:59](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L59)
+[packages/lib/src/types/types.ts:59](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L59)
 
 ___
 
@@ -683,7 +683,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:46](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L46)
+[packages/lib/src/types/types.ts:46](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L46)
 
 ___
 
@@ -693,7 +693,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:43](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L43)
+[packages/lib/src/types/types.ts:43](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L43)
 
 ___
 
@@ -705,7 +705,7 @@ Public and private keypair with address
 
 #### Defined in
 
-[packages/lib/src/keys/types.ts:14](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/keys/types.ts#L14)
+[packages/lib/src/keys/types.ts:14](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/keys/types.ts#L14)
 
 ___
 
@@ -715,7 +715,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:48](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L48)
+[packages/lib/src/types/types.ts:48](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L48)
 
 ___
 
@@ -725,7 +725,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:47](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L47)
+[packages/lib/src/types/types.ts:47](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L47)
 
 ___
 
@@ -735,7 +735,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:80](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L80)
+[packages/lib/src/types/types.ts:80](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L80)
 
 ___
 
@@ -745,7 +745,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:49](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L49)
+[packages/lib/src/types/types.ts:49](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L49)
 
 ___
 
@@ -755,7 +755,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:50](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L50)
+[packages/lib/src/types/types.ts:50](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L50)
 
 ___
 
@@ -765,7 +765,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:52](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L52)
+[packages/lib/src/types/types.ts:52](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L52)
 
 ___
 
@@ -785,7 +785,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/rpc/types.ts:34](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/rpc/types.ts#L34)
+[packages/lib/src/rpc/types.ts:34](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/rpc/types.ts#L34)
 
 ___
 
@@ -795,7 +795,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:41](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L41)
+[packages/lib/src/types/types.ts:41](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L41)
 
 ___
 
@@ -805,7 +805,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:42](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L42)
+[packages/lib/src/types/types.ts:42](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L42)
 
 ___
 
@@ -815,7 +815,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:53](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L53)
+[packages/lib/src/types/types.ts:53](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L53)
 
 ___
 
@@ -825,7 +825,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:55](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L55)
+[packages/lib/src/types/types.ts:55](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L55)
 
 ___
 
@@ -835,7 +835,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:56](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L56)
+[packages/lib/src/types/types.ts:56](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L56)
 
 ___
 
@@ -852,7 +852,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/account.ts:7](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/account.ts#L7)
+[packages/lib/src/types/account.ts:7](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/account.ts#L7)
 
 ## Variables
 
@@ -870,7 +870,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/crypto/types.ts:3](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/crypto/types.ts#L3)
+[packages/lib/src/crypto/types.ts:3](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/crypto/types.ts#L3)
 
 ___
 
@@ -887,7 +887,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/utils.ts:4](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/utils.ts#L4)
+[packages/lib/src/types/schema/utils.ts:4](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/utils.ts#L4)
 
 ___
 
@@ -897,7 +897,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/keys/types.ts:37](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/keys/types.ts#L37)
+[packages/lib/src/keys/types.ts:37](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/keys/types.ts#L37)
 
 ___
 
@@ -907,7 +907,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/keys/types.ts:49](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/keys/types.ts#L49)
+[packages/lib/src/keys/types.ts:49](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/keys/types.ts#L49)
 
 ___
 
@@ -917,7 +917,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:35](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L35)
+[packages/lib/src/ledger.ts:35](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L35)
 
 ___
 
@@ -927,7 +927,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:34](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L34)
+[packages/lib/src/ledger.ts:34](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L34)
 
 ___
 
@@ -937,7 +937,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/keys/types.ts:43](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/keys/types.ts#L43)
+[packages/lib/src/keys/types.ts:43](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/keys/types.ts#L43)
 
 ___
 
@@ -949,7 +949,7 @@ Constant of SLIP-044 coin type used for Namada
 
 #### Defined in
 
-[packages/lib/src/types/account.ts:23](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/account.ts#L23)
+[packages/lib/src/types/account.ts:23](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/account.ts#L23)
 
 ___
 
@@ -959,7 +959,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/types.ts:102](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/types.ts#L102)
+[packages/lib/src/types/types.ts:102](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/types.ts#L102)
 
 ___
 
@@ -969,7 +969,7 @@ ___
 
 #### Defined in
 
-[packages/wasm/src/types.ts:28](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/wasm/src/types.ts#L28)
+[packages/wasm/src/types.ts:28](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/wasm/src/types.ts#L28)
 
 ## Functions
 
@@ -989,7 +989,7 @@ Transport object
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:56](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L56)
+[packages/lib/src/ledger.ts:56](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L56)
 
 ___
 
@@ -1009,7 +1009,7 @@ List of USB devices
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:65](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L65)
+[packages/lib/src/ledger.ts:65](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L65)
 
 ___
 
@@ -1029,7 +1029,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:278](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/keys/keys.ts#L278)
+[packages/lib/src/keys/keys.ts:278](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/keys/keys.ts#L278)
 
 ___
 
@@ -1049,4 +1049,4 @@ Transport object
 
 #### Defined in
 
-[packages/lib/src/ledger.ts:74](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/ledger.ts#L74)
+[packages/lib/src/ledger.ts:74](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/ledger.ts#L74)

@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:176](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L176)
+[packages/lib/src/types/schema/transfer.ts:176](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L176)
 
 ## Properties
 
@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:174](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L174)
+[packages/lib/src/types/schema/transfer.ts:174](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L174)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:168](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L168)
+[packages/lib/src/types/schema/transfer.ts:168](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L168)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:171](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L171)
+[packages/lib/src/types/schema/transfer.ts:171](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L171)
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:165](https://github.com/anoma/namada-sdkjs/blob/d6a15cde252d70b528d7c09b83d669dea20b267b/packages/lib/src/types/schema/transfer.ts#L165)
+[packages/lib/src/types/schema/transfer.ts:165](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/types/schema/transfer.ts#L165)
