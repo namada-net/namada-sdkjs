@@ -15,5 +15,9 @@
     "@types/node": "^24.2.1",
     "esbuild": "^0.25.8",
     "typescript": "^5.9.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }
