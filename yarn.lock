@@ -2149,6 +2149,7 @@ __metadata:
     semver: "npm:^7.7.2"
     slip44: "npm:^3.0.18"
     ts-patch: "npm:^3.1.2"
+    tspc: "npm:^1.1.2"
   languageName: unknown
   linkType: soft
 
@@ -9603,6 +9604,13 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
+  languageName: node
+  linkType: hard
+
+"tspc@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "tspc@npm:1.1.2"
+  checksum: 10c0/3562b2ce3928443763151ec047f82cbc1caf9ada11b2c147b47b9bd742dd579e6b785c2f58b33555d6421eabf3631894824c730dc0be2f23a57bb64cfa2788fb
   languageName: node
   linkType: hard
 
