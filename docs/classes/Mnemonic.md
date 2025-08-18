@@ -38,7 +38,7 @@ Class for accessing mnemonic functionality from wasm
 
 #### Defined in
 
-[packages/lib/src/mnemonic.ts:20](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/mnemonic.ts#L20)
+[packages/lib/src/mnemonic.ts:20](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/mnemonic.ts#L20)
 
 ## Properties
 
@@ -50,7 +50,7 @@ Memory accessor for crypto lib
 
 #### Defined in
 
-[packages/lib/src/mnemonic.ts:20](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/mnemonic.ts#L20)
+[packages/lib/src/mnemonic.ts:20](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/mnemonic.ts#L20)
 
 ## Methods
 
@@ -74,7 +74,7 @@ An array of words
 
 #### Defined in
 
-[packages/lib/src/mnemonic.ts:27](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/mnemonic.ts#L27)
+[packages/lib/src/mnemonic.ts:27](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/mnemonic.ts#L27)
 
 ___
 
@@ -99,7 +99,7 @@ Seed bytes
 
 #### Defined in
 
-[packages/lib/src/mnemonic.ts:45](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/mnemonic.ts#L45)
+[packages/lib/src/mnemonic.ts:45](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/mnemonic.ts#L45)
 
 ___
 
@@ -129,4 +129,4 @@ Object with validation result and error message if invalid
 
 #### Defined in
 
-[packages/lib/src/mnemonic.ts:63](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/mnemonic.ts#L63)
+[packages/lib/src/mnemonic.ts:63](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/mnemonic.ts#L63)
