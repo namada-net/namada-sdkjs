@@ -33,8 +33,7 @@
   "include": [
     "src/index.ts",
     "src/init.ts",
-    "src/initInline.ts",
-    "../wasm/src/sdk/"
+    "src/initInline.ts"
   ],
   "exclude": [
     "**/*.test.ts",

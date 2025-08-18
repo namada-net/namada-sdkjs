@@ -17,8 +17,15 @@ const { target } = parseArgs({
 const pkg = `sdk${target ? "-" + target : ""}`;
 
 const cmds = [
+  `mkdir -p ./packages/${pkg}/dist/wasm`,
+  `mkdir -p ./packages/${pkg}/dist/wasm/src`,
+  `mkdir -p ./packages/${pkg}/dist/wasm/src/sdk`,
   // TODO: Why isn't `sdk_bg.wasm` included automatically?
   `cp ./packages/wasm/src/sdk/sdk_bg.wasm ./packages/${pkg}/dist/wasm/src/sdk/`,
+  `cp ./packages/wasm/src/sdk/sdk_bg.wasm.d.ts ./packages/${pkg}/dist/wasm/src/sdk/`,
+  `cp ./packages/wasm/src/sdk/sdk.js ./packages/${pkg}/dist/wasm/src/sdk/`,
+  `cp ./packages/wasm/src/sdk/sdk.d.ts ./packages/${pkg}/dist/wasm/src/sdk/`,
+  `cp -r ./packages/wasm/src/sdk/snippets ./packages/${pkg}/dist/wasm/src/sdk/`,
   // Only needed for dynamic loading
   `cp  ./packages/wasm/src/sdk/sdk_bg.wasm ./packages/${pkg}/dist/sdk.namada.wasm`,
 ];
