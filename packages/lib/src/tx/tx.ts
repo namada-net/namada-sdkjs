@@ -3,7 +3,7 @@ import {
   Sdk as SdkWasm,
   TxType,
   deserialize_tx,
-  get_inner_tx_hashes,
+  get_inner_tx_meta,
 } from "@namada/wasm";
 import {
   BondMsgValue,
@@ -101,6 +101,7 @@ export class Tx {
     const serializedTx = await this.sdk.build_shielded_transfer(
       encodedTransfer,
       encodedWrapperArgs,
+      shieldedTransferProps.skipFeeCheck || false,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -152,6 +153,7 @@ export class Tx {
     const serializedTx = await this.sdk.build_unshielding_transfer(
       encodedTransfer,
       encodedWrapperArgs,
+      unshieldingTransferProps.skipFeeCheck || false,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -373,7 +375,7 @@ export class Tx {
    * @param signatures - masp signature
    * @returns transaction bytes with signature appended
    */
-  appendMaspSignature(
+  appendMaspSignatures(
     txBytes: Uint8Array,
     signingData: Uint8Array[],
     signatures: Uint8Array[],
@@ -524,9 +526,9 @@ export class Tx {
   /**
    * Return the inner tx hashes from the provided tx bytes
    * @param bytes - Uint8Array
-   * @returns array of inner Tx hashes
+   * @returns array of tuple of [inner Tx hashes, utf8 bytes memo]
    */
-  getInnerTxHashes(bytes: Uint8Array): string[] {
-    return get_inner_tx_hashes(bytes);
+  getInnerTxMeta(bytes: Uint8Array): [string, number[] | null][] {
+    return get_inner_tx_meta(bytes);
   }
 }
