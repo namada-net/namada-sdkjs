@@ -1,6 +1,6 @@
 {
   "name": "@namada/sdk-node",
-  "version": "0.20.3",
+  "version": "0.20.4",
   "description": "Namada NodeJS SDK",
   "main": "src/index.js",
   "types": "src/index.d.ts",
