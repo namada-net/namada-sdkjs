@@ -31,3 +31,8 @@ export async function initSdk(props: SdkWasmOptions): Promise<Sdk> {
   const sdk = new SdkWasm(rpcUrl, token, dbName);
   return new Sdk(sdk, query, memory, rpcUrl, token);
 }
+
+/**
+ * Export init promise directly
+ */
+export default init;
