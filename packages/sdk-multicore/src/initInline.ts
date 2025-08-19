@@ -1,7 +1,10 @@
 import { Query as QueryWasm, Sdk as SdkWasm } from "@namada/wasm";
-// We have to use relative imports here othewise ts-patch is getting confused and produces wrong paths after compilation
-import { init } from "../../wasm/src/init-inline";
-import { initThreadPool } from "../../wasm/src/init-thread-pool";
+import initWasm, { InitOutput } from "../../wasm/src/sdk/sdk";
+// @ts-ignore
+import wasm from "../../wasm/src/sdk/sdk_bg.wasm?url";
+
+export const init: () => Promise<InitOutput> = async () => await initWasm(wasm);
+import { initThreadPool } from "./initThreadPool";
 import { Sdk, SdkWasmOptions } from "../../lib/src";
 
 /**

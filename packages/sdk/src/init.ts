@@ -1,6 +1,10 @@
+import initWasm, { InitInput, InitOutput } from "../../wasm/src/sdk/sdk";
 import { Query as QueryWasm, Sdk as SdkWasm } from "@namada/wasm";
 // We have to use relative imports here othewise ts-patch is getting confused and produces wrong paths after compialtion
-import { init } from "../../wasm/src/init";
+export const init: (wasm: InitInput) => Promise<InitOutput> = async (wasm) => {
+  return await initWasm(wasm);
+};
+
 import { Sdk, SdkWasmOptions } from "../../lib/src";
 
 /**
