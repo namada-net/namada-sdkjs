@@ -2156,6 +2156,18 @@ __metadata:
 "@namada/sdk-node@workspace:packages/sdk-node":
   version: 0.0.0-use.local
   resolution: "@namada/sdk-node@workspace:packages/sdk-node"
+  dependencies:
+    "@cosmjs/encoding": "npm:^0.29.0"
+    "@dao-xyz/borsh": "npm:^5.1.5"
+    "@ledgerhq/hw-transport": "npm:^6.31.4"
+    "@ledgerhq/hw-transport-webusb": "npm:^6.29.4"
+    "@zondax/ledger-namada": "npm:^2.0.0"
+    bignumber.js: "npm:^9.1.1"
+    buffer: "npm:^6.0.3"
+    semver: "npm:^7.7.2"
+    slip44: "npm:^3.0.18"
+    ts-patch: "npm:^3.1.2"
+    tspc: "npm:^1.1.2"
   languageName: unknown
   linkType: soft
 

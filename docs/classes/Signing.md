@@ -41,7 +41,7 @@ Signing constructor
 
 #### Defined in
 
-[packages/lib/src/signing.ts:14](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/signing.ts#L14)
+[packages/lib/src/signing.ts:14](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/signing.ts#L14)
 
 ## Properties
 
@@ -53,7 +53,7 @@ Instance of Sdk struct from wasm lib
 
 #### Defined in
 
-[packages/lib/src/signing.ts:14](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/signing.ts#L14)
+[packages/lib/src/signing.ts:14](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/signing.ts#L14)
 
 ## Methods
 
@@ -79,7 +79,7 @@ signed tx bytes - Promise resolving to Uint8Array
 
 #### Defined in
 
-[packages/lib/src/signing.ts:23](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/signing.ts#L23)
+[packages/lib/src/signing.ts:23](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/signing.ts#L23)
 
 ___
 
@@ -104,7 +104,7 @@ hash and signature
 
 #### Defined in
 
-[packages/lib/src/signing.ts:62](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/signing.ts#L62)
+[packages/lib/src/signing.ts:62](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/signing.ts#L62)
 
 ___
 
@@ -129,7 +129,7 @@ tx with masp spends signed - Promise resolving to Uint8Array
 
 #### Defined in
 
-[packages/lib/src/signing.ts:48](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/signing.ts#L48)
+[packages/lib/src/signing.ts:48](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/signing.ts#L48)
 
 ___
 
@@ -155,4 +155,4 @@ void
 
 #### Defined in
 
-[packages/lib/src/signing.ts:73](https://github.com/namada-net/namada-sdkjs/blob/317e383a8ca213c3545ce431bc294c7340c765cd/packages/lib/src/signing.ts#L73)
+[packages/lib/src/signing.ts:73](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/signing.ts#L73)

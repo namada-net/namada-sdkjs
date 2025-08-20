@@ -1,4 +1,4 @@
-import * as wasm from "@namada/wasm";
+import * as wasm from "../../wasm/src/sdk/sdk";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const memory = (wasm as any).__wasm.memory;
