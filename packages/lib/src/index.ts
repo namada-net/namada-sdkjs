@@ -66,3 +66,4 @@ export type { Tx } from "./tx";
 
 export type { InitProps as SdkWasmOptions } from "./types/sdk";
 export type * from "./types";
+export { makeSaplingPath, makeBip44Path } from "./utils";
