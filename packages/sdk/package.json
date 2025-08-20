@@ -1,6 +1,6 @@
 {
   "name": "@namada/sdk",
-  "version": "0.20.5",
+  "version": "0.20.6",
   "description": "Namada Web SDK",
   "main": "dist/sdk/src/index.js",
   "types": "dist/sdk/src/index.d.ts",

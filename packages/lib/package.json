@@ -1,6 +1,6 @@
 {
   "name": "@namada/lib",
-  "version": "0.20.5",
+  "version": "0.20.6",
   "description": "Namada SDK JS Library",
   "repository": "https://github.com/anoma/namada-interface/",
   "author": "Heliax Dev <info@heliax.dev>",
