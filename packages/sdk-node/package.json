@@ -2,29 +2,11 @@
   "name": "@namada/sdk-node",
   "version": "0.20.5",
   "description": "Namada NodeJS SDK",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
   "repository": "https://github.com/anoma/namada-sdkjs/",
   "author": "Heliax Dev <info@heliax.dev>",
   "license": "MIT",
-  "exports": {
-    ".": {
-      "import": "./dist/sdk-node/src/index.js",
-      "types": "./dist/sdk-node/src/index.d.ts"
-    },
-    "./init": {
-      "import": "./dist/sdk-node/src/init.js",
-      "types": "./dist/sdk-node/src/init.d.ts"
-    },
-    "./inline": {
-      "import": "./dist/sdk-node/src/initInline.js",
-      "types": "./dist/sdk-node/src/initInline.d.ts"
-    },
-    "./wasm/src/sdk": {
-      "import": "./dist/wasm/src/sdk/sdk.js",
-      "types": "./dist/wasm/src/sdk/sdk.d.ts"
-    }
-  },
+  "main": "dist/sdk-node/src/index.js",
+  "types": "dist/sdk-node/src/index.d.ts",
   "files": [
     "dist/lib/**/*.{js,ts}",
     "dist/sdk-node/**/*.{js,ts}",

@@ -1,11 +1,7 @@
-import { webcrypto } from "node:crypto";
 import { Query as QueryWasm, Sdk as SdkWasm } from "@namada/wasm";
 // We have to use relative imports here othewise ts-patch is getting confused and produces wrong paths after compialtion
 import init from "./init";
 import { Sdk, SdkWasmOptions } from "../../lib/src";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(globalThis as any).crypto = webcrypto;
 
 /**
  * Query native token from the node
@@ -26,9 +22,6 @@ export async function getNativeToken(rpc: string): Promise<string> {
 export async function initSdk(props: SdkWasmOptions): Promise<Sdk> {
   const { rpcUrl, token, maspIndexerUrl, dbName = "" } = props;
   // Load and initialize sdk wasm
-  const wasm = await fetch("sdk.namada.wasm").then((wasm) =>
-    wasm.arrayBuffer(),
-  );
   const { memory } = init();
 
   // Instantiate QueryWasm
@@ -38,3 +31,9 @@ export async function initSdk(props: SdkWasmOptions): Promise<Sdk> {
   const sdk = new SdkWasm(rpcUrl, token, dbName);
   return new Sdk(sdk, query, memory, rpcUrl, token);
 }
+
+export * from "@namada/lib";
+
+export { Sdk, type SdkWasmOptions };
+
+export default init;
