@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:90](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/types/schema/transfer.ts#L90)
+[packages/lib/src/types/schema/transfer.ts:90](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/transfer.ts#L90)
 
 ## Properties
 
@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:85](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/types/schema/transfer.ts#L85)
+[packages/lib/src/types/schema/transfer.ts:85](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/transfer.ts#L85)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:79](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/types/schema/transfer.ts#L79)
+[packages/lib/src/types/schema/transfer.ts:79](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/transfer.ts#L79)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:82](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/types/schema/transfer.ts#L82)
+[packages/lib/src/types/schema/transfer.ts:82](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/transfer.ts#L82)
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:88](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/types/schema/transfer.ts#L88)
+[packages/lib/src/types/schema/transfer.ts:88](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/transfer.ts#L88)

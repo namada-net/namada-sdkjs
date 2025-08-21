@@ -26,7 +26,7 @@
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:30
+packages/wasm/src/sdk/sdk.d.ts:29
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:21
+packages/wasm/src/sdk/sdk.d.ts:20
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:31
+packages/wasm/src/sdk/sdk.d.ts:30
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:26
+packages/wasm/src/sdk/sdk.d.ts:25
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:25
+packages/wasm/src/sdk/sdk.d.ts:24
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:29
+packages/wasm/src/sdk/sdk.d.ts:28
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:27
+packages/wasm/src/sdk/sdk.d.ts:26
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:24
+packages/wasm/src/sdk/sdk.d.ts:23
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:22
+packages/wasm/src/sdk/sdk.d.ts:21
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:28
+packages/wasm/src/sdk/sdk.d.ts:27
 
 ___
 
@@ -126,4 +126,4 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:23
+packages/wasm/src/sdk/sdk.d.ts:22

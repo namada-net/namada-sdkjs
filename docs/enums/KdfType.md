@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[packages/lib/src/crypto/types.ts:38](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/types.ts#L38)
+[packages/lib/src/crypto/types.ts:38](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/types.ts#L38)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/crypto/types.ts:39](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/types.ts#L39)
+[packages/lib/src/crypto/types.ts:39](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/types.ts#L39)
