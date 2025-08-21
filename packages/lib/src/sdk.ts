@@ -16,7 +16,7 @@ export { ProgressBarNames, SdkEvents } from "@namada/wasm";
  * API for interacting with Namada SDK
  */
 export class Sdk {
-  public readonly version = sdkVersion;
+  public static readonly version = sdkVersion;
 
   /**
    * @param sdk - Instance of Sdk struct from wasm lib

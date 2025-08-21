@@ -40,7 +40,7 @@ Class Crypto handles AES encryption tasks
 
 #### Defined in
 
-[packages/lib/src/crypto/crypto.ts:20](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/crypto.ts#L20)
+[packages/lib/src/crypto/crypto.ts:20](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/crypto.ts#L20)
 
 ## Properties
 
@@ -52,7 +52,7 @@ WebAssembly Memory for crypto
 
 #### Defined in
 
-[packages/lib/src/crypto/crypto.ts:20](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/crypto.ts#L20)
+[packages/lib/src/crypto/crypto.ts:20](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/crypto.ts#L20)
 
 ## Methods
 
@@ -75,7 +75,7 @@ decrypted text
 
 #### Defined in
 
-[packages/lib/src/crypto/crypto.ts:115](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/crypto.ts#L115)
+[packages/lib/src/crypto/crypto.ts:115](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/crypto.ts#L115)
 
 ___
 
@@ -100,7 +100,7 @@ crypto record
 
 #### Defined in
 
-[packages/lib/src/crypto/crypto.ts:61](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/crypto.ts#L61)
+[packages/lib/src/crypto/crypto.ts:61](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/crypto.ts#L61)
 
 ___
 
@@ -126,7 +126,7 @@ array of encrypted bytes
 
 #### Defined in
 
-[packages/lib/src/crypto/crypto.ts:98](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/crypto.ts#L98)
+[packages/lib/src/crypto/crypto.ts:98](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/crypto.ts#L98)
 
 ___
 
@@ -153,7 +153,7 @@ crypto record used for storage
 
 #### Defined in
 
-[packages/lib/src/crypto/crypto.ts:30](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/crypto.ts#L30)
+[packages/lib/src/crypto/crypto.ts:30](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/crypto.ts#L30)
 
 ___
 
@@ -178,4 +178,4 @@ encryption parameters
 
 #### Defined in
 
-[packages/lib/src/crypto/crypto.ts:73](https://github.com/namada-net/namada-sdkjs/blob/486c99748287d465c971045c4ea76d959898b452/packages/lib/src/crypto/crypto.ts#L73)
+[packages/lib/src/crypto/crypto.ts:73](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/crypto/crypto.ts#L73)
