@@ -105,6 +105,11 @@ impl PseudoExtendedKey {
         Ok(PseudoExtendedKey(pek))
     }
 
+    pub fn can_decode(encoded: String) -> bool {
+        let decoded = hex::decode(encoded);
+        decoded.is_ok()
+    }
+
     pub fn from(xvk: ExtendedViewingKey, pgk: ProofGenerationKey) -> Self {
         let mut pxk = zip32::PseudoExtendedKey::from(zip32::ExtendedFullViewingKey::from(xvk.0));
         pxk.augment_proof_generation_key(pgk.0)
@@ -115,6 +120,11 @@ impl PseudoExtendedKey {
         ));
 
         Self(pxk)
+    }
+
+    pub fn to_viewing_key(&self) -> Result<ExtendedViewingKey, String> {
+        let xfvk = self.0.to_viewing_key();
+        Ok(ExtendedViewingKey(NamadaExtendedViewingKey::from(xfvk)))
     }
 }
 
