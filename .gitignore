@@ -2,3 +2,16 @@ node_modules
 dist
 crate/target
 docs/README.md
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+

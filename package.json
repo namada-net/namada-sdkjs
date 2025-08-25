@@ -19,6 +19,7 @@
     "build:sdk:node": "yarn prebuild && yarn wasm:ts:node && yarn wasm:build:node && yarn ts:node && yarn copy:node",
     "build:sdk:dev": "yarn prebuild && yarn wasm:ts:web && yarn wasm:build:dev && yarn ts:web && yarn copy:web",
     "build:sdk:multicore:dev": "yarn prebuild && yarn wasm:ts:web && yarn wasm:build:dev:multicore && yarn ts:web:multicore && yarn copy:web:multicore",
+    "yalc:sdk:multicore:dev": "yarn build:sdk:multicore:dev && cd packages/sdk-multicore && yalc publish --push",
     "build:sdk:node:dev": "yarn prebuild && yarn wasm:ts:node && yarn wasm:build:node:dev && yarn ts:node && yarn copy:node",
     "build:docs": "cd packages/lib && yarn build:docs",
     "wasm:check": "cd ./crate && cargo check && cargo clippy",
@@ -42,7 +43,8 @@
     "prettier-plugin-organize-imports": "^3.2.4",
     "ts-patch": "^3.1.2",
     "typescript": "5.5.4",
-    "wsrun": "^5.2.4"
+    "wsrun": "^5.2.4",
+    "yalc": "^1.0.0-pre.53"
   },
   "packageManager": "yarn@4.6.0"
 }
