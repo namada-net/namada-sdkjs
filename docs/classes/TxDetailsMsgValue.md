@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/txDetails.ts:80](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/txDetails.ts#L80)
+[packages/lib/src/types/schema/txDetails.ts:80](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/txDetails.ts#L80)
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/txDetails.ts:77](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/txDetails.ts#L77)
+[packages/lib/src/types/schema/txDetails.ts:77](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/txDetails.ts#L77)
