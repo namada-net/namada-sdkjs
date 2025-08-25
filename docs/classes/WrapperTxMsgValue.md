@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:35](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L35)
+[packages/lib/src/types/schema/wrapperTx.ts:35](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L35)
 
 ## Properties
 
@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:18](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L18)
+[packages/lib/src/types/schema/wrapperTx.ts:18](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L18)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:30](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L30)
+[packages/lib/src/types/schema/wrapperTx.ts:30](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L30)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:12](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L12)
+[packages/lib/src/types/schema/wrapperTx.ts:12](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L12)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:27](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L27)
+[packages/lib/src/types/schema/wrapperTx.ts:27](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L27)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:15](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L15)
+[packages/lib/src/types/schema/wrapperTx.ts:15](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L15)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:24](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L24)
+[packages/lib/src/types/schema/wrapperTx.ts:24](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L24)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:21](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L21)
+[packages/lib/src/types/schema/wrapperTx.ts:21](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L21)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:9](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L9)
+[packages/lib/src/types/schema/wrapperTx.ts:9](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L9)
 
 ___
 
@@ -128,4 +128,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/wrapperTx.ts:33](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/wrapperTx.ts#L33)
+[packages/lib/src/types/schema/wrapperTx.ts:33](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/wrapperTx.ts#L33)

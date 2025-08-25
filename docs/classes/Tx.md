@@ -55,7 +55,7 @@ SDK functionality related to transactions
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:56](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L56)
+[packages/lib/src/tx/tx.ts:56](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L56)
 
 ## Properties
 
@@ -67,7 +67,7 @@ Instance of Sdk struct from wasm lib
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:56](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L56)
+[packages/lib/src/tx/tx.ts:56](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L56)
 
 ## Methods
 
@@ -93,7 +93,7 @@ transaction bytes with signature appended
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:378](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L378)
+[packages/lib/src/tx/tx.ts:378](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L378)
 
 ___
 
@@ -118,7 +118,7 @@ Append signature for transactions signed by Ledger Hardware Wallet
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:392](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L392)
+[packages/lib/src/tx/tx.ts:392](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L392)
 
 ___
 
@@ -142,7 +142,7 @@ a serialized TxMsgValue type
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:360](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L360)
+[packages/lib/src/tx/tx.ts:360](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L360)
 
 ___
 
@@ -169,7 +169,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:180](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L180)
+[packages/lib/src/tx/tx.ts:180](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L180)
 
 ___
 
@@ -196,7 +196,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:339](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L339)
+[packages/lib/src/tx/tx.ts:339](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L339)
 
 ___
 
@@ -223,7 +223,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:292](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L292)
+[packages/lib/src/tx/tx.ts:292](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L292)
 
 ___
 
@@ -252,7 +252,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:269](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L269)
+[packages/lib/src/tx/tx.ts:269](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L269)
 
 ___
 
@@ -279,7 +279,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:244](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L244)
+[packages/lib/src/tx/tx.ts:244](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L244)
 
 ___
 
@@ -305,7 +305,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:167](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L167)
+[packages/lib/src/tx/tx.ts:167](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L167)
 
 ___
 
@@ -332,7 +332,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:90](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L90)
+[packages/lib/src/tx/tx.ts:90](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L90)
 
 ___
 
@@ -359,7 +359,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:116](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L116)
+[packages/lib/src/tx/tx.ts:116](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L116)
 
 ___
 
@@ -386,7 +386,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:65](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L65)
+[packages/lib/src/tx/tx.ts:65](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L65)
 
 ___
 
@@ -413,7 +413,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:201](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L201)
+[packages/lib/src/tx/tx.ts:201](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L201)
 
 ___
 
@@ -440,7 +440,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:142](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L142)
+[packages/lib/src/tx/tx.ts:142](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L142)
 
 ___
 
@@ -467,7 +467,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:315](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L315)
+[packages/lib/src/tx/tx.ts:315](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L315)
 
 ___
 
@@ -494,7 +494,7 @@ promise that resolves to an TxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:223](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L223)
+[packages/lib/src/tx/tx.ts:223](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L223)
 
 ___
 
@@ -519,7 +519,7 @@ a TxDetails object
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:445](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L445)
+[packages/lib/src/tx/tx.ts:445](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L445)
 
 ___
 
@@ -543,7 +543,7 @@ Serialized WrapperTxMsgValue
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:433](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L433)
+[packages/lib/src/tx/tx.ts:433](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L433)
 
 ___
 
@@ -573,7 +573,7 @@ promise that resolves to the shielding memo
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:512](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L512)
+[packages/lib/src/tx/tx.ts:512](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L512)
 
 ___
 
@@ -597,4 +597,4 @@ array of tuple of [inner Tx hashes, utf8 bytes memo]
 
 #### Defined in
 
-[packages/lib/src/tx/tx.ts:531](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/tx/tx.ts#L531)
+[packages/lib/src/tx/tx.ts:531](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/tx/tx.ts#L531)

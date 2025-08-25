@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/unbond.ts:17](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/unbond.ts#L17)
+[packages/lib/src/types/schema/unbond.ts:17](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/unbond.ts#L17)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/unbond.ts:15](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/unbond.ts#L15)
+[packages/lib/src/types/schema/unbond.ts:15](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/unbond.ts#L15)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/unbond.ts:9](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/unbond.ts#L9)
+[packages/lib/src/types/schema/unbond.ts:9](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/unbond.ts#L9)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/unbond.ts:12](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/unbond.ts#L12)
+[packages/lib/src/types/schema/unbond.ts:12](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/unbond.ts#L12)

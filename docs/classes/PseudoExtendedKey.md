@@ -14,6 +14,8 @@ Wrap ExtendedSpendingKey
 
 - [encode](PseudoExtendedKey.md#encode)
 - [free](PseudoExtendedKey.md#free)
+- [to\_viewing\_key](PseudoExtendedKey.md#to_viewing_key)
+- [can\_decode](PseudoExtendedKey.md#can_decode)
 - [decode](PseudoExtendedKey.md#decode)
 - [from](PseudoExtendedKey.md#from)
 
@@ -61,6 +63,40 @@ packages/wasm/src/sdk/sdk.d.ts:198
 
 ___
 
+### to\_viewing\_key
+
+▸ **to_viewing_key**(): [`ExtendedViewingKey`](ExtendedViewingKey.md)
+
+#### Returns
+
+[`ExtendedViewingKey`](ExtendedViewingKey.md)
+
+#### Defined in
+
+packages/wasm/src/sdk/sdk.d.ts:203
+
+___
+
+### can\_decode
+
+▸ **can_decode**(`encoded`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `encoded` | `string` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+packages/wasm/src/sdk/sdk.d.ts:201
+
+___
+
 ### decode
 
 ▸ **decode**(`encoded`): [`PseudoExtendedKey`](PseudoExtendedKey.md)
@@ -98,4 +134,4 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:201
+packages/wasm/src/sdk/sdk.d.ts:202
