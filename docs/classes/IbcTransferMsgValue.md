@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:53](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L53)
+[packages/lib/src/types/schema/ibcTransfer.ts:53](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L53)
 
 ## Properties
 
@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:24](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L24)
+[packages/lib/src/types/schema/ibcTransfer.ts:24](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L24)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:48](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L48)
+[packages/lib/src/types/schema/ibcTransfer.ts:48](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L48)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:30](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L30)
+[packages/lib/src/types/schema/ibcTransfer.ts:30](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L30)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:45](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L45)
+[packages/lib/src/types/schema/ibcTransfer.ts:45](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L45)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:39](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L39)
+[packages/lib/src/types/schema/ibcTransfer.ts:39](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L39)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:27](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L27)
+[packages/lib/src/types/schema/ibcTransfer.ts:27](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L27)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:18](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L18)
+[packages/lib/src/types/schema/ibcTransfer.ts:18](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L18)
 
 ___
 
@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:51](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L51)
+[packages/lib/src/types/schema/ibcTransfer.ts:51](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L51)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:42](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L42)
+[packages/lib/src/types/schema/ibcTransfer.ts:42](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L42)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:15](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L15)
+[packages/lib/src/types/schema/ibcTransfer.ts:15](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L15)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:33](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L33)
+[packages/lib/src/types/schema/ibcTransfer.ts:33](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L33)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:36](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L36)
+[packages/lib/src/types/schema/ibcTransfer.ts:36](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L36)
 
 ___
 
@@ -172,4 +172,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/ibcTransfer.ts:21](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/types/schema/ibcTransfer.ts#L21)
+[packages/lib/src/types/schema/ibcTransfer.ts:21](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/ibcTransfer.ts#L21)

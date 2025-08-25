@@ -45,7 +45,7 @@ Namespace for key related functions
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:32](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L32)
+[packages/lib/src/keys/keys.ts:32](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L32)
 
 ## Properties
 
@@ -57,7 +57,7 @@ Memory accessor for crypto lib
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:32](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L32)
+[packages/lib/src/keys/keys.ts:32](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L32)
 
 ## Methods
 
@@ -83,7 +83,7 @@ Keys and address
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:69](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L69)
+[packages/lib/src/keys/keys.ts:69](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L69)
 
 ___
 
@@ -108,7 +108,7 @@ Keys and address
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:107](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L107)
+[packages/lib/src/keys/keys.ts:107](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L107)
 
 ___
 
@@ -132,7 +132,7 @@ Object representing MASP related keys
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:178](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L178)
+[packages/lib/src/keys/keys.ts:178](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L178)
 
 ___
 
@@ -158,7 +158,7 @@ Shielded keys and address
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:162](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L162)
+[packages/lib/src/keys/keys.ts:162](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L162)
 
 ___
 
@@ -184,7 +184,7 @@ Shielded keys and address
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:138](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L138)
+[packages/lib/src/keys/keys.ts:138](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L138)
 
 ___
 
@@ -208,7 +208,7 @@ Keys and address
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:55](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L55)
+[packages/lib/src/keys/keys.ts:55](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L55)
 
 ___
 
@@ -226,7 +226,7 @@ Keys and address
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:259](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L259)
+[packages/lib/src/keys/keys.ts:259](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L259)
 
 ___
 
@@ -251,7 +251,7 @@ GeneratedPaymentAddress
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:224](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L224)
+[packages/lib/src/keys/keys.ts:224](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L224)
 
 ___
 
@@ -275,7 +275,7 @@ Address and public key
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:39](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L39)
+[packages/lib/src/keys/keys.ts:39](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L39)
 
 ___
 
@@ -299,4 +299,4 @@ ShieldedKeys
 
 #### Defined in
 
-[packages/lib/src/keys/keys.ts:237](https://github.com/namada-net/namada-sdkjs/blob/e660aeaf8f96102ae1112a841a7e46dc805fa394/packages/lib/src/keys/keys.ts#L237)
+[packages/lib/src/keys/keys.ts:237](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/keys/keys.ts#L237)
