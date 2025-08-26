@@ -30,7 +30,7 @@ use namada_sdk::ibc::core::host::types::identifiers::{ChannelId, PortId};
 use namada_sdk::io::{Client, NamadaIo};
 use namada_sdk::key::{common, ed25519, RefTo, SigScheme};
 use namada_sdk::masp::shielded_wallet::ShieldedApi;
-use namada_sdk::masp::ShieldedContext;
+use namada_sdk::masp::{Conversions, ShieldedContext, SpentNotesTracker};
 use namada_sdk::masp_primitives::sapling::ViewingKey;
 use namada_sdk::masp_primitives::transaction::components::amount::I128Sum;
 use namada_sdk::masp_primitives::transaction::TxId;
@@ -691,7 +691,74 @@ impl Sdk {
             }
         };
 
+        let masp_section = tx
+            .sections
+            .iter()
+            .find_map(|section| section.masp_tx())
+            .ok_or_err_msg("Could not find masp_tx section")?;
+
+        self.namada
+            .shielded_mut()
+            .await
+            .pre_cache_transaction(&masp_section)
+            .await
+            .map_err(|e| JsError::new(&e.to_string()))?;
+
         self.serialize_tx_result(tx, wrapper_tx_msg, signing_data, Some(masp_signing_data))
+    }
+
+        pub async fn query_notes_to_spend(
+        &self,
+        owner: String,
+        tokens: Box<[JsValue]>,
+        chain_id: String,
+    ) -> Result<JsValue, JsError> {
+            web_sys::console::log_1(&format!("query_notes_to_spend called with owner: {}, tokens: {:?}, chain_id: {}", owner, tokens, chain_id).into());
+        let tokens: Vec<Address> = tokens
+            .iter()
+            .map(|address| {
+                let address_str = address.as_string().unwrap();
+                Address::from_str(&address_str).unwrap()
+            })
+            .collect();
+        let xvk = ExtendedViewingKey::from_str(&owner)?;
+        let viewing_key = ExtendedFullViewingKey::from(xvk).fvk.vk;
+
+        let mut shielded: ShieldedContext<masp::JSShieldedUtils> = ShieldedContext::default();
+        shielded.utils.chain_id = chain_id.clone();
+        // TODO: pass handler
+        shielded.try_load(async |_| {}).await;
+       // shielded 
+       //      .precompute_asset_types(&self.namada.client, tokens.iter().collect())
+       //      .await
+       //      .map_err(|e| JsError::new(&format!("{:?}", e)))?;
+       //  let _ = shielded.save().await;
+        web_sys::console::log_1(&"2222Shielded context loaded and asset types precomputed".into());
+
+        // let epoch = rpc::query_masp_epoch(self.namada.client()).await?;
+
+        let balance = shielded
+            .compute_exchanged_balance(&self.namada.client, &WebIo, &viewing_key)
+            .await
+            .map_err(|e| JsError::new(&format!("{:?}", e)))?;
+        web_sys::console::log_1(&format!("Computed exchanged balance: {:?}", balance).into());
+
+        let res = shielded.exchange_notes(&self.namada, &mut SpentNotesTracker::new(), &viewing_key, &mut Conversions::new()).await.expect("TODO");
+        web_sys::console::log_1(&format!("res: {:?}", res).into());
+
+        let values = res.values().collect::<Vec<_>>();
+
+        let asd = values.iter().map(|(note, _, _, value)| {
+            let www = note.asset_type;
+            web_sys::console::log_1(&format!("Asset type: {:?}", www).into());
+            web_sys::console::log_1(&format!("value: {:?}", value).into());
+            let qwe = value.components().filter_map(|((digit, address), val)| Amount::from_masp_denominated_i128(*val, *digit)).collect::<Vec<_>>();
+            web_sys::console::log_1(&format!("qwe: {:?}", qwe).into());
+
+        }).collect::<Vec<_>>();
+
+
+        to_js_result(asd)
     }
 
     pub async fn build_unshielding_transfer(

@@ -158,6 +158,17 @@ export class Tx {
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
 
+  async queryNotesToSpend(
+    owner: string,
+    tokens: string[],
+    chainId: string,
+  ): Promise<string[]> {
+    console.log("queryNotesToSpend", owner, tokens);
+    const notes = await this.sdk.query_notes_to_spend(owner, tokens, chainId);
+    console.log("notes", notes);
+    return notes;
+  }
+
   /**
    * Build RevealPK Tx
    * @async

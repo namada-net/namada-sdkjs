@@ -14,7 +14,7 @@ use namada_sdk::hash::Hash;
 use namada_sdk::masp::shielded_wallet::ShieldedApi;
 use namada_sdk::masp::utils::MaspClient as NamadaMaspClient;
 use namada_sdk::masp::utils::RetryStrategy;
-use namada_sdk::masp::{IndexerMaspClient, LedgerMaspClient, LinearBackoffSleepMaspClient};
+use namada_sdk::masp::{Conversions, IndexerMaspClient, LedgerMaspClient, LinearBackoffSleepMaspClient};
 use namada_sdk::masp::{ShieldedContext, ShieldedSyncConfig};
 use namada_sdk::masp_primitives::asset_type::AssetType;
 use namada_sdk::masp_primitives::sapling::ViewingKey;
@@ -29,7 +29,7 @@ use namada_sdk::rpc::{
     query_proposal_votes, query_storage_value,
 };
 use namada_sdk::state::Key;
-use namada_sdk::token;
+use namada_sdk::token::{self, Change};
 use namada_sdk::tx::{
     TX_BOND_WASM, TX_CLAIM_REWARDS_WASM, TX_IBC_WASM, TX_REDELEGATE_WASM, TX_REVEAL_PK,
     TX_TRANSFER_WASM, TX_UNBOND_WASM, TX_VOTE_PROPOSAL, TX_WITHDRAW_WASM,
@@ -394,6 +394,7 @@ impl Query {
 
         Ok(())
     }
+
 
     /// Queries shielded balance for a given extended viewing key
     ///
