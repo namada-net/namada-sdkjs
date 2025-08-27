@@ -30,7 +30,7 @@ use namada_sdk::ibc::core::host::types::identifiers::{ChannelId, PortId};
 use namada_sdk::io::{Client, NamadaIo};
 use namada_sdk::key::{common, ed25519, RefTo, SigScheme};
 use namada_sdk::masp::shielded_wallet::ShieldedApi;
-use namada_sdk::masp::ShieldedContext;
+use namada_sdk::masp::{Conversions, ShieldedContext, SpentNotesTracker};
 use namada_sdk::masp_primitives::sapling::ViewingKey;
 use namada_sdk::masp_primitives::transaction::components::amount::I128Sum;
 use namada_sdk::masp_primitives::transaction::TxId;
@@ -691,8 +691,121 @@ impl Sdk {
             }
         };
 
+        let masp_section = tx
+            .sections
+            .iter()
+            .find_map(|section| section.masp_tx())
+            .ok_or_err_msg("Could not find masp_tx section")?;
+
+        self.namada
+            .shielded_mut()
+            .await
+            .pre_cache_transaction(&masp_section)
+            .await
+            .map_err(|e| JsError::new(&e.to_string()))?;
+
         self.serialize_tx_result(tx, wrapper_tx_msg, signing_data, Some(masp_signing_data))
     }
+
+    pub async fn query_notes_to_spend(
+        &self,
+        owner: String,
+        tokens: Box<[JsValue]>,
+        chain_id: String,
+    ) -> Result<JsValue, JsError> {
+        web_sys::console::log_1(&format!("query_notes_to_spend called with owner: {}, tokens: {:?}, chain_id: {}", owner, tokens, chain_id).into());
+        let xvk = ExtendedViewingKey::from_str(&owner)?;
+        let viewing_key = ExtendedFullViewingKey::from(xvk).fvk.vk;
+
+        let mut shielded: ShieldedContext<masp::JSShieldedUtils> = ShieldedContext::default();
+        shielded.utils.chain_id = chain_id.clone();
+        // TODO: pass handler
+        shielded.try_load(async |_| {}).await;
+
+        let res = shielded.exchange_notes(&self.namada, &mut SpentNotesTracker::new(), &viewing_key, &mut Conversions::new()).await.expect("TODO");
+
+        let values = res.values().collect::<Vec<_>>();
+
+        let mut final_res: HashMap<Address, Vec<(Amount, Option<Amount>)>> = HashMap::new();
+
+        for (_, _, _, value) in values.iter() {
+            let mut res: HashMap<Address, Amount> = HashMap::new();
+
+            for ((digit, address), val) in value.components() {
+                if res.contains_key(address) {
+                    let existing = res.get(address).expect("TODO");
+                    let new_amount = existing.checked_add(Amount::from_masp_denominated_i128(*val, *digit).expect("TODO")).expect("TODO");
+
+                    res.insert(address.clone(), new_amount);
+                } else {
+                    res.insert(address.clone(), Amount::from_masp_denominated_i128(*val, *digit).unwrap());
+                }
+            }
+
+            // We assume that there is at least one component
+            let note =  res.get_index(0).expect("TODO");
+            let conv = res.get_index(1);
+
+            let note_addr = note.0.clone();
+            if final_res.contains_key(&note_addr) {
+                let mut existing = final_res.get(&note_addr).expect("TODO").clone();
+                existing.push((*note.1, None));
+
+                final_res.insert(note_addr, existing);
+            } else {
+
+                final_res.insert(note_addr, vec![(*note.1, None)]);
+            }
+
+            if let Some(conv) = conv {
+                let conv_addr = conv.0.clone();
+                if final_res.contains_key(&conv_addr) {
+                    let mut existing = final_res.get(&conv_addr).expect("TODO").clone();
+                    existing.push((*note.1, Some(*conv.1)));
+
+                    final_res.insert(conv_addr, existing);
+                } else {
+
+                    final_res.insert(conv_addr, vec![(*note.1, Some(*conv.1))]);
+                }
+
+            }
+        }
+
+
+        to_js_result(final_res)
+    }
+
+    pub async fn estimate_notes_and_convs_per_tx(&self, notes_and_convs: JsValue, gas_limit: String, amount: String) -> Result<JsValue, JsValue> {
+
+        let notes_and_convs: Vec<Entry> = notes_and_convs.into_serde().map_err(|e| JsValue::from_str(&e.to_string()))?;
+
+        let notes_and_convs: Vec<(Amount, Option<Amount>)> = notes_and_convs.iter().map(|entry| {
+            let note = Amount::from_string_precise(&entry.note).map_err(|e| JsValue::from_str(&e.to_string()))?;
+            let conv = match &entry.conv {
+                Some(c) => Some(Amount::from_string_precise(c).map_err(|e| JsValue::from_str(&e.to_string()))?),
+                None => None,
+            };
+            Ok((note, conv))
+        }).collect::<Result<Vec<(Amount, Option<Amount>)>, JsValue>>()?;
+
+        let sorted_notes_and_convs = {
+            let mut v = notes_and_convs.clone();
+            v.sort_by(|a, b| {
+                let a = a.1.unwrap_or(a.0);
+                let b = b.1.unwrap_or(b.0);
+                b.cmp(&a)
+            });
+            v
+        };
+
+        web_sys::console::log_1(&format!("sorted_notes_and_convs: {:?}", sorted_notes_and_convs).into());
+
+
+
+        Ok(JsValue::from_f64(notes_and_convs.len() as f64))
+    }
+
 
     pub async fn build_unshielding_transfer(
         &self,
@@ -1191,3 +1304,12 @@ extern "C" {
     #[wasm_bindgen(catch, js_name = "fetchAndStoreMaspParams")]
     async fn fetch_and_store_masp_params(url: Option<String>) -> Result<JsValue, JsValue>;
 }
+
+
+
+#[derive(serde::Deserialize)]
+struct Entry {
+    note: String,
+    conv: Option<String>,
+}
+
