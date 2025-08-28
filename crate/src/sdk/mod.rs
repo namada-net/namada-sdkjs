@@ -9,6 +9,7 @@ mod wallet;
 
 use self::io::WebIo;
 use crate::rpc_client::HttpClient;
+use crate::types::masp::PseudoExtendedKey;
 use crate::utils::set_panic_hook;
 #[cfg(feature = "web")]
 use crate::utils::to_bytes;
@@ -30,12 +31,13 @@ use namada_sdk::ibc::core::host::types::identifiers::{ChannelId, PortId};
 use namada_sdk::io::{Client, NamadaIo};
 use namada_sdk::key::{common, ed25519, RefTo, SigScheme};
 use namada_sdk::masp::shielded_wallet::ShieldedApi;
-use namada_sdk::masp::{Conversions, ShieldedContext, SpentNotesTracker};
+use namada_sdk::masp::{Conversions, MaspFeeData, MaspTransferData, ShieldedContext, SpentNotesTracker};
 use namada_sdk::masp_primitives::sapling::ViewingKey;
 use namada_sdk::masp_primitives::transaction::components::amount::I128Sum;
+use namada_sdk::masp_primitives::transaction::components::sapling::fees::{ConvertView, InputView};
 use namada_sdk::masp_primitives::transaction::TxId;
 use namada_sdk::masp_primitives::zip32::{ExtendedFullViewingKey, ExtendedKey};
-use namada_sdk::rpc::{self, query_denom, query_epoch, InnerTxResult, TxAppliedEvents, TxResponse};
+use namada_sdk::rpc::{self, query_denom, query_epoch, validate_amount, InnerTxResult, TxAppliedEvents, TxResponse};
 use namada_sdk::signing::SigningTxData;
 use namada_sdk::string_encoding::Format;
 use namada_sdk::tendermint_rpc::Url;
@@ -51,9 +53,9 @@ use namada_sdk::tx::{
 };
 use namada_sdk::wallet::{Store, Wallet};
 use namada_sdk::{
-    ExtendedViewingKey, Namada, NamadaImpl, PaymentAddress, TransferSource, TransferTarget,
+    ExtendedViewingKey, Namada, NamadaImpl, PaymentAddress, ShieldedWallet, TransferSource, TransferTarget
 };
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, BTreeSet};
 use std::str::FromStr;
 use tx::MaspSigningData;
 use wasm_bindgen::{prelude::wasm_bindgen, JsError, JsValue};
@@ -707,6 +709,104 @@ impl Sdk {
         self.serialize_tx_result(tx, wrapper_tx_msg, signing_data, Some(masp_signing_data))
     }
 
+    pub async fn build_kappa(&self,source: String, target: String, token: String, amount: String, fee_amount: String, chain_id: String) -> Result<JsValue, JsError> {
+
+        let source = PseudoExtendedKey::decode(source)?.0;
+        let target = Address::from_str(&target)?;
+        let token = Address::from_str(&token)?;
+        let denom_amount =
+            DenominatedAmount::from_str(&amount).expect("Amount to be valid.");
+        let amount = InputAmount::Unvalidated(denom_amount);
+        let fee_denom_amount =
+            DenominatedAmount::from_str(&fee_amount).expect("Amount to be valid.");
+        let fee_amount = InputAmount::Unvalidated(fee_denom_amount);
+
+        let validated_amount =
+            validate_amount(&self.namada, amount, &token, false)
+            .await
+            .expect("TODO");
+
+        let validated_fee_amount =
+            validate_amount(&self.namada, fee_amount, &token, false)
+            .await
+            .expect("TODO");
+
+        let masp_transfer_data = MaspTransferData {
+            sources: vec![(
+                         TransferSource::ExtendedKey(source),
+                         token.clone(),
+                         validated_amount,
+                     )],
+                     // The token will be escrowed to IBC address
+                     targets: vec![(
+                         TransferTarget::Address(target.clone()),
+                         token.clone(),
+                         validated_amount,
+                     )],
+        };
+
+        let masp_fee_data = MaspFeeData {
+            source,
+            target,
+            token: token.clone(),
+            amount: validated_fee_amount,
+        };
+
+        web_sys::console::log_1(&format!("masp_transfer_data: {:?}, masp_fee_data: {:?}", masp_transfer_data, masp_fee_data).into());
+        let masp_tx_combined_data =
+            ShieldedContext::<masp::JSShieldedUtils>::combine_data_for_masp_transfer(&self.namada, masp_transfer_data, Some(masp_fee_data))
+                .await?;
+        let epoch = rpc::query_masp_epoch(self.namada.client()).await?;
+
+        let mut shielded: ShieldedContext<masp::JSShieldedUtils> = ShieldedContext::default();
+        shielded.utils.chain_id = chain_id.clone();
+        // TODO: pass handler
+        shielded.try_load(async |_| {}).await;
+
+
+        let builder = shielded.build_shielded_transfer(&self.namada, epoch, None, masp_tx_combined_data).await?;
+
+        for sapling_input in builder.sapling_inputs() {
+            let asset_type = sapling_input.asset_type();
+            let decoded_asset = shielded.decode_asset_type(&self.namada.client, asset_type).await.expect("TODO");
+            let amount = Amount::from_masp_denominated(sapling_input.value(), decoded_asset.position);
+            if decoded_asset.token == token {
+                web_sys::console::log_1(&format!("sapling_input: token: {:?}, amount: {:?}", decoded_asset.token, amount).into());
+            }
+        }
+        // let sapling_inputs = builder.sapling_inputs().iter().map(|input| {
+
+        //     let asset_data = shielded
+        //         .decode_asset_type(&self.namada.client, asset_type)
+        //         .await;
+        //     input.clone()
+        //     // let www = Amount::from_masp_denominated(input.value(), input.asset_type().di)
+        // }).collect::<Vec<_>>();
+        // web_sys::console::log_1(&format!("sapling_inputs: {:?}", sapling_inputs.iter().len()).into());
+        let sapling_outputs = builder.sapling_outputs();
+        web_sys::console::log_1(&format!("sapling_outputs: {:?}", sapling_outputs.iter().len()).into());
+
+        let sapling_converts = builder.sapling_converts();
+        for sapling_convert in sapling_converts.iter() {
+            let conversions = sapling_convert.conversion();
+            let assets = I128Sum::from(conversions.clone());
+
+            for (asset_type, value) in assets.components() {
+                let decoded_asset = shielded.decode_asset_type(&self.namada.client, *asset_type).await.expect("TODO");
+
+                let amount = Amount::from_masp_denominated_i128(*value, decoded_asset.position);
+                if decoded_asset.token == token {
+                    web_sys::console::log_1(&format!("sapling_convert: token: {:?}, amount: {:?}", decoded_asset.token, amount).into())
+                }
+            };
+        }
+
+        Ok(JsValue::from(
+                ""
+        ))
+
+    }
+
     pub async fn query_notes_to_spend(
         &self,
         owner: String,
@@ -800,7 +900,6 @@ impl Sdk {
         };
 
         web_sys::console::log_1(&format!("sorted_notes_and_convs: {:?}", sorted_notes_and_convs).into());
-
 
 
         Ok(JsValue::from_f64(notes_and_convs.len() as f64))

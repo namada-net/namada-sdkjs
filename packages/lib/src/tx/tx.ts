@@ -160,19 +160,33 @@ export class Tx {
 
   async queryNotesToSpend(
     owner: string,
-    tokens: string[],
+    target: string,
+    token: string,
+    amount: string,
+    fee_amount: string,
     chainId: string,
   ): Promise<string[]> {
-    const notes = await this.sdk.query_notes_to_spend(owner, tokens, chainId);
-    console.log("notes", notes);
-    const asd: any = Object.values(notes)[0];
-    console.log("asd", asd);
+    // const notes = await this.sdk.query_notes_to_spend(owner, tokens, chainId);
+    // console.log("notes", notes);
+    // const asd: any = Object.values(notes)[0];
+    // console.log("asd", asd);
 
-    const www = asd.map((a: any) => ({ note: a[0], conv: a[1] }));
-    console.log("www", www);
-    await this.sdk.estimate_notes_and_convs_per_tx(www, "100000", "1000");
+    // const www = asd.map((a: any) => ({ note: a[0], conv: a[1] }));
+    // console.log("www", www);
+    // await this.sdk.estimate_notes_and_convs_per_tx(www, "100000", "1000");
 
-    return notes;
+    console.log("queryNotesToSpend", owner, target, token, amount, fee_amount);
+    await this.sdk.build_kappa(
+      owner,
+      target,
+      token,
+      amount,
+      fee_amount,
+      chainId,
+    );
+    console.log("built kappa");
+
+    return [];
   }
 
   /**
