@@ -162,6 +162,7 @@ export class Tx {
     owner: string,
     target: string,
     token: string,
+    fee_token: string,
     amount: string,
     fee_amount: string,
     chainId: string,
@@ -175,16 +176,15 @@ export class Tx {
     // console.log("www", www);
     // await this.sdk.estimate_notes_and_convs_per_tx(www, "100000", "1000");
 
-    console.log("queryNotesToSpend", owner, target, token, amount, fee_amount);
     await this.sdk.build_kappa(
       owner,
       target,
       token,
+      fee_token,
       amount,
       fee_amount,
       chainId,
     );
-    console.log("built kappa");
 
     return [];
   }

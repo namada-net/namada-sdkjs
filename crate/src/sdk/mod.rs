@@ -34,14 +34,15 @@ use namada_sdk::masp::shielded_wallet::ShieldedApi;
 use namada_sdk::masp::{Conversions, MaspFeeData, MaspTransferData, ShieldedContext, SpentNotesTracker};
 use namada_sdk::masp_primitives::sapling::ViewingKey;
 use namada_sdk::masp_primitives::transaction::components::amount::I128Sum;
-use namada_sdk::masp_primitives::transaction::components::sapling::fees::{ConvertView, InputView};
+use namada_sdk::masp_primitives::transaction::components::sapling::fees::{ConvertView, InputView, OutputView};
+use namada_sdk::masp_primitives::transaction::components::ValueSum;
 use namada_sdk::masp_primitives::transaction::TxId;
 use namada_sdk::masp_primitives::zip32::{ExtendedFullViewingKey, ExtendedKey};
 use namada_sdk::rpc::{self, query_denom, query_epoch, validate_amount, InnerTxResult, TxAppliedEvents, TxResponse};
 use namada_sdk::signing::SigningTxData;
 use namada_sdk::string_encoding::Format;
 use namada_sdk::tendermint_rpc::Url;
-use namada_sdk::token::{Amount, DenominatedAmount};
+use namada_sdk::token::{Amount, DenominatedAmount, MaspDigitPos};
 use namada_sdk::token::{MaspTxId, OptionExt};
 use namada_sdk::tx::data::{ResultCode, TxType};
 use namada_sdk::tx::Section;
@@ -709,11 +710,13 @@ impl Sdk {
         self.serialize_tx_result(tx, wrapper_tx_msg, signing_data, Some(masp_signing_data))
     }
 
-    pub async fn build_kappa(&self,source: String, target: String, token: String, amount: String, fee_amount: String, chain_id: String) -> Result<JsValue, JsError> {
+    #[allow(clippy::too_many_arguments)]
+    pub async fn build_kappa(&self,source: String, target: String, token: String, fee_token: String, amount: String, fee_amount: String, chain_id: String) -> Result<JsValue, JsError> {
 
         let source = PseudoExtendedKey::decode(source)?.0;
         let target = Address::from_str(&target)?;
         let token = Address::from_str(&token)?;
+        let fee_token = Address::from_str(&fee_token)?;
         let denom_amount =
             DenominatedAmount::from_str(&amount).expect("Amount to be valid.");
         let amount = InputAmount::Unvalidated(denom_amount);
@@ -745,14 +748,15 @@ impl Sdk {
                      )],
         };
 
+        // TODO: if fee token is different from transfer token, we need to handle that
+
         let masp_fee_data = MaspFeeData {
             source,
             target,
-            token: token.clone(),
+            token: fee_token.clone(),
             amount: validated_fee_amount,
         };
 
-        web_sys::console::log_1(&format!("masp_transfer_data: {:?}, masp_fee_data: {:?}", masp_transfer_data, masp_fee_data).into());
         let masp_tx_combined_data =
             ShieldedContext::<masp::JSShieldedUtils>::combine_data_for_masp_transfer(&self.namada, masp_transfer_data, Some(masp_fee_data))
                 .await?;
@@ -763,48 +767,78 @@ impl Sdk {
         // TODO: pass handler
         shielded.try_load(async |_| {}).await;
 
-
         let builder = shielded.build_shielded_transfer(&self.namada, epoch, None, masp_tx_combined_data).await?;
+
+        let mut result = vec![];
 
         for sapling_input in builder.sapling_inputs() {
             let asset_type = sapling_input.asset_type();
             let decoded_asset = shielded.decode_asset_type(&self.namada.client, asset_type).await.expect("TODO");
             let amount = Amount::from_masp_denominated(sapling_input.value(), decoded_asset.position);
             if decoded_asset.token == token {
-                web_sys::console::log_1(&format!("sapling_input: token: {:?}, amount: {:?}", decoded_asset.token, amount).into());
+                result.push((token.clone(), amount, false));
             }
         }
-        // let sapling_inputs = builder.sapling_inputs().iter().map(|input| {
 
-        //     let asset_data = shielded
-        //         .decode_asset_type(&self.namada.client, asset_type)
-        //         .await;
-        //     input.clone()
-        //     // let www = Amount::from_masp_denominated(input.value(), input.asset_type().di)
-        // }).collect::<Vec<_>>();
-        // web_sys::console::log_1(&format!("sapling_inputs: {:?}", sapling_inputs.iter().len()).into());
         let sapling_outputs = builder.sapling_outputs();
-        web_sys::console::log_1(&format!("sapling_outputs: {:?}", sapling_outputs.iter().len()).into());
+        for sapling_output in sapling_outputs.iter() {
+            let asset_type = sapling_output.asset_type();
+            let decoded_asset = shielded.decode_asset_type(&self.namada.client, asset_type).await.expect("TODO");
+            let amount = Amount::from_masp_denominated(sapling_output.value(), decoded_asset.position);
+            web_sys::console::log_1(&format!("decoded_asset: {:?}, amount: {:?}", decoded_asset, amount).into());
+        }
 
         let sapling_converts = builder.sapling_converts();
         for sapling_convert in sapling_converts.iter() {
             let conversions = sapling_convert.conversion();
             let assets = I128Sum::from(conversions.clone());
 
+            // TODO: take masp digit into account
+            let mut conversion: ValueSum<Address, i128> = ValueSum::zero();
             for (asset_type, value) in assets.components() {
                 let decoded_asset = shielded.decode_asset_type(&self.namada.client, *asset_type).await.expect("TODO");
-
-                let amount = Amount::from_masp_denominated_i128(*value, decoded_asset.position);
-                if decoded_asset.token == token {
-                    web_sys::console::log_1(&format!("sapling_convert: token: {:?}, amount: {:?}", decoded_asset.token, amount).into())
-                }
+                conversion += ValueSum::from_pair(decoded_asset.token.clone(), *value);
             };
+            let asd = conversion.get(&token);
+
+            let amount = Amount::from_masp_denominated_i128(asd, MaspDigitPos::Zero).expect("TODO");
+
+            result.push((token.clone(), amount, true));
         }
 
-        Ok(JsValue::from(
-                ""
-        ))
 
+        let sorted_result = {
+            let mut v = result.clone();
+            v.sort_by(|a, b| 
+                b.cmp(a)
+            );
+            v
+        };
+
+        let x = 6;
+        web_sys::console::log_1(&format!("X: Total notes allowed in a Tx: {}", x).into());
+        web_sys::console::log_1(&format!("Total input notes: {:?}", sorted_result).into());
+
+        let notes_with_conversions = sorted_result.iter().filter(|(_, _, is_conv)| *is_conv).collect::<Vec<_>>();
+        web_sys::console::log_1(&format!("Notes with conversions: {:?}", notes_with_conversions).into());
+
+        web_sys::console::log_1(&format!("Output notes len(should be the same as notes with conversions): {:?}", notes_with_conversions.len()).into());
+
+        // We have to assume extra output note for potential change, also when token != fee_token
+        // we have to take into account potential fee change note
+        let extra_output_note = if token != fee_token {2} else {1} ;
+        let y = x - notes_with_conversions.len() - extra_output_note;
+        web_sys::console::log_1(&format!("Y: Input notes allowed (X - output_notes - 0 or 1): {}", y).into());
+
+        let amount_from_y_notes: Amount = sorted_result.iter().take(y).cloned().map(|(_, amount, _)| amount).reduce(|a, b| a.checked_add(b).expect("TODO")).unwrap_or(Amount::zero());
+        web_sys::console::log_1(&format!("Amount from Y notes: {:?}", amount_from_y_notes).into());
+
+        let amount_from_y_notes_minus_fee = amount_from_y_notes.checked_sub(validated_fee_amount.amount()).expect("TODO");
+        web_sys::console::log_1(&format!("Amount from Y notes - fee(so we do not care about fee change): {:?}", amount_from_y_notes_minus_fee).into());
+        
+        web_sys::console::log_1(&format!("Final result: {:?}", (token.clone(), amount_from_y_notes_minus_fee)).into());
+
+        to_js_result((token, amount_from_y_notes_minus_fee))
     }
 
     pub async fn query_notes_to_spend(
