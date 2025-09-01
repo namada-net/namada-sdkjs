@@ -14,6 +14,8 @@ import {
   EthBridgeTransferProps,
   IbcTransferMsgValue,
   IbcTransferProps,
+  MaxMaspTxAmountMsgValue,
+  MaxMaspTxAmountProps,
   Message,
   RedelegateMsgValue,
   RedelegateProps,
@@ -158,35 +160,17 @@ export class Tx {
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
 
-  async queryNotesToSpend(
-    owner: string,
-    target: string,
-    token: string,
-    fee_token: string,
-    amount: string,
-    fee_amount: string,
+  async estiamteMaxMaspTxAmountByNotes(
+    props: MaxMaspTxAmountProps,
     chainId: string,
-  ): Promise<string[]> {
-    // const notes = await this.sdk.query_notes_to_spend(owner, tokens, chainId);
-    // console.log("notes", notes);
-    // const asd: any = Object.values(notes)[0];
-    // console.log("asd", asd);
+  ): Promise<[string, string]> {
+    const msg = new Message<MaxMaspTxAmountMsgValue>();
+    const encodedMsg = msg.encode(new MaxMaspTxAmountMsgValue(props));
 
-    // const www = asd.map((a: any) => ({ note: a[0], conv: a[1] }));
-    // console.log("www", www);
-    // await this.sdk.estimate_notes_and_convs_per_tx(www, "100000", "1000");
-
-    await this.sdk.build_kappa(
-      owner,
-      target,
-      token,
-      fee_token,
-      amount,
-      fee_amount,
+    return await this.sdk.estimate_max_masp_tx_amount_by_notes(
+      encodedMsg,
       chainId,
     );
-
-    return [];
   }
 
   /**

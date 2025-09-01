@@ -14,7 +14,7 @@ use crate::utils::set_panic_hook;
 #[cfg(feature = "web")]
 use crate::utils::to_bytes;
 use crate::utils::to_js_result;
-use args::{generate_rng_build_params, masp_sign, BuildParams, MapSaplingSigAuth};
+use args::{generate_rng_build_params, masp_sign, BuildParams, EstimateMaxMaspTxAmountMsg, MapSaplingSigAuth};
 use gloo_utils::format::JsValueSerdeExt;
 use js_sys::Uint8Array;
 use namada_sdk::address::{Address, ImplicitAddress, MASP};
@@ -711,7 +711,17 @@ impl Sdk {
     }
 
     #[allow(clippy::too_many_arguments)]
-    pub async fn build_kappa(&self,source: String, target: String, token: String, fee_token: String, amount: String, fee_amount: String, chain_id: String) -> Result<JsValue, JsError> {
+    pub async fn estimate_max_masp_tx_amount_by_notes(&self, msg: &[u8], chain_id: String) -> Result<JsValue, JsError> {
+        let EstimateMaxMaspTxAmountMsg {
+            max_notes,
+            source,
+            target,
+            token,
+            fee_token,
+            amount,
+            fee_amount,
+        }= EstimateMaxMaspTxAmountMsg::try_from_slice(msg)
+            .map_err(|_| JsError::new("Invalid msg variant"))?;
 
         let source = PseudoExtendedKey::decode(source)?.0;
         let target = Address::from_str(&target)?;
@@ -748,8 +758,6 @@ impl Sdk {
                      )],
         };
 
-        // TODO: if fee token is different from transfer token, we need to handle that
-
         let masp_fee_data = MaspFeeData {
             source,
             target,
@@ -785,7 +793,6 @@ impl Sdk {
             let asset_type = sapling_output.asset_type();
             let decoded_asset = shielded.decode_asset_type(&self.namada.client, asset_type).await.expect("TODO");
             let amount = Amount::from_masp_denominated(sapling_output.value(), decoded_asset.position);
-            web_sys::console::log_1(&format!("decoded_asset: {:?}, amount: {:?}", decoded_asset, amount).into());
         }
 
         let sapling_converts = builder.sapling_converts();
@@ -815,7 +822,7 @@ impl Sdk {
             v
         };
 
-        let x = 6;
+        let x = max_notes as usize;
         web_sys::console::log_1(&format!("X: Total notes allowed in a Tx: {}", x).into());
         web_sys::console::log_1(&format!("Total input notes: {:?}", sorted_result).into());
 
