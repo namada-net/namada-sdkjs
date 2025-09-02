@@ -740,7 +740,7 @@ impl Sdk {
             .expect("TODO");
 
         let validated_fee_amount =
-            validate_amount(&self.namada, fee_amount, &token, false)
+            validate_amount(&self.namada, fee_amount, &fee_token, false)
             .await
             .expect("TODO");
 
@@ -840,21 +840,19 @@ impl Sdk {
         let amount_from_y_notes: Amount = sorted_result.iter().take(y).cloned().map(|(_, amount, _)| amount).reduce(|a, b| a.checked_add(b).expect("TODO")).unwrap_or(Amount::zero());
         web_sys::console::log_1(&format!("Amount from Y notes: {:?}", amount_from_y_notes).into());
 
-        let amount_from_y_notes_minus_fee = amount_from_y_notes.checked_sub(validated_fee_amount.amount()).expect("TODO");
-        web_sys::console::log_1(&format!("Amount from Y notes - fee(so we do not care about fee change): {:?}", amount_from_y_notes_minus_fee).into());
+        // let amount_from_y_notes_minus_fee = amount_from_y_notes.checked_sub(validated_fee_amount.amount()).expect("TODO");
+        // web_sys::console::log_1(&format!("Amount from Y notes - fee(so we do not care about fee change): {:?}", amount_from_y_notes_minus_fee).into());
         
-        web_sys::console::log_1(&format!("Final result: {:?}", (token.clone(), amount_from_y_notes_minus_fee)).into());
+        web_sys::console::log_1(&format!("Final result: {:?}", (token.clone(), amount_from_y_notes)).into());
 
-        to_js_result((token, amount_from_y_notes_minus_fee))
+        to_js_result((token, amount_from_y_notes))
     }
 
     pub async fn query_notes_to_spend(
         &self,
         owner: String,
-        tokens: Box<[JsValue]>,
         chain_id: String,
     ) -> Result<JsValue, JsError> {
-        web_sys::console::log_1(&format!("query_notes_to_spend called with owner: {}, tokens: {:?}, chain_id: {}", owner, tokens, chain_id).into());
         let xvk = ExtendedViewingKey::from_str(&owner)?;
         let viewing_key = ExtendedFullViewingKey::from(xvk).fvk.vk;
 
@@ -913,38 +911,37 @@ impl Sdk {
             }
         }
 
-
         to_js_result(final_res)
     }
 
-    pub async fn estimate_notes_and_convs_per_tx(&self, notes_and_convs: JsValue, gas_limit: String, amount: String) -> Result<JsValue, JsValue> {
+    // pub async fn estimate_notes_and_convs_per_tx(&self, notes_and_convs: JsValue, gas_limit: String, amount: String) -> Result<JsValue, JsValue> {
 
-        let notes_and_convs: Vec<Entry> = notes_and_convs.into_serde().map_err(|e| JsValue::from_str(&e.to_string()))?;
+    //     let notes_and_convs: Vec<Entry> = notes_and_convs.into_serde().map_err(|e| JsValue::from_str(&e.to_string()))?;
 
-        let notes_and_convs: Vec<(Amount, Option<Amount>)> = notes_and_convs.iter().map(|entry| {
-            let note = Amount::from_string_precise(&entry.note).map_err(|e| JsValue::from_str(&e.to_string()))?;
-            let conv = match &entry.conv {
-                Some(c) => Some(Amount::from_string_precise(c).map_err(|e| JsValue::from_str(&e.to_string()))?),
-                None => None,
-            };
-            Ok((note, conv))
-        }).collect::<Result<Vec<(Amount, Option<Amount>)>, JsValue>>()?;
+    //     let notes_and_convs: Vec<(Amount, Option<Amount>)> = notes_and_convs.iter().map(|entry| {
+    //         let note = Amount::from_string_precise(&entry.note).map_err(|e| JsValue::from_str(&e.to_string()))?;
+    //         let conv = match &entry.conv {
+    //             Some(c) => Some(Amount::from_string_precise(c).map_err(|e| JsValue::from_str(&e.to_string()))?),
+    //             None => None,
+    //         };
+    //         Ok((note, conv))
+    //     }).collect::<Result<Vec<(Amount, Option<Amount>)>, JsValue>>()?;
 
-        let sorted_notes_and_convs = {
-            let mut v = notes_and_convs.clone();
-            v.sort_by(|a, b| {
-                let a = a.1.unwrap_or(a.0);
-                let b = b.1.unwrap_or(b.0);
-                b.cmp(&a)
-            });
-            v
-        };
+    //     let sorted_notes_and_convs = {
+    //         let mut v = notes_and_convs.clone();
+    //         v.sort_by(|a, b| {
+    //             let a = a.1.unwrap_or(a.0);
+    //             let b = b.1.unwrap_or(b.0);
+    //             b.cmp(&a)
+    //         });
+    //         v
+    //     };
 
-        web_sys::console::log_1(&format!("sorted_notes_and_convs: {:?}", sorted_notes_and_convs).into());
+    //     web_sys::console::log_1(&format!("sorted_notes_and_convs: {:?}", sorted_notes_and_convs).into());
 
 
-        Ok(JsValue::from_f64(notes_and_convs.len() as f64))
-    }
+    //     Ok(JsValue::from_f64(notes_and_convs.len() as f64))
+    // }
 
 
     pub async fn build_unshielding_transfer(

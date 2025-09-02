@@ -173,6 +173,13 @@ export class Tx {
     );
   }
 
+  async getNotesAndConversions(
+    viewingKey: string,
+    chainId: string,
+  ): Promise<Record<string, [string, string?][]>> {
+    return await this.sdk.query_notes_to_spend(viewingKey, chainId);
+  }
+
   /**
    * Build RevealPK Tx
    * @async
