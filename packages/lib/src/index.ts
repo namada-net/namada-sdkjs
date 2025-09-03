@@ -58,7 +58,7 @@ export {
   ProofGenerationKey,
   PseudoExtendedKey,
 } from "./masp";
-export type { Masp } from "./masp";
+export type { Masp, NotesAndConversions } from "./masp";
 export { PhraseSize } from "./mnemonic";
 export type { Mnemonic } from "./mnemonic";
 export type { Signing } from "./signing";

@@ -1,4 +1,5 @@
 import { Sdk as SdkWasm } from "@namada/wasm";
+import { NotesAndConversions } from "./types";
 
 /**
  * Class representing utilities related to MASP
@@ -102,5 +103,20 @@ export class Masp {
    */
   clearShieldedContext(chainId: string): Promise<void> {
     return SdkWasm.clear_shielded_context(chainId);
+  }
+
+  /**
+   * Returns all the notes and conversions connected to the given viewing key
+   *
+   * @async
+   * @param viewingKey - Viewing key to get notes and conversions for
+   * @param chainId - Chain ID to load correct shielded context
+   * @returns Promise resolving to a map of addresses to arrays of notes and conversions tuple
+   */
+  async getNotesAndConversions(
+    viewingKey: string,
+    chainId: string,
+  ): Promise<NotesAndConversions> {
+    return await this.sdk.query_notes_to_spend(viewingKey, chainId);
   }
 }

@@ -16,14 +16,12 @@ export * from "./utils";
 export * from "./voteProposal";
 export * from "./withdraw";
 export * from "./wrapperTx";
-export * from "./maspMaxTxAmount";
 
 import { BatchTxResultMsgValue } from "./batchTxResult";
 import { BondMsgValue } from "./bond";
 import { ClaimRewardsMsgValue } from "./claimRewards";
 import { EthBridgeTransferMsgValue } from "./ethBridgeTransfer";
 import { IbcTransferMsgValue } from "./ibcTransfer";
-import { MaxMaspTxAmountMsgValue } from "./maspMaxTxAmount";
 import { RedelegateMsgValue } from "./redelegate";
 import { RevealPkMsgValue } from "./revealPk";
 import { SignatureMsgValue } from "./signature";
@@ -76,5 +74,4 @@ export type Schema =
   | RedelegateMsgValue
   | CommitmentMsgValue
   | TxDetailsMsgValue
-  | MaxMaspTxAmountMsgValue
   | RevealPkMsgValue;

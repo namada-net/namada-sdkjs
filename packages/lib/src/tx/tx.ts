@@ -14,8 +14,6 @@ import {
   EthBridgeTransferProps,
   IbcTransferMsgValue,
   IbcTransferProps,
-  MaxMaspTxAmountMsgValue,
-  MaxMaspTxAmountProps,
   Message,
   RedelegateMsgValue,
   RedelegateProps,
@@ -158,26 +156,6 @@ export class Tx {
       unshieldingTransferProps.skipFeeCheck || false,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
-  }
-
-  async estiamteMaxMaspTxAmountByNotes(
-    props: MaxMaspTxAmountProps,
-    chainId: string,
-  ): Promise<[string, string]> {
-    const msg = new Message<MaxMaspTxAmountMsgValue>();
-    const encodedMsg = msg.encode(new MaxMaspTxAmountMsgValue(props));
-
-    return await this.sdk.estimate_max_masp_tx_amount_by_notes(
-      encodedMsg,
-      chainId,
-    );
-  }
-
-  async getNotesAndConversions(
-    viewingKey: string,
-    chainId: string,
-  ): Promise<Record<string, [string, string?][]>> {
-    return await this.sdk.query_notes_to_spend(viewingKey, chainId);
   }
 
   /**

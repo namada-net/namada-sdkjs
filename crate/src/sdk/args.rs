@@ -41,19 +41,6 @@ use crate::types::masp::PseudoExtendedKey;
 
 #[derive(BorshSerialize, BorshDeserialize, Debug)]
 #[borsh(crate = "namada_sdk::borsh")]
-pub struct EstimateMaxMaspTxAmountMsg {
-    pub max_notes: u8,
-    pub source: String,
-    pub target: String,
-    pub token: String,
-    pub fee_token: String,
-    pub amount: String,
-    pub fee_amount: String,
-}
-
-
-#[derive(BorshSerialize, BorshDeserialize, Debug)]
-#[borsh(crate = "namada_sdk::borsh")]
 pub struct RevealPkMsg {
     public_key: String,
 }
@@ -1059,7 +1046,6 @@ fn tx_msg_into_args(tx_msg: &[u8]) -> Result<args::Tx, JsError> {
     let fee_amount = DenominatedAmount::from_str(&fee_amount)
         .unwrap_or_else(|_| panic!("Fee amount has to be valid. Received {}", fee_amount));
     let fee_input_amount = InputAmount::Unvalidated(fee_amount);
-    web_sys::console::log_1(&format!("Fee amount: {:?}", fee_input_amount).into());
     let wrapper_fee_payer = match wrapper_fee_payer {
         Some(wfp) => Some(PublicKey::from_str(&wfp)?),
         None => None,

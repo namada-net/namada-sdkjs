@@ -25,13 +25,11 @@ import {
   VoteProposalMsgValue,
   WithdrawMsgValue,
   WrapperTxMsgValue,
-  MaxMaspTxAmountMsgValue,
 } from "./schema";
 import { RevealPkMsgValue } from "./schema/revealPk";
 
 export type BatchTxResultProps = BatchTxResultMsgValue;
 export type BondProps = BondMsgValue;
-export type MaxMaspTxAmountProps = MaxMaspTxAmountMsgValue;
 export type EthBridgeTransferProps = EthBridgeTransferMsgValue;
 export type IbcTransferProps = IbcTransferMsgValue;
 export type RedelegateProps = RedelegateMsgValue;
