@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/bond.ts:17](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/bond.ts#L17)
+[packages/lib/src/types/schema/bond.ts:17](https://github.com/anoma/namada-sdkjs/blob/edf30efe7e90e48022c5a06b224e44eb58087392/packages/lib/src/types/schema/bond.ts#L17)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/bond.ts:15](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/bond.ts#L15)
+[packages/lib/src/types/schema/bond.ts:15](https://github.com/anoma/namada-sdkjs/blob/edf30efe7e90e48022c5a06b224e44eb58087392/packages/lib/src/types/schema/bond.ts#L15)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/bond.ts:9](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/bond.ts#L9)
+[packages/lib/src/types/schema/bond.ts:9](https://github.com/anoma/namada-sdkjs/blob/edf30efe7e90e48022c5a06b224e44eb58087392/packages/lib/src/types/schema/bond.ts#L9)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/bond.ts:12](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/bond.ts#L12)
+[packages/lib/src/types/schema/bond.ts:12](https://github.com/anoma/namada-sdkjs/blob/edf30efe7e90e48022c5a06b224e44eb58087392/packages/lib/src/types/schema/bond.ts#L12)

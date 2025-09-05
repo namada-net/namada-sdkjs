@@ -1,7 +1,7 @@
 [package]
 name = "sdk"
 authors = ["Heliax AG <hello@heliax.dev>"]
-version = "0.1.1"
+version = "0.21.0"
 edition = "2021"
 repository = "https://github.com/anoma/namada-interface/"
 description = "Shared functionality from Namada protocol"

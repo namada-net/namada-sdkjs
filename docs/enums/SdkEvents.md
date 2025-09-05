@@ -18,7 +18,7 @@
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:36
+packages/wasm/src/sdk/sdk.d.ts:37
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:35
+packages/wasm/src/sdk/sdk.d.ts:36
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:34
+packages/wasm/src/sdk/sdk.d.ts:35

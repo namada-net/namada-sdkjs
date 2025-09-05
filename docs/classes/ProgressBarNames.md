@@ -30,7 +30,7 @@
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:168
+packages/wasm/src/sdk/sdk.d.ts:169
 
 ## Properties
 
@@ -40,7 +40,7 @@ packages/wasm/src/sdk/sdk.d.ts:168
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:172
+packages/wasm/src/sdk/sdk.d.ts:173
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:171
+packages/wasm/src/sdk/sdk.d.ts:172
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:170
+packages/wasm/src/sdk/sdk.d.ts:171
 
 ## Methods
 
@@ -74,4 +74,4 @@ packages/wasm/src/sdk/sdk.d.ts:170
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:169
+packages/wasm/src/sdk/sdk.d.ts:170
