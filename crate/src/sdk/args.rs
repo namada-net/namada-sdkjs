@@ -41,6 +41,17 @@ use crate::types::masp::PseudoExtendedKey;
 
 #[derive(BorshSerialize, BorshDeserialize, Debug)]
 #[borsh(crate = "namada_sdk::borsh")]
+pub struct EstimateMaxMaspTxAmountMsg {
+    pub source: String,
+    pub target: String,
+    pub token: String,
+    pub fee_token: String,
+    pub amount: String,
+    pub fee_amount: String,
+}
+
+#[derive(BorshSerialize, BorshDeserialize, Debug)]
+#[borsh(crate = "namada_sdk::borsh")]
 pub struct RevealPkMsg {
     public_key: String,
 }

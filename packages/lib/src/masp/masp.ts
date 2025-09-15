@@ -1,5 +1,10 @@
 import { Sdk as SdkWasm } from "@namada/wasm";
 import { NotesAndConversions } from "./types";
+import {
+  MaxMaspTxAmountMsgValue,
+  MaxMaspTxAmountProps,
+  Message,
+} from "../types";
 
 /**
  * Class representing utilities related to MASP
@@ -118,5 +123,15 @@ export class Masp {
     chainId: string,
   ): Promise<NotesAndConversions> {
     return await this.sdk.query_notes_to_spend(viewingKey, chainId);
+  }
+
+  async estimateMaxMaspTxAmount(
+    props: MaxMaspTxAmountProps,
+    chainId: string,
+  ): Promise<boolean> {
+    const msg = new Message<MaxMaspTxAmountMsgValue>();
+    const encodedMsg = msg.encode(new MaxMaspTxAmountMsgValue(props));
+
+    return await this.sdk.estimate_max_masp_tx_amount(encodedMsg, chainId);
   }
 }

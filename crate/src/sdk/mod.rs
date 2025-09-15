@@ -9,11 +9,15 @@ mod wallet;
 
 use self::io::WebIo;
 use crate::rpc_client::HttpClient;
+use crate::types::masp::PseudoExtendedKey;
 use crate::utils::set_panic_hook;
 #[cfg(feature = "web")]
 use crate::utils::to_bytes;
 use crate::utils::to_js_result;
-use args::{generate_rng_build_params, masp_sign, BuildParams, MapSaplingSigAuth};
+use args::{
+    generate_rng_build_params, masp_sign, BuildParams, EstimateMaxMaspTxAmountMsg,
+    MapSaplingSigAuth,
+};
 use gloo_utils::format::JsValueSerdeExt;
 use js_sys::Uint8Array;
 use namada_sdk::address::{Address, ImplicitAddress, MASP};
@@ -30,12 +34,16 @@ use namada_sdk::ibc::core::host::types::identifiers::{ChannelId, PortId};
 use namada_sdk::io::{Client, NamadaIo};
 use namada_sdk::key::{common, ed25519, RefTo, SigScheme};
 use namada_sdk::masp::shielded_wallet::ShieldedApi;
-use namada_sdk::masp::{Conversions, ShieldedContext, SpentNotesTracker};
+use namada_sdk::masp::{
+    Conversions, MaspFeeData, MaspTransferData, ShieldedContext, SpentNotesTracker, WalletMap,
+};
 use namada_sdk::masp_primitives::sapling::ViewingKey;
 use namada_sdk::masp_primitives::transaction::components::amount::I128Sum;
 use namada_sdk::masp_primitives::transaction::TxId;
 use namada_sdk::masp_primitives::zip32::{ExtendedFullViewingKey, ExtendedKey};
-use namada_sdk::rpc::{self, query_denom, query_epoch, InnerTxResult, TxAppliedEvents, TxResponse};
+use namada_sdk::rpc::{
+    self, query_denom, query_epoch, validate_amount, InnerTxResult, TxAppliedEvents, TxResponse,
+};
 use namada_sdk::signing::SigningTxData;
 use namada_sdk::string_encoding::Format;
 use namada_sdk::tendermint_rpc::Url;
@@ -1177,6 +1185,88 @@ impl Sdk {
         to_js_result(reward)
     }
 
+    #[allow(clippy::too_many_arguments)]
+    pub async fn estimate_max_masp_tx_amount(
+        &self,
+        msg: &[u8],
+        chain_id: String,
+    ) -> Result<JsValue, JsError> {
+        let EstimateMaxMaspTxAmountMsg {
+            source,
+            target,
+            token,
+            fee_token,
+            amount,
+            fee_amount,
+        } = EstimateMaxMaspTxAmountMsg::try_from_slice(msg)
+            .map_err(|_| JsError::new("Invalid msg variant"))?;
+
+        let source = PseudoExtendedKey::decode(source)?.0;
+        let target = match Address::from_str(&target) {
+            Ok(addr) => TransferTarget::Address(addr),
+            Err(e1) => match PaymentAddress::from_str(&target) {
+                Ok(pa) => TransferTarget::PaymentAddress(pa),
+                Err(e2) => return Err(JsError::new(&format!("{} {}", e1, e2))),
+            },
+        };
+        let token = Address::from_str(&token)?;
+        let fee_token = Address::from_str(&fee_token)?;
+        let denom_amount = DenominatedAmount::from_str(&amount)?;
+        let amount = InputAmount::Unvalidated(denom_amount);
+        let fee_denom_amount =
+            DenominatedAmount::from_str(&fee_amount).expect("Amount to be valid.");
+        let fee_amount = InputAmount::Unvalidated(fee_denom_amount);
+
+        let validated_amount = validate_amount(&self.namada, amount, &token, false).await?;
+
+        let validated_fee_amount =
+            validate_amount(&self.namada, fee_amount, &fee_token, false).await?;
+
+        let masp_transfer_data = MaspTransferData {
+            sources: vec![(
+                TransferSource::ExtendedKey(source),
+                token.clone(),
+                validated_amount,
+            )],
+            targets: vec![(target, token.clone(), validated_amount)],
+        };
+
+        let masp_fee_data = MaspFeeData {
+            source,
+            // TODO: should not matter but check later
+            target: token,
+            token: fee_token.clone(),
+            amount: validated_fee_amount,
+        };
+
+        let mut shielded: ShieldedContext<masp::JSShieldedUtils> = ShieldedContext::default();
+        shielded.utils.chain_id = chain_id.clone();
+        // TODO: pass handler
+        shielded.try_load(async |_| {}).await;
+
+        let masp_tx_combined_data =
+            ShieldedContext::<masp::JSShieldedUtils>::combine_data_for_masp_transfer(
+                &self.namada,
+                masp_transfer_data,
+                Some(masp_fee_data),
+            )
+            .await?;
+
+        let epoch = rpc::query_masp_epoch(self.namada.client()).await?;
+        let builder = shielded
+            .add_shielded_parts(&self.namada, masp_tx_combined_data, epoch, u32::MAX - 20)
+            .await?;
+
+        let builder_clone = builder.clone().map_builder(WalletMap);
+        let builder_serialized =
+            borsh::to_vec(&builder_clone).map_err(|e| JsError::new(&e.to_string()))?;
+
+        // Magic number, we want to be sure that the size is below 9kB
+        let ok = builder_serialized.len() < 9216;
+
+        to_js_result(ok)
+    }
+
     pub async fn query_notes_to_spend(
         &self,
         owner: String,
@@ -1223,7 +1313,8 @@ impl Sdk {
                 } else {
                     res.insert(
                         address.clone(),
-                        Amount::from_masp_denominated_i128(*val, *digit).unwrap(),
+                        Amount::from_masp_denominated_i128(*val, *digit)
+                            .ok_or(JsError::new("Expected to create amount from masp value"))?,
                     );
                 }
             }
@@ -1264,7 +1355,6 @@ impl Sdk {
 
         to_js_result(final_res)
     }
-
 
     pub fn masp_address(&self) -> String {
         MASP.to_string()

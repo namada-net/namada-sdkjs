@@ -4,8 +4,10 @@ import {
   ClaimRewardsMsgValue,
   EthBridgeTransferMsgValue,
   IbcTransferMsgValue,
+  MaspTxConv,
   MaspTxIn,
   MaspTxOut,
+  MaxMaspTxAmountMsgValue,
   RedelegateMsgValue,
   ShieldedTransferDataMsgValue,
   ShieldedTransferMsgValue,
@@ -55,6 +57,7 @@ export type ClaimRewardsProps = ClaimRewardsMsgValue;
 export type WithdrawProps = WithdrawMsgValue;
 export type WrapperTxProps = WrapperTxMsgValue;
 export type RevealPkProps = RevealPkMsgValue;
+export type MaxMaspTxAmountProps = MaxMaspTxAmountMsgValue;
 
 export type SupportedTxProps =
   | BondProps
@@ -77,6 +80,7 @@ export type CommitmentDetailProps<
   memo?: string;
   maspTxIn?: MaspTxIn[];
   maspTxOut?: MaspTxOut[];
+  maspTxConv?: MaspTxConv[][];
 };
 
 export type TxDetails = WrapperTxProps & {
