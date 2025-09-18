@@ -24,6 +24,7 @@ namada_tx = { path = "/home/mj/Projects/heliax/namada/crates/tx" }
 aes-gcm = "0.10.3"
 async-trait = {version = "0.1.51"}
 argon2 = "0.5.3"
+base64 = "0.22"
 borsh-ext = { git = "https://github.com/heliaxdev/borsh-ext", tag = "v1.2.0" }
 tiny-bip39 = "2.0.0"
 chrono = "0.4.22"
@@ -74,6 +75,7 @@ wasm-bindgen-test = "0.3.13"
 # https://doc.rust-lang.org/cargo/reference/profiles.html
 [profile.release]
 lto = true
+opt-level = 3
 
 [profile.dev]
 opt-level = 3
@@ -82,7 +84,7 @@ lto = true
 # wasm-pack specific configuration
 [package.metadata.wasm-pack.profile.release]
 # https://docs.rs/wasm-opt/latest/wasm_opt/
-wasm-opt = ['-O4']
+wasm-opt = ['-O2']
 
 [package.metadata.wasm-pack.profile.dev]
 wasm-opt = false

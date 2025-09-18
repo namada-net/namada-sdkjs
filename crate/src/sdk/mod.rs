@@ -24,6 +24,7 @@ use namada_sdk::address::{Address, ImplicitAddress, MASP};
 use namada_sdk::args::{
     GenIbcShieldingTransfer, IbcShieldingTransferAsset, InputAmount, Query, TxExpiration,
 };
+use base64::{Engine as _, engine::general_purpose::URL_SAFE};
 use namada_sdk::borsh::{self, BorshDeserialize};
 use namada_sdk::collections::HashMap;
 use namada_sdk::control_flow::time;
@@ -37,7 +38,9 @@ use namada_sdk::masp::shielded_wallet::ShieldedApi;
 use namada_sdk::masp::{
     Conversions, MaspFeeData, MaspTransferData, ShieldedContext, SpentNotesTracker, WalletMap,
 };
+use namada_sdk::masp_primitives::consensus::TestNetwork;
 use namada_sdk::masp_primitives::sapling::ViewingKey;
+use namada_sdk::masp_primitives::transaction::builder::Builder;
 use namada_sdk::masp_primitives::transaction::components::amount::I128Sum;
 use namada_sdk::masp_primitives::transaction::TxId;
 use namada_sdk::masp_primitives::zip32::{ExtendedFullViewingKey, ExtendedKey};
@@ -1257,7 +1260,7 @@ impl Sdk {
             .add_shielded_parts(&self.namada, masp_tx_combined_data, epoch, u32::MAX - 20)
             .await?;
 
-        let builder_clone = builder.clone().map_builder(WalletMap);
+        let builder_clone: Builder<(), ExtendedFullViewingKey, ()> = builder.clone().map_builder(WalletMap);
         let builder_serialized =
             borsh::to_vec(&builder_clone).map_err(|e| JsError::new(&e.to_string()))?;
 

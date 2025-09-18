@@ -2208,6 +2208,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "07e28edb80900c19c28f1072f2e8aeca7fa06b23cd4169cefe1af5aa3260783f"
 
 [[package]]
+name = "git2"
+version = "0.20.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2deb07a133b1520dc1a5690e9bd08950108873d7ed5de38dcc74d3b5ebffa110"
+dependencies = [
+ "bitflags 2.9.0",
+ "libc",
+ "libgit2-sys",
+ "log",
+ "url",
+]
+
+[[package]]
 name = "glob"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3622,6 +3635,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c19937216e9d3aa9956d9bb8dfc0b0c8beb6058fc4f7a4dc4d850edf86a237d6"
 
 [[package]]
+name = "libgit2-sys"
+version = "0.18.2+1.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1c42fe03df2bd3c53a3a9c7317ad91d80c81cd1fb0caec8d7cc4cd2bfa10c222"
+dependencies = [
+ "cc",
+ "libc",
+ "libz-sys",
+ "pkg-config",
+]
+
+[[package]]
 name = "libm"
 version = "0.2.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3635,6 +3660,18 @@ checksum = "c0ff37bd590ca25063e35af745c343cb7a0271906fb7b37e4813e8f79f00268d"
 dependencies = [
  "bitflags 2.9.0",
  "libc",
+]
+
+[[package]]
+name = "libz-sys"
+version = "1.1.22"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8b70e7a7df205e92a1a4cd9aaae7898dac0aa555503cc0a649494d0d60e7651d"
+dependencies = [
+ "cc",
+ "libc",
+ "pkg-config",
+ "vcpkg",
 ]
 
 [[package]]
@@ -3674,8 +3711,6 @@ checksum = "30bde2b3dc3671ae49d8e2e9f044c7c005836e7a023ee57cffa25ab82764bb9e"
 [[package]]
 name = "masp_note_encryption"
 version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d4ada01979db25a366c3e7382d0693fc65571dea7dc81960ef03a00aa4bb12f3"
 dependencies = [
  "borsh",
  "chacha20",
@@ -3688,8 +3723,6 @@ dependencies = [
 [[package]]
 name = "masp_primitives"
 version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f4fc77ab4163be1a72719a6cd27f9ab1f86dc9080a3d42aa2edd41e687aa97d5"
 dependencies = [
  "aes",
  "bip0039",
@@ -3720,8 +3753,6 @@ dependencies = [
 [[package]]
 name = "masp_proofs"
 version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "26a2bf8522c7f7a6529c7c450119e3fb06c2be638894866f3ad9e5a133a5d048"
 dependencies = [
  "bellman",
  "blake2b_simd",
@@ -3759,12 +3790,6 @@ name = "memuse"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3d97bbf43eb4f088f8ca469930cde17fa036207c9a5e02ccc5107c4e8b17c964"
-
-[[package]]
-name = "memzero"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "93c0d11ac30a033511ae414355d80f70d9f29a44a49140face477117a1ee90db"
 
 [[package]]
 name = "mime"
@@ -3896,9 +3921,9 @@ dependencies = [
 
 [[package]]
 name = "nam-sparse-merkle-tree"
-version = "0.3.2-nam.0"
+version = "0.3.3-nam.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fae108a0f6aabf789e34d6d447c1184608d1c70c087f957b720042226a47ab63"
+checksum = "09548cb2907afb9ee1047b7bbe9601e25b73b69229fca50d49badd97cc190cfb"
 dependencies = [
  "borsh",
  "cfg-if",
@@ -3909,20 +3934,20 @@ dependencies = [
 
 [[package]]
 name = "nam-tiny-hderive"
-version = "0.3.1-nam.0"
+version = "0.3.1-nam.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9dfd77f274636f722e966c394b381a70233ed4c25150864a4c53d398028a6818"
+checksum = "b2cd44792ed5cd84dc9dedc3d572242ac00e76c244e85eb4bf34da2c6239ce30"
 dependencies = [
  "base58",
  "hmac",
  "k256",
- "memzero",
  "sha2 0.10.8",
+ "zeroize",
 ]
 
 [[package]]
 name = "namada_account"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "namada_core",
@@ -3933,7 +3958,7 @@ dependencies = [
 
 [[package]]
 name = "namada_controller"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "namada_core",
  "smooth-operator",
@@ -3942,7 +3967,7 @@ dependencies = [
 
 [[package]]
 name = "namada_core"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "bech32 0.11.0",
  "borsh",
@@ -3990,7 +4015,7 @@ dependencies = [
 
 [[package]]
 name = "namada_ethereum_bridge"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "ethers",
@@ -4017,7 +4042,7 @@ dependencies = [
 
 [[package]]
 name = "namada_events"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4030,7 +4055,7 @@ dependencies = [
 
 [[package]]
 name = "namada_gas"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4042,7 +4067,7 @@ dependencies = [
 
 [[package]]
 name = "namada_governance"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4064,7 +4089,7 @@ dependencies = [
 
 [[package]]
 name = "namada_ibc"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "data-encoding",
@@ -4098,7 +4123,7 @@ dependencies = [
 
 [[package]]
 name = "namada_io"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "async-trait",
  "kdam",
@@ -4110,7 +4135,7 @@ dependencies = [
 
 [[package]]
 name = "namada_macros"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "data-encoding",
  "proc-macro2",
@@ -4121,7 +4146,7 @@ dependencies = [
 
 [[package]]
 name = "namada_merkle_tree"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "eyre",
@@ -4135,7 +4160,7 @@ dependencies = [
 
 [[package]]
 name = "namada_parameters"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "namada_core",
  "namada_macros",
@@ -4149,7 +4174,7 @@ dependencies = [
 
 [[package]]
 name = "namada_proof_of_stake"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4172,14 +4197,14 @@ dependencies = [
 
 [[package]]
 name = "namada_replay_protection"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "namada_core",
 ]
 
 [[package]]
 name = "namada_sdk"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "async-trait",
  "bech32 0.11.0",
@@ -4248,9 +4273,10 @@ dependencies = [
 
 [[package]]
 name = "namada_shielded_token"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "async-trait",
+ "base64 0.22.1",
  "borsh",
  "eyre",
  "flume",
@@ -4283,12 +4309,13 @@ dependencies = [
  "thiserror 2.0.12",
  "tracing",
  "typed-builder",
+ "web-sys",
  "xorf",
 ]
 
 [[package]]
 name = "namada_state"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "clru",
@@ -4310,7 +4337,7 @@ dependencies = [
 
 [[package]]
 name = "namada_storage"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4328,7 +4355,7 @@ dependencies = [
 
 [[package]]
 name = "namada_systems"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4337,7 +4364,7 @@ dependencies = [
 
 [[package]]
 name = "namada_token"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4354,7 +4381,7 @@ dependencies = [
 
 [[package]]
 name = "namada_trans_token"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "konst",
  "namada_core",
@@ -4370,7 +4397,7 @@ dependencies = [
 
 [[package]]
 name = "namada_tx"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "ark-bls12-381",
  "bitflags 2.9.0",
@@ -4398,7 +4425,7 @@ dependencies = [
 
 [[package]]
 name = "namada_tx_env"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4407,10 +4434,11 @@ dependencies = [
 
 [[package]]
 name = "namada_vm"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "clru",
+ "git2",
  "namada_account",
  "namada_core",
  "namada_events",
@@ -4429,7 +4457,7 @@ dependencies = [
 
 [[package]]
 name = "namada_vote_ext"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4440,7 +4468,7 @@ dependencies = [
 
 [[package]]
 name = "namada_vp"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4455,7 +4483,7 @@ dependencies = [
 
 [[package]]
 name = "namada_vp_env"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "derivative",
  "masp_primitives",
@@ -4469,7 +4497,7 @@ dependencies = [
 
 [[package]]
 name = "namada_wallet"
-version = "0.251.1"
+version = "0.251.0"
 dependencies = [
  "bimap",
  "borsh",
@@ -5854,6 +5882,7 @@ dependencies = [
  "aes-gcm",
  "argon2",
  "async-trait",
+ "base64 0.22.1",
  "borsh-ext",
  "chrono",
  "console_error_panic_hook",

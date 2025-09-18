@@ -5,7 +5,7 @@ use namada_sdk::address::DecodeError;
 use namada_sdk::args::{
     TxShieldedSource, TxShieldedTarget, TxTransparentSource, TxTransparentTarget,
 };
-use namada_sdk::borsh::{BorshDeserialize, BorshSerialize};
+use namada_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use namada_sdk::collections::HashMap;
 use namada_sdk::ibc::core::host::types::identifiers::{ChannelId, PortId};
 use namada_sdk::ibc::IbcShieldingData;
@@ -1122,7 +1122,18 @@ pub enum BuildParams {
 }
 
 pub fn generate_rng_build_params() -> BuildParams {
-    BuildParams::RngBuildParams(RngBuildParams::new(OsRng))
+    let params = RngBuildParams::new(OsRng);
+
+    BuildParams::RngBuildParams(params)
+}
+
+impl BuildParams {
+    pub fn to_stored(self) -> Option<StoredBuildParams> {
+        match self {
+            BuildParams::RngBuildParams(params) => params.to_stored(),
+            BuildParams::StoredBuildParams(params) => Some(params)
+        }
+    }
 }
 
 // Sign the given transaction's MASP component using real signatures

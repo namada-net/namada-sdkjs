@@ -75,7 +75,7 @@ const { status } = spawnSync(
           env: {
             ...process.env,
             RUSTFLAGS:
-              '-C target-feature=+atomics,+bulk-memory,+mutable-globals --cfg getrandom_backend="wasm_js"',
+              '-C target-feature=+atomics,+bulk-memory,+mutable-globals,+simd128 --cfg getrandom_backend="wasm_js"',
           },
         }
       : {
