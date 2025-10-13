@@ -1028,11 +1028,6 @@ impl Sdk {
             self.namada.native_token(),
         )?;
 
-        web_sys::console::log_1(&format!(
-            "Building osmosis swap with args: {:?}",
-            args
-        ).into());
-
         let _ = &self
             .namada
             .shielded_mut()
@@ -1040,11 +1035,9 @@ impl Sdk {
             .try_load(async |_| {})
             .await;
 
-        // TODO: check if returning true is correct here
         let tx = args
             .into_ibc_transfer(&self.namada, |_route, _min_amount, _quote_amount| true)
             .await?;
-        web_sys::console::log_1(&format!("Built osmosis swap tx: {:?}", tx).into());
 
         let bparams = if let Some(bparams) = bparams {
             BuildParams::StoredBuildParams(bparams)
@@ -1059,7 +1052,6 @@ impl Sdk {
 
         let ((tx, signing_data, _), masp_signing_data) = match bparams {
             BuildParams::RngBuildParams(mut bparams) => {
-                // TODO: replace flase
                 let tx = build_ibc_transfer(&self.namada, &tx, &mut bparams, false).await?;
                 let masp_signing_data = MaspSigningData::new(
                     bparams
@@ -1071,7 +1063,6 @@ impl Sdk {
                 (tx, masp_signing_data)
             }
             BuildParams::StoredBuildParams(mut bparams) => {
-                // TODO: replace flase
                 let tx = build_ibc_transfer(&self.namada, &tx, &mut bparams, false).await?;
                 let masp_signing_data = MaspSigningData::new(bparams, xfvks);
 
