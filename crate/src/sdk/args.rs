@@ -571,7 +571,6 @@ pub struct ShieldedTransferMsg {
     data: Vec<ShieldedTransferDataMsg>,
     gas_spending_key: Option<String>,
     bparams: Option<Vec<BparamsMsg>>,
-    skip_fee_check: Option<bool>,
 }
 
 /// Maps serialized tx_msg into TxShieldedTransfer args.
@@ -594,7 +593,6 @@ pub fn shielded_transfer_tx_args(
         data,
         gas_spending_key,
         bparams: bparams_msg,
-        skip_fee_check: _,
     } = shielded_transfer_msg;
 
     let gas_spending_key = gas_spending_key
@@ -730,7 +728,6 @@ pub struct UnshieldingTransferMsg {
     data: Vec<UnshieldingTransferDataMsg>,
     gas_spending_key: Option<String>,
     bparams: Option<Vec<BparamsMsg>>,
-    skip_fee_check: Option<bool>,
 }
 
 /// Maps serialized tx_msg into TxUnshieldingTransfer args.
@@ -755,7 +752,6 @@ pub fn unshielding_transfer_tx_args(
         data,
         gas_spending_key,
         bparams: bparams_msg,
-        skip_fee_check: _,
     } = unshielding_transfer_msg;
     let source = PseudoExtendedKey::decode(source)?.0;
     let gas_spending_key = gas_spending_key
@@ -1077,20 +1073,22 @@ fn tx_msg_into_args(tx_msg: &[u8]) -> Result<args::Tx, JsError> {
         None => TxExpiration::Default,
     };
 
-    let args = args::Tx {
-        dry_run: false,
-        dry_run_wrapper: false,
-        dump_tx: false,
-        dump_wrapper_tx: false,
-        force,
+    let wrapper = args::Wrapper {
         broadcast_only: false,
-        ledger_address,
-        wallet_alias_force: false,
-        initialized_account_alias: None,
         fee_amount: Some(fee_input_amount),
         fee_token: token.clone(),
         gas_limit: GasLimit::from_str(&gas_limit).expect("Gas limit to be valid"),
         wrapper_fee_payer,
+    };
+
+    let args = args::Tx {
+        dry_run: None,
+        dump_tx: None,
+        force,
+        ledger_address,
+        wallet_alias_force: false,
+        initialized_account_alias: None,
+        wrap_tx: Some(wrapper),
         output_folder: None,
         expiration,
         chain_id: Some(ChainId(chain_id)),

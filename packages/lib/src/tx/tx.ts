@@ -101,7 +101,6 @@ export class Tx {
     const serializedTx = await this.sdk.build_shielded_transfer(
       encodedTransfer,
       encodedWrapperArgs,
-      shieldedTransferProps.skipFeeCheck || false,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
@@ -153,7 +152,6 @@ export class Tx {
     const serializedTx = await this.sdk.build_unshielding_transfer(
       encodedTransfer,
       encodedWrapperArgs,
-      unshieldingTransferProps.skipFeeCheck || false,
     );
     return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
