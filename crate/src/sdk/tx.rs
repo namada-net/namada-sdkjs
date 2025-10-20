@@ -80,10 +80,12 @@ impl SigningData {
                 FeeAuthorization::Signer {
                     pubkey,
                     disposable_fee_payer: _,
-                } => pubkey.to_string(),
-                FeeAuthorization::Signature(_) => panic!("TODO"),
+                } => Ok(pubkey.to_string()),
+                FeeAuthorization::Signature(_) => {
+                    Err(JsError::new("FeeAuthorization::Signature not supported"))
+                }
             })
-            .expect("TODO: Fee payer must be present");
+            .ok_or(JsError::new("FeeAuthorization is required"))??;
 
         let threshold = signing_tx_data.threshold;
         let shielded_hash = match signing_tx_data.shielded_hash {
@@ -143,7 +145,7 @@ impl SigningData {
     pub fn to_namada_signing_data(&self) -> Result<NamadaSigningData, JsError> {
         let signing_data = self.to_signing_tx_data()?;
 
-        let sd = NamadaSigningData::Wrapper(SigningWrapperData {
+        let siginig_data = NamadaSigningData::Wrapper(SigningWrapperData {
             signing_data: vec![signing_data],
             fee_auth: FeeAuthorization::Signer {
                 pubkey: PublicKey::from_str(&self.fee_payer)?,
@@ -151,7 +153,7 @@ impl SigningData {
             },
         });
 
-        Ok(sd)
+        Ok(siginig_data)
     }
 
     pub fn masp(&self) -> Option<Vec<u8>> {

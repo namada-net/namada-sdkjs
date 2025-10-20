@@ -1266,10 +1266,6 @@ impl Sdk {
                 Some(signing_wrapper_data.fee_auth),
             ),
         };
-        web_sys::console::log_1(&JsValue::from_str(&format!(
-            "Components: {:?}, {:?}, {:?}",
-            components.0, components.1, masp_signing_data
-        )));
 
         let tx = tx::Tx::new(
             tx,
