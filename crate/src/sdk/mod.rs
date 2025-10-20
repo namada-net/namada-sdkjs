@@ -577,8 +577,12 @@ impl Sdk {
         }
 
         let (tx, signing_data) = build_batch(txs.clone())?;
+        let wrapper_signing_data = match signing_data {
+            Either::Left(sd) => Ok(sd),
+            Either::Right(_) => Err(JsError::new("Expected Left signing data for batch Tx")),
+        }?;
 
-        let masp_sd = signing_data.signing_data.iter().find_map(|sd| {
+        let masp_sd = wrapper_signing_data.signing_data.iter().find_map(|sd| {
             if let Some(sh) = sd.shielded_hash {
                 masp_map.get(&sh).cloned()
             } else {
@@ -590,8 +594,8 @@ impl Sdk {
             tx,
             &borsh::to_vec(&args)?,
             (
-                signing_data.signing_data,
-                Some(signing_data.fee_auth),
+                wrapper_signing_data.signing_data,
+                Some(wrapper_signing_data.fee_auth),
                 masp_sd,
             ),
         )?)?)
