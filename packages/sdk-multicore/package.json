@@ -1,6 +1,6 @@
 {
   "name": "@namada/sdk-multicore",
-  "version": "0.20.8",
+  "version": "0.21.1-beta.1",
   "description": "Namada Web Multicore SDK",
   "main": "dist/sdk-multicore/src/index.js",
   "types": "dist/sdk-multicore/src/index.d.ts",
