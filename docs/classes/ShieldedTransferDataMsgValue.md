@@ -35,7 +35,7 @@ Shielded Transfer schemas
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:72](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L72)
+[packages/lib/src/types/schema/transfer.ts:72](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L72)
 
 ## Properties
 
@@ -45,7 +45,7 @@ Shielded Transfer schemas
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:70](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L70)
+[packages/lib/src/types/schema/transfer.ts:70](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L70)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:61](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L61)
+[packages/lib/src/types/schema/transfer.ts:61](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L61)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:64](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L64)
+[packages/lib/src/types/schema/transfer.ts:64](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L64)
 
 ___
 
@@ -75,4 +75,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:67](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L67)
+[packages/lib/src/types/schema/transfer.ts:67](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L67)

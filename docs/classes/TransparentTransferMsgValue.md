@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:47](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L47)
+[packages/lib/src/types/schema/transfer.ts:47](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L47)
 
 ## Properties
 
@@ -40,4 +40,4 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:45](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L45)
+[packages/lib/src/types/schema/transfer.ts:45](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L45)

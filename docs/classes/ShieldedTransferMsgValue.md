@@ -13,7 +13,6 @@
 - [bparams](ShieldedTransferMsgValue.md#bparams)
 - [data](ShieldedTransferMsgValue.md#data)
 - [gasSpendingKey](ShieldedTransferMsgValue.md#gasspendingkey)
-- [skipFeeCheck](ShieldedTransferMsgValue.md#skipfeecheck)
 
 ## Constructors
 
@@ -33,7 +32,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:90](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L90)
+[packages/lib/src/types/schema/transfer.ts:87](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L87)
 
 ## Properties
 
@@ -43,7 +42,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:85](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L85)
+[packages/lib/src/types/schema/transfer.ts:85](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L85)
 
 ___
 
@@ -53,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:79](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L79)
+[packages/lib/src/types/schema/transfer.ts:79](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L79)
 
 ___
 
@@ -63,14 +62,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:82](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L82)
-
-___
-
-### skipFeeCheck
-
-• `Optional` **skipFeeCheck**: `boolean`
-
-#### Defined in
-
-[packages/lib/src/types/schema/transfer.ts:88](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/schema/transfer.ts#L88)
+[packages/lib/src/types/schema/transfer.ts:82](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/transfer.ts#L82)
