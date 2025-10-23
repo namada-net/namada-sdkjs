@@ -61,7 +61,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/messages/index.ts:9](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/messages/index.ts#L9)
+[packages/lib/src/types/messages/index.ts:9](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/messages/index.ts#L9)
 
 ___
 
@@ -88,4 +88,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/messages/index.ts:18](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/messages/index.ts#L18)
+[packages/lib/src/types/messages/index.ts:18](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/messages/index.ts#L18)

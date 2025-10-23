@@ -55,7 +55,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/lib/src/types/errors.ts:11](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/errors.ts#L11)
+[packages/lib/src/types/errors.ts:11](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/errors.ts#L11)
 
 ## Properties
 
@@ -135,7 +135,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:148
+packages/lib/node_modules/@types/node/globals.d.ts:68
 
 ## Methods
 
@@ -151,7 +151,7 @@ TxResponseProps
 
 #### Defined in
 
-[packages/lib/src/types/errors.ts:35](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/errors.ts#L35)
+[packages/lib/src/types/errors.ts:35](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/errors.ts#L35)
 
 ___
 
@@ -167,7 +167,7 @@ string
 
 #### Defined in
 
-[packages/lib/src/types/errors.ts:19](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/types/errors.ts#L19)
+[packages/lib/src/types/errors.ts:19](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/errors.ts#L19)
 
 ___
 
@@ -236,7 +236,7 @@ Error.captureStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:132
+packages/lib/node_modules/@types/node/globals.d.ts:52
 
 ___
 
@@ -265,4 +265,4 @@ Error.prepareStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:136
+packages/lib/node_modules/@types/node/globals.d.ts:56

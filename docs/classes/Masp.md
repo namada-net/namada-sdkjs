@@ -22,6 +22,7 @@ Class representing utilities related to MASP
 - [clearShieldedContext](Masp.md#clearshieldedcontext)
 - [fetchAndStoreMaspParams](Masp.md#fetchandstoremaspparams)
 - [getDescriptorMap](Masp.md#getdescriptormap)
+- [getNotesAndConversions](Masp.md#getnotesandconversions)
 - [hasMaspParams](Masp.md#hasmaspparams)
 - [loadMaspParams](Masp.md#loadmaspparams)
 - [maspAddress](Masp.md#maspaddress)
@@ -44,7 +45,7 @@ Class representing utilities related to MASP
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:10](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L10)
+[packages/lib/src/masp/masp.ts:11](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L11)
 
 ## Properties
 
@@ -56,7 +57,7 @@ Instance of Sdk struct from wasm lib
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:10](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L10)
+[packages/lib/src/masp/masp.ts:11](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L11)
 
 ## Methods
 
@@ -83,7 +84,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:85](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L85)
+[packages/lib/src/masp/masp.ts:86](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L86)
 
 ___
 
@@ -110,7 +111,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:63](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L63)
+[packages/lib/src/masp/masp.ts:64](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L64)
 
 ___
 
@@ -137,7 +138,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:74](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L74)
+[packages/lib/src/masp/masp.ts:75](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L75)
 
 ___
 
@@ -161,7 +162,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:103](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L103)
+[packages/lib/src/masp/masp.ts:104](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L104)
 
 ___
 
@@ -187,7 +188,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:41](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L41)
+[packages/lib/src/masp/masp.ts:42](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L42)
 
 ___
 
@@ -214,7 +215,34 @@ Get spend notes descriptor map
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:19](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L19)
+[packages/lib/src/masp/masp.ts:20](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L20)
+
+___
+
+### getNotesAndConversions
+
+▸ **getNotesAndConversions**(`viewingKey`, `chainId`): `Promise`\<[`NotesAndConversions`](../modules.md#notesandconversions)\>
+
+Returns all the notes and conversions connected to the given viewing key
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `viewingKey` | `string` | Viewing key to get notes and conversions for |
+| `chainId` | `string` | Chain ID to load correct shielded context |
+
+#### Returns
+
+`Promise`\<[`NotesAndConversions`](../modules.md#notesandconversions)\>
+
+Promise resolving to a map of addresses to arrays of notes and conversions tuple
+
+**`Async`**
+
+#### Defined in
+
+[packages/lib/src/masp/masp.ts:116](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L116)
 
 ___
 
@@ -234,7 +262,7 @@ True if MASP parameters are loaded
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:31](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L31)
+[packages/lib/src/masp/masp.ts:32](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L32)
 
 ___
 
@@ -261,7 +289,7 @@ void
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:52](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L52)
+[packages/lib/src/masp/masp.ts:53](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L53)
 
 ___
 
@@ -280,4 +308,4 @@ the MASP address
 
 #### Defined in
 
-[packages/lib/src/masp/masp.ts:94](https://github.com/namada-net/namada-sdkjs/blob/7e52eab0832738d3afb073b6a802625bea75ee25/packages/lib/src/masp/masp.ts#L94)
+[packages/lib/src/masp/masp.ts:95](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/masp/masp.ts#L95)
