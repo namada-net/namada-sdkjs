@@ -4,8 +4,7 @@ Imports from masp_primitives::zip32, instead of zcash_primitives::zip32, as
 the value for constant ZIP32_SAPLING_MASTER_PERSONALIZATION is different!
 Otherwise, these implementations should be equivalent.
 */
-use borsh_ext::BorshSerializeExt;
-use namada_sdk::borsh::BorshDeserialize;
+use namada_sdk::borsh::{BorshDeserialize, BorshSerializeExt};
 use namada_sdk::masp_primitives::{
     sapling::PaymentAddress,
     zip32::{sapling, ChildIndex, ExtendedFullViewingKey, ExtendedSpendingKey},

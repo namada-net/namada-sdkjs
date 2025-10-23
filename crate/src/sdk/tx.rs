@@ -3,14 +3,16 @@ use std::str::FromStr;
 
 use gloo_utils::format::JsValueSerdeExt;
 use namada_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
+
 use namada_sdk::collections::HashSet;
 use namada_sdk::masp_primitives::transaction::components::sapling::builder::StoredBuildParams;
 use namada_sdk::masp_primitives::transaction::components::sapling::fees::{InputView, OutputView};
 use namada_sdk::masp_primitives::zip32::ExtendedFullViewingKey;
-use namada_sdk::signing::SigningTxData;
+use namada_sdk::signing::{FeeAuthorization, SigningTxData};
+use namada_sdk::signing::{SigningData as NamadaSigningData, SigningWrapperData};
 use namada_sdk::token::{Amount, DenominatedAmount, Transfer};
 use namada_sdk::tx::data::compute_inner_tx_hash;
-use namada_sdk::tx::either::{self, Either};
+use namada_sdk::tx::either::Either;
 use namada_sdk::tx::{
     self, TX_BOND_WASM, TX_CLAIM_REWARDS_WASM, TX_IBC_WASM, TX_REDELEGATE_WASM, TX_REVEAL_PK,
     TX_TRANSFER_WASM, TX_UNBOND_WASM, TX_VOTE_PROPOSAL, TX_WITHDRAW_WASM,
@@ -58,6 +60,7 @@ impl SigningData {
     // Create serializable struct from Namada type
     pub fn from_signing_tx_data(
         signing_tx_data: SigningTxData,
+        fee_auth: Option<FeeAuthorization>,
         masp_signing_data: Option<MaspSigningData>,
     ) -> Result<SigningData, JsError> {
         let owner: Option<String> = signing_tx_data.owner.map(|addr| addr.to_string());
@@ -72,10 +75,17 @@ impl SigningData {
             None => None,
         };
 
-        let fee_payer = match signing_tx_data.fee_payer {
-            Either::Left(f) => f.0.to_string(),
-            Either::Right(_) => return Err(JsError::new("Fee payer must be a public key")),
-        };
+        let fee_payer = fee_auth
+            .map(|fa| match fa {
+                FeeAuthorization::Signer {
+                    pubkey,
+                    disposable_fee_payer: _,
+                } => Ok(pubkey.to_string()),
+                FeeAuthorization::Signature(_) => {
+                    Err(JsError::new("FeeAuthorization::Signature not supported"))
+                }
+            })
+            .ok_or(JsError::new("FeeAuthorization is required"))??;
 
         let threshold = signing_tx_data.threshold;
         let shielded_hash = match signing_tx_data.shielded_hash {
@@ -111,8 +121,6 @@ impl SigningData {
             public_keys.insert(pk);
         }
 
-        let fee_payer = PublicKey::from_str(&self.fee_payer)?;
-        let fee_payer = either::Left((fee_payer, false));
         let threshold = self.threshold;
         let account_public_keys_map = match &self.account_public_keys_map {
             Some(pk_map) => Some(borsh::from_slice(pk_map)?),
@@ -126,13 +134,26 @@ impl SigningData {
         Ok(SigningTxData {
             owner,
             public_keys,
-            fee_payer,
             threshold,
             // Assume no signatures at this point
             signatures: vec![],
             account_public_keys_map,
             shielded_hash,
         })
+    }
+
+    pub fn to_namada_signing_data(&self) -> Result<NamadaSigningData, JsError> {
+        let signing_data = self.to_signing_tx_data()?;
+
+        let siginig_data = NamadaSigningData::Wrapper(SigningWrapperData {
+            signing_data: vec![signing_data],
+            fee_auth: FeeAuthorization::Signer {
+                pubkey: PublicKey::from_str(&self.fee_payer)?,
+                disposable_fee_payer: false,
+            },
+        });
+
+        Ok(siginig_data)
     }
 
     pub fn masp(&self) -> Option<Vec<u8>> {
@@ -175,12 +196,16 @@ impl Tx {
     pub fn new(
         tx: tx::Tx,
         args: &[u8],
-        signing_tx_data: Vec<(SigningTxData, Option<MaspSigningData>)>,
+        (signing_tx_data, fee_auth, masp_sd): (
+            Vec<SigningTxData>,
+            Option<FeeAuthorization>,
+            Option<MaspSigningData>,
+        ),
     ) -> Result<Tx, JsError> {
         let args: WrapperTxMsg = borsh::from_slice(args)?;
         let mut signing_data: Vec<SigningData> = vec![];
-        for (sd, msd) in signing_tx_data.into_iter() {
-            let sd = SigningData::from_signing_tx_data(sd, msd)?;
+        for sd in signing_tx_data.into_iter() {
+            let sd = SigningData::from_signing_tx_data(sd, fee_auth.clone(), masp_sd.clone())?;
             signing_data.push(sd);
         }
         let hash = tx.wrapper_hash();

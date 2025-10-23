@@ -36,7 +36,7 @@ use namada_sdk::masp_primitives::transaction::components::amount::I128Sum;
 use namada_sdk::masp_primitives::transaction::TxId;
 use namada_sdk::masp_primitives::zip32::{ExtendedFullViewingKey, ExtendedKey};
 use namada_sdk::rpc::{self, query_denom, query_epoch, InnerTxResult, TxAppliedEvents, TxResponse};
-use namada_sdk::signing::SigningTxData;
+use namada_sdk::signing::SigningData;
 use namada_sdk::string_encoding::Format;
 use namada_sdk::tendermint_rpc::Url;
 use namada_sdk::token::{Amount, DenominatedAmount};
@@ -547,7 +547,7 @@ impl Sdk {
 
         let args = first_tx.args();
 
-        let mut txs: Vec<(Tx, SigningTxData)> = vec![];
+        let mut txs: Vec<(Tx, SigningData)> = vec![];
         let mut masp_map: BTreeMap<MaspTxId, MaspSigningData> = BTreeMap::new();
 
         // Iterate through provided tx::Tx and deserialize bytes to Namada Tx
@@ -571,28 +571,33 @@ impl Sdk {
             }
 
             let tx: Tx = Tx::try_from_slice(&tx_bytes)?;
+            let namada_signing_data = first_signing_data.to_namada_signing_data()?;
 
-            txs.push((tx, signing_tx_data.to_owned()));
+            txs.push((tx, namada_signing_data));
         }
 
         let (tx, signing_data) = build_batch(txs.clone())?;
+        let wrapper_signing_data = match signing_data {
+            Either::Left(sd) => Ok(sd),
+            Either::Right(_) => Err(JsError::new("Expected Left signing data for batch Tx")),
+        }?;
 
-        let signing_data = signing_data
-            .iter()
-            .cloned()
-            .map(|sd| {
-                if let Some(sh) = sd.shielded_hash {
-                    (sd, masp_map.get(&sh).cloned())
-                } else {
-                    (sd, None)
-                }
-            })
-            .collect::<Vec<_>>();
+        let masp_sd = wrapper_signing_data.signing_data.iter().find_map(|sd| {
+            if let Some(sh) = sd.shielded_hash {
+                masp_map.get(&sh).cloned()
+            } else {
+                None
+            }
+        });
 
         to_js_result(borsh::to_vec(&tx::Tx::new(
             tx,
             &borsh::to_vec(&args)?,
-            signing_data,
+            (
+                wrapper_signing_data.signing_data,
+                Some(wrapper_signing_data.fee_auth),
+                masp_sd,
+            ),
         )?)?)
     }
 
@@ -642,7 +647,6 @@ impl Sdk {
         &self,
         shielded_transfer_msg: &[u8],
         wrapper_tx_msg: &[u8],
-        skip_fee_check: bool,
     ) -> Result<JsValue, JsError> {
         let (mut args, bparams) =
             args::shielded_transfer_tx_args(shielded_transfer_msg, wrapper_tx_msg)?;
@@ -669,9 +673,7 @@ impl Sdk {
 
         let ((tx, signing_data), masp_signing_data) = match bparams {
             BuildParams::RngBuildParams(mut bparams) => {
-                let tx =
-                    build_shielded_transfer(&self.namada, &mut args, &mut bparams, skip_fee_check)
-                        .await?;
+                let tx = build_shielded_transfer(&self.namada, &mut args, &mut bparams).await?;
                 let masp_signing_data = MaspSigningData::new(
                     bparams
                         .to_stored()
@@ -682,9 +684,7 @@ impl Sdk {
                 (tx, masp_signing_data)
             }
             BuildParams::StoredBuildParams(mut bparams) => {
-                let tx =
-                    build_shielded_transfer(&self.namada, &mut args, &mut bparams, skip_fee_check)
-                        .await?;
+                let tx = build_shielded_transfer(&self.namada, &mut args, &mut bparams).await?;
                 let masp_signing_data = MaspSigningData::new(bparams, xfvks);
 
                 (tx, masp_signing_data)
@@ -710,7 +710,6 @@ impl Sdk {
         &self,
         unshielding_transfer_msg: &[u8],
         wrapper_tx_msg: &[u8],
-        skip_fee_check: bool,
     ) -> Result<JsValue, JsError> {
         let (mut args, bparams) =
             args::unshielding_transfer_tx_args(unshielding_transfer_msg, wrapper_tx_msg)?;
@@ -737,13 +736,7 @@ impl Sdk {
 
         let ((tx, signing_data), masp_signing_data) = match bparams {
             BuildParams::RngBuildParams(mut bparams) => {
-                let tx = build_unshielding_transfer(
-                    &self.namada,
-                    &mut args,
-                    &mut bparams,
-                    skip_fee_check,
-                )
-                .await?;
+                let tx = build_unshielding_transfer(&self.namada, &mut args, &mut bparams).await?;
                 let masp_signing_data = MaspSigningData::new(
                     bparams
                         .to_stored()
@@ -754,13 +747,7 @@ impl Sdk {
                 (tx, masp_signing_data)
             }
             BuildParams::StoredBuildParams(mut bparams) => {
-                let tx = build_unshielding_transfer(
-                    &self.namada,
-                    &mut args,
-                    &mut bparams,
-                    skip_fee_check,
-                )
-                .await?;
+                let tx = build_unshielding_transfer(&self.namada, &mut args, &mut bparams).await?;
                 let masp_signing_data = MaspSigningData::new(bparams, xfvks);
 
                 (tx, masp_signing_data)
@@ -847,7 +834,7 @@ impl Sdk {
 
         let ((tx, signing_data, _), masp_signing_data) = match bparams {
             BuildParams::RngBuildParams(mut bparams) => {
-                let tx = build_ibc_transfer(&self.namada, &args, &mut bparams, false).await?;
+                let tx = build_ibc_transfer(&self.namada, &args, &mut bparams).await?;
                 let masp_signing_data = MaspSigningData::new(
                     bparams
                         .to_stored()
@@ -858,7 +845,7 @@ impl Sdk {
                 (tx, masp_signing_data)
             }
             BuildParams::StoredBuildParams(mut bparams) => {
-                let tx = build_ibc_transfer(&self.namada, &args, &mut bparams, false).await?;
+                let tx = build_ibc_transfer(&self.namada, &args, &mut bparams).await?;
                 let masp_signing_data = MaspSigningData::new(bparams, xfvks);
 
                 (tx, masp_signing_data)
@@ -1265,7 +1252,6 @@ impl Sdk {
         to_js_result(final_res)
     }
 
-
     pub fn masp_address(&self) -> String {
         MASP.to_string()
     }
@@ -1274,10 +1260,22 @@ impl Sdk {
         &self,
         tx: Tx,
         wrapper_tx_msg: &[u8],
-        signing_data: SigningTxData,
+        signing_data: SigningData,
         masp_signing_data: Option<MaspSigningData>,
     ) -> Result<JsValue, JsError> {
-        let tx = tx::Tx::new(tx, wrapper_tx_msg, vec![(signing_data, masp_signing_data)])?;
+        let components = match signing_data {
+            SigningData::Inner(signing_tx_data) => (vec![signing_tx_data], None),
+            SigningData::Wrapper(signing_wrapper_data) => (
+                signing_wrapper_data.signing_data,
+                Some(signing_wrapper_data.fee_auth),
+            ),
+        };
+
+        let tx = tx::Tx::new(
+            tx,
+            wrapper_tx_msg,
+            (components.0, components.1, masp_signing_data),
+        )?;
 
         to_js_result(borsh::to_vec(&tx)?)
     }

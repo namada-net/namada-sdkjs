@@ -47,7 +47,7 @@ export class TransparentTransferMsgValue {
   constructor({ data }: TransparentTransferProps) {
     Object.assign(this, {
       data: data.map(
-        (transferProps) => new TransparentTransferDataMsgValue(transferProps)
+        (transferProps) => new TransparentTransferDataMsgValue(transferProps),
       ),
     });
   }
@@ -84,19 +84,11 @@ export class ShieldedTransferMsgValue {
   @field({ type: option(vec(BparamsMsgValue)) })
   bparams?: BparamsMsgValue[];
 
-  @field({ type: option("bool") })
-  skipFeeCheck?: boolean;
-
-  constructor({
-    data,
-    gasSpendingKey,
-    bparams,
-    skipFeeCheck,
-  }: ShieldedTransferProps) {
+  constructor({ data, gasSpendingKey, bparams }: ShieldedTransferProps) {
     Object.assign(this, {
       data: data.map(
         (shieldedTransferDataProps) =>
-          new ShieldedTransferDataMsgValue(shieldedTransferDataProps)
+          new ShieldedTransferDataMsgValue(shieldedTransferDataProps),
       ),
       gasSpendingKey,
 
@@ -107,8 +99,6 @@ export class ShieldedTransferMsgValue {
           convert: new BparamsConvertMsgValue(bparam.convert),
         });
       }),
-
-      skipFeeCheck,
     });
   }
 }
@@ -146,7 +136,7 @@ export class ShieldingTransferMsgValue {
       target,
       data: data.map(
         (shieldingTransferDataProps) =>
-          new ShieldingTransferDataMsgValue(shieldingTransferDataProps)
+          new ShieldingTransferDataMsgValue(shieldingTransferDataProps),
       ),
     });
   }
@@ -183,21 +173,17 @@ export class UnshieldingTransferMsgValue {
   @field({ type: option(vec(BparamsMsgValue)) })
   bparams?: BparamsMsgValue[];
 
-  @field({ type: option("bool") })
-  skipFeeCheck?: boolean;
-
   constructor({
     source,
     data,
     gasSpendingKey,
     bparams,
-    skipFeeCheck,
   }: UnshieldingTransferProps) {
     Object.assign(this, {
       source,
       data: data.map(
         (unshieldingTransferDataProps) =>
-          new UnshieldingTransferDataMsgValue(unshieldingTransferDataProps)
+          new UnshieldingTransferDataMsgValue(unshieldingTransferDataProps),
       ),
       gasSpendingKey,
       bparams: bparams?.map((bparam) => {
@@ -207,7 +193,6 @@ export class UnshieldingTransferMsgValue {
           convert: new BparamsConvertMsgValue(bparam.convert),
         });
       }),
-      skipFeeCheck,
     });
   }
 }
