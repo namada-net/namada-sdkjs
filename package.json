@@ -1,6 +1,6 @@
 {
   "name": "namada",
-  "version": "0.20.8",
+  "version": "0.21.1.beta.1",
   "private": true,
   "workspaces": [
     "packages/*"
