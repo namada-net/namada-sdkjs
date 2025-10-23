@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/withdraw.ts:12](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/withdraw.ts#L12)
+[packages/lib/src/types/schema/withdraw.ts:12](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/withdraw.ts#L12)
 
 ## Properties
 
@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/withdraw.ts:7](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/withdraw.ts#L7)
+[packages/lib/src/types/schema/withdraw.ts:7](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/withdraw.ts#L7)
 
 ___
 
@@ -51,4 +51,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/withdraw.ts:10](https://github.com/anoma/namada-sdkjs/blob/dd361cd98692159413426f6fb0fdf1714d54b437/packages/lib/src/types/schema/withdraw.ts#L10)
+[packages/lib/src/types/schema/withdraw.ts:10](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/withdraw.ts#L10)

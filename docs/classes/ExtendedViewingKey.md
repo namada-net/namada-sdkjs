@@ -36,7 +36,7 @@ Instantiate ExtendedViewingKey from serialized vector
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:117
+packages/wasm/src/sdk/sdk.d.ts:118
 
 ## Methods
 
@@ -50,7 +50,7 @@ packages/wasm/src/sdk/sdk.d.ts:117
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:122
+packages/wasm/src/sdk/sdk.d.ts:123
 
 ___
 
@@ -66,7 +66,7 @@ Return ExtendedViewingKey as Bech32-encoded String
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:121
+packages/wasm/src/sdk/sdk.d.ts:122
 
 ___
 
@@ -80,4 +80,4 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:113
+packages/wasm/src/sdk/sdk.d.ts:114
