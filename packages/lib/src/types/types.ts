@@ -26,6 +26,7 @@ import {
   WithdrawMsgValue,
   WrapperTxMsgValue,
 } from "./schema";
+import { OsmosisSwapMsgValue } from "./schema/osmosisSwap";
 import { RevealPkMsgValue } from "./schema/revealPk";
 
 export type BatchTxResultProps = BatchTxResultMsgValue;
@@ -55,6 +56,7 @@ export type ClaimRewardsProps = ClaimRewardsMsgValue;
 export type WithdrawProps = WithdrawMsgValue;
 export type WrapperTxProps = WrapperTxMsgValue;
 export type RevealPkProps = RevealPkMsgValue;
+export type OsmosisSwapProps = OsmosisSwapMsgValue;
 
 export type SupportedTxProps =
   | BondProps
@@ -67,7 +69,8 @@ export type SupportedTxProps =
   | ClaimRewardsProps
   | TransferProps
   | TransferDetailsProps
-  | RevealPkProps;
+  | RevealPkProps
+  | OsmosisSwapProps;
 
 export type CommitmentDetailProps<
   T extends SupportedTxProps | unknown = unknown,

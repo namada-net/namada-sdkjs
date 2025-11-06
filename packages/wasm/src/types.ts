@@ -23,7 +23,8 @@ export type TxLabel =
   | "Vote Proposal"
   | "Claim Rewards"
   | "Redelegate"
-  | "Batch";
+  | "Batch"
+  | "Shielded Swap";
 
 export const TxTypeLabel: Record<TxType, TxLabel> = {
   [TxType.Bond]: "Bond",
@@ -37,6 +38,7 @@ export const TxTypeLabel: Record<TxType, TxLabel> = {
   [TxType.ClaimRewards]: "Claim Rewards",
   [TxType.Redelegate]: "Redelegate",
   [TxType.Batch]: "Batch",
+  [TxType.OsmosisSwap]: "Shielded Swap",
 };
 
 type TransferToEthereumKind = "Erc20" | "Nut";
