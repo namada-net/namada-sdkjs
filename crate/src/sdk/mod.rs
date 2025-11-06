@@ -1052,7 +1052,7 @@ impl Sdk {
 
         let ((tx, signing_data, _), masp_signing_data) = match bparams {
             BuildParams::RngBuildParams(mut bparams) => {
-                let tx = build_ibc_transfer(&self.namada, &tx, &mut bparams, false).await?;
+                let tx = build_ibc_transfer(&self.namada, &tx, &mut bparams).await?;
                 let masp_signing_data = MaspSigningData::new(
                     bparams
                         .to_stored()
@@ -1063,7 +1063,7 @@ impl Sdk {
                 (tx, masp_signing_data)
             }
             BuildParams::StoredBuildParams(mut bparams) => {
-                let tx = build_ibc_transfer(&self.namada, &tx, &mut bparams, false).await?;
+                let tx = build_ibc_transfer(&self.namada, &tx, &mut bparams).await?;
                 let masp_signing_data = MaspSigningData::new(bparams, xfvks);
 
                 (tx, masp_signing_data)
@@ -1072,7 +1072,6 @@ impl Sdk {
 
         self.serialize_tx_result(tx, wrapper_tx_msg, signing_data, Some(masp_signing_data))
     }
-
 
     // This should be a part of query.rs but we have to pass whole "namada" into estimate_next_epoch_rewards
     pub async fn shielded_rewards(
