@@ -239,6 +239,13 @@ export class Rpc {
     return deserialize(Buffer.from(response), TxResponseMsgValue);
   }
 
+  async dryRunTx(
+    signedTxBytes: Uint8Array,
+    publicKey: string,
+  ): Promise<number> {
+    return await this.sdk.dry_run_tx(signedTxBytes, publicKey);
+  }
+
   /**
    * Sync the shielded context
    * @async

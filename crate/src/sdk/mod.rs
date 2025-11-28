@@ -36,12 +36,12 @@ use namada_sdk::masp_primitives::transaction::components::amount::I128Sum;
 use namada_sdk::masp_primitives::transaction::TxId;
 use namada_sdk::masp_primitives::zip32::{ExtendedFullViewingKey, ExtendedKey};
 use namada_sdk::rpc::{self, query_denom, query_epoch, InnerTxResult, TxAppliedEvents, TxResponse};
-use namada_sdk::signing::SigningData;
+use namada_sdk::signing::{mock_hw_sig, Signable, SigningData};
 use namada_sdk::string_encoding::Format;
 use namada_sdk::tendermint_rpc::Url;
 use namada_sdk::token::{Amount, DenominatedAmount};
 use namada_sdk::token::{MaspTxId, OptionExt};
-use namada_sdk::tx::data::{ResultCode, TxType};
+use namada_sdk::tx::data::{DryRunResult, ResultCode, TxType};
 use namada_sdk::tx::Section;
 use namada_sdk::tx::{
     build_batch, build_bond, build_claim_rewards, build_ibc_transfer, build_redelegation,
@@ -408,6 +408,20 @@ impl Sdk {
         Ok(event)
     }
 
+    pub async fn dry_run_tx(&self, tx_bytes: &[u8], pk: &str) -> Result<JsValue, JsValue> {
+        let mut tx = Tx::try_from_slice(tx_bytes).expect("Should be able to deserialize a Tx");
+
+        let pk = common::PublicKey::from_str(pk).unwrap();
+        mock_hw_sig(&mut tx, pk, Signable::FeeRawHeader);
+
+        let result = rpc::dry_run_tx(&self.namada, tx.to_bytes()).await.map_err(|e| JsValue::from_str(&e.to_string()))?;
+
+        let DryRunResult(_, gas_cost) = &result;
+
+        Ok(JsValue::from(u64::from(*gas_cost)))
+    }
+
+
     pub async fn broadcast_tx(&self, tx_bytes: &[u8], deadline: u64) -> Result<JsValue, JsValue> {
         #[derive(serde::Serialize)]
         struct TxErrResponse {
@@ -420,7 +434,6 @@ impl Sdk {
         let tx_hash = tx.header_hash().to_string();
 
         let response = self.namada.client().broadcast_tx_sync(tx.to_bytes()).await;
-
         match response {
             Ok(res) => {
                 if res.clone().code != 0.into() {
