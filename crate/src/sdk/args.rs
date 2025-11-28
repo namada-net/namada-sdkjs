@@ -3,7 +3,7 @@ use std::{path::PathBuf, str::FromStr};
 
 use namada_sdk::address::DecodeError;
 use namada_sdk::args::{
-    TxShieldedSource, TxShieldedTarget, TxTransparentSource, TxTransparentTarget,
+    DryRun, TxShieldedSource, TxShieldedTarget, TxTransparentSource, TxTransparentTarget
 };
 use namada_sdk::borsh::{BorshDeserialize, BorshSerialize};
 use namada_sdk::collections::HashMap;
@@ -1082,7 +1082,7 @@ fn tx_msg_into_args(tx_msg: &[u8]) -> Result<args::Tx, JsError> {
     };
 
     let args = args::Tx {
-        dry_run: None,
+        dry_run: Some(DryRun::Wrapper),
         dump_tx: None,
         force,
         ledger_address,
@@ -1099,6 +1099,8 @@ fn tx_msg_into_args(tx_msg: &[u8]) -> Result<args::Tx, JsError> {
         memo,
         device_transport: Default::default(),
     };
+
+    web_sys::console::log_1(&format!("Tx args: {:?}", args).into());
 
     Ok(args)
 }
