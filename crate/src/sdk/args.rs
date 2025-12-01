@@ -1227,7 +1227,6 @@ pub fn osmosis_swap_tx_args(
         local_recovery_addr,
         route,
         osmosis_lcd_rpc: Some(osmosis_lcd_rpc),
-        // TODO: not sure if needed
         osmosis_sqs_rpc: None,
     };
 
