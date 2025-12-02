@@ -15,6 +15,8 @@ import {
   IbcTransferMsgValue,
   IbcTransferProps,
   Message,
+  OsmosisSwapProps,
+  OsmosisSwapMsgValue,
   RedelegateMsgValue,
   RedelegateProps,
   RevealPkMsgValue,
@@ -519,6 +521,31 @@ export class Tx {
       amount.toString(),
       channelId,
     );
+  }
+
+  /**
+   * Build Osmosis Swap Tx
+   * `osmosisSwapProps.transfer.amountInBaseDenom` is the amount in the **base** denom
+   * e.g. the value of 1 NAM should be BigNumber(1_000_000), not BigNumber(1).
+   * @async
+   * @param wrapperTxProps - properties of the transaction
+   * @param osmosisSwapProps - properties of the osmosis swap tx
+   * @returns promise that resolves to an TxMsgValue
+   */
+  async buildOsmosisSwap(
+    wrapperTxProps: WrapperTxProps,
+    osmosisSwapProps: OsmosisSwapProps,
+  ): Promise<TxMsgValue> {
+    const ibcTransferMsg = new Message<OsmosisSwapProps>();
+    const encodedWrapperArgs = this.encodeTxArgs(wrapperTxProps);
+    const encodedIbcTransfer = ibcTransferMsg.encode(
+      new OsmosisSwapMsgValue(osmosisSwapProps),
+    );
+    const serializedTx = await this.sdk.build_osmosis_swap(
+      encodedIbcTransfer,
+      encodedWrapperArgs,
+    );
+    return deserialize(Buffer.from(serializedTx), TxMsgValue);
   }
 
   /**

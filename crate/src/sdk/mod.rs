@@ -1017,6 +1017,62 @@ impl Sdk {
         }
     }
 
+    pub async fn build_osmosis_swap(
+        &self,
+        osmosis_swap_msg: &[u8],
+        wrapper_tx_msg: &[u8],
+    ) -> Result<JsValue, JsError> {
+        let (args, bparams) = args::osmosis_swap_tx_args(
+            osmosis_swap_msg,
+            wrapper_tx_msg,
+            self.namada.native_token(),
+        )?;
+
+        let _ = &self
+            .namada
+            .shielded_mut()
+            .await
+            .try_load(async |_| {})
+            .await;
+
+        let tx = args
+            .into_ibc_transfer(&self.namada, |_route, _min_amount, _quote_amount| true)
+            .await?;
+
+        let bparams = if let Some(bparams) = bparams {
+            BuildParams::StoredBuildParams(bparams)
+        } else {
+            generate_rng_build_params()
+        };
+
+        let xfvks = match tx.source {
+            TransferSource::Address(_) => vec![],
+            TransferSource::ExtendedKey(pek) => vec![pek.to_viewing_key()],
+        };
+
+        let ((tx, signing_data, _), masp_signing_data) = match bparams {
+            BuildParams::RngBuildParams(mut bparams) => {
+                let tx = build_ibc_transfer(&self.namada, &tx, &mut bparams).await?;
+                let masp_signing_data = MaspSigningData::new(
+                    bparams
+                        .to_stored()
+                        .ok_or_err_msg("Cannot convert bparams to stored")?,
+                    xfvks,
+                );
+
+                (tx, masp_signing_data)
+            }
+            BuildParams::StoredBuildParams(mut bparams) => {
+                let tx = build_ibc_transfer(&self.namada, &tx, &mut bparams).await?;
+                let masp_signing_data = MaspSigningData::new(bparams, xfvks);
+
+                (tx, masp_signing_data)
+            }
+        };
+
+        self.serialize_tx_result(tx, wrapper_tx_msg, signing_data, Some(masp_signing_data))
+    }
+
     // This should be a part of query.rs but we have to pass whole "namada" into estimate_next_epoch_rewards
     pub async fn shielded_rewards(
         &self,

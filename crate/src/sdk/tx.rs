@@ -42,6 +42,8 @@ pub enum TxType {
     Redelegate = 9,
     Batch = 10,
     ClaimRewards = 11,
+    // It's in reality IBCTransfer but we distinguish it for easier handling
+    OsmosisSwap = 12,
 }
 
 #[derive(BorshSerialize, BorshDeserialize, Clone, Debug)]
