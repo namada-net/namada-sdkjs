@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { field, option, vec } from "@dao-xyz/borsh";
+import { field, option, string, vec } from "@dao-xyz/borsh";
 import BigNumber from "bignumber.js";
 import { IbcTransferProps } from "../types";
 import {
@@ -9,6 +9,7 @@ import {
   BparamsSpendMsgValue,
 } from "./bparams";
 import { BigNumberSerializer } from "./utils";
+import { FrontendSusFeeMsgValue } from "./frontendSusFee";
 
 export class IbcTransferMsgValue {
   @field({ type: "string" })
@@ -50,6 +51,9 @@ export class IbcTransferMsgValue {
   @field({ type: option("string") })
   refundTarget?: string;
 
+  @field({ type: option(FrontendSusFeeMsgValue) })
+  frontend_sus_fee?: FrontendSusFeeMsgValue;
+
   constructor(data: IbcTransferProps) {
     Object.assign(this, {
       ...data,
@@ -60,6 +64,9 @@ export class IbcTransferMsgValue {
           convert: new BparamsConvertMsgValue(bparam.convert),
         });
       }),
+      frontend_sus_fee:
+        data.frontend_sus_fee &&
+        new FrontendSusFeeMsgValue(data.frontend_sus_fee),
     });
   }
 }

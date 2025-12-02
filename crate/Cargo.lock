@@ -4122,8 +4122,12 @@ dependencies = [
 
 [[package]]
 name = "namada_account"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "namada_core",
@@ -4134,8 +4138,12 @@ dependencies = [
 
 [[package]]
 name = "namada_controller"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "namada_core",
  "smooth-operator",
@@ -4144,8 +4152,12 @@ dependencies = [
 
 [[package]]
 name = "namada_core"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "bech32 0.11.0",
  "borsh",
@@ -4193,8 +4205,12 @@ dependencies = [
 
 [[package]]
 name = "namada_ethereum_bridge"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "ethers",
@@ -4221,8 +4237,12 @@ dependencies = [
 
 [[package]]
 name = "namada_events"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "namada_core",
@@ -4235,8 +4255,12 @@ dependencies = [
 
 [[package]]
 name = "namada_gas"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "namada_core",
@@ -4248,8 +4272,12 @@ dependencies = [
 
 [[package]]
 name = "namada_governance"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4271,8 +4299,12 @@ dependencies = [
 
 [[package]]
 name = "namada_ibc"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "data-encoding",
@@ -4306,8 +4338,12 @@ dependencies = [
 
 [[package]]
 name = "namada_io"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "async-trait",
  "kdam",
@@ -4319,8 +4355,12 @@ dependencies = [
 
 [[package]]
 name = "namada_macros"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "data-encoding",
  "proc-macro2",
@@ -4331,8 +4371,12 @@ dependencies = [
 
 [[package]]
 name = "namada_merkle_tree"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "eyre",
@@ -4346,8 +4390,12 @@ dependencies = [
 
 [[package]]
 name = "namada_parameters"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "namada_core",
  "namada_macros",
@@ -4361,8 +4409,12 @@ dependencies = [
 
 [[package]]
 name = "namada_proof_of_stake"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4385,16 +4437,24 @@ dependencies = [
 
 [[package]]
 name = "namada_replay_protection"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "namada_core",
 ]
 
 [[package]]
 name = "namada_sdk"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "async-trait",
  "bech32 0.11.0",
@@ -4462,8 +4522,12 @@ dependencies = [
 
 [[package]]
 name = "namada_shielded_token"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "async-trait",
  "borsh",
@@ -4505,8 +4569,12 @@ dependencies = [
 
 [[package]]
 name = "namada_state"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "clru",
@@ -4528,8 +4596,12 @@ dependencies = [
 
 [[package]]
 name = "namada_storage"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4547,8 +4619,12 @@ dependencies = [
 
 [[package]]
 name = "namada_systems"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4557,8 +4633,12 @@ dependencies = [
 
 [[package]]
 name = "namada_token"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "namada_core",
@@ -4575,8 +4655,12 @@ dependencies = [
 
 [[package]]
 name = "namada_trans_token"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "konst",
  "namada_core",
@@ -4592,8 +4676,12 @@ dependencies = [
 
 [[package]]
 name = "namada_tx"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "ark-bls12-381",
  "bitflags 2.9.4",
@@ -4621,8 +4709,12 @@ dependencies = [
 
 [[package]]
 name = "namada_tx_env"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4631,8 +4723,12 @@ dependencies = [
 
 [[package]]
 name = "namada_vm"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "clru",
@@ -4655,8 +4751,12 @@ dependencies = [
 
 [[package]]
 name = "namada_vote_ext"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "borsh",
  "namada_core",
@@ -4667,8 +4767,12 @@ dependencies = [
 
 [[package]]
 name = "namada_vp"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4683,8 +4787,12 @@ dependencies = [
 
 [[package]]
 name = "namada_vp_env"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "derivative",
  "masp_primitives",
@@ -4698,8 +4806,12 @@ dependencies = [
 
 [[package]]
 name = "namada_wallet"
+<<<<<<< HEAD
 version = "0.251.4"
 source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+=======
+version = "0.251.0"
+>>>>>>> 523e9d1 (feat: tx level fees wip)
 dependencies = [
  "bimap",
  "bip32",

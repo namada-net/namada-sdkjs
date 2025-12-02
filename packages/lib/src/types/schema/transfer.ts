@@ -18,6 +18,7 @@ import {
   BparamsSpendMsgValue,
 } from "./bparams";
 import { BigNumberSerializer } from "./utils";
+import { FrontendSusFeeMsgValue } from "./frontendSusFee";
 
 /**
  * Transparent Transfer schemas
@@ -84,7 +85,15 @@ export class ShieldedTransferMsgValue {
   @field({ type: option(vec(BparamsMsgValue)) })
   bparams?: BparamsMsgValue[];
 
-  constructor({ data, gasSpendingKey, bparams }: ShieldedTransferProps) {
+  @field({ type: option(FrontendSusFeeMsgValue) })
+  frontendSusFee?: FrontendSusFeeMsgValue;
+
+  constructor({
+    data,
+    gasSpendingKey,
+    bparams,
+    frontendSusFee,
+  }: ShieldedTransferProps) {
     Object.assign(this, {
       data: data.map(
         (shieldedTransferDataProps) =>
@@ -99,6 +108,8 @@ export class ShieldedTransferMsgValue {
           convert: new BparamsConvertMsgValue(bparam.convert),
         });
       }),
+      frontendSusFee:
+        frontendSusFee && new FrontendSusFeeMsgValue(frontendSusFee),
     });
   }
 }
@@ -131,13 +142,30 @@ export class ShieldingTransferMsgValue {
   @field({ type: option(vec(BparamsMsgValue)) })
   bparams?: BparamsMsgValue[];
 
-  constructor({ data, target }: ShieldingTransferProps) {
+  @field({ type: option(FrontendSusFeeMsgValue) })
+  frontendSusFee?: FrontendSusFeeMsgValue;
+
+  constructor({
+    data,
+    bparams,
+    target,
+    frontendSusFee,
+  }: ShieldingTransferProps) {
     Object.assign(this, {
       target,
       data: data.map(
         (shieldingTransferDataProps) =>
           new ShieldingTransferDataMsgValue(shieldingTransferDataProps),
       ),
+      bparams: bparams?.map((bparam) => {
+        return new BparamsMsgValue({
+          spend: new BparamsSpendMsgValue(bparam.spend),
+          output: new BparamsOutputMsgValue(bparam.output),
+          convert: new BparamsConvertMsgValue(bparam.convert),
+        });
+      }),
+      frontendSusFee:
+        frontendSusFee && new FrontendSusFeeMsgValue(frontendSusFee),
     });
   }
 }
@@ -173,11 +201,15 @@ export class UnshieldingTransferMsgValue {
   @field({ type: option(vec(BparamsMsgValue)) })
   bparams?: BparamsMsgValue[];
 
+  @field({ type: option(FrontendSusFeeMsgValue) })
+  frontendSusFee?: FrontendSusFeeMsgValue;
+
   constructor({
     source,
     data,
     gasSpendingKey,
     bparams,
+    frontendSusFee,
   }: UnshieldingTransferProps) {
     Object.assign(this, {
       source,
@@ -193,6 +225,8 @@ export class UnshieldingTransferMsgValue {
           convert: new BparamsConvertMsgValue(bparam.convert),
         });
       }),
+      frontendSusFee:
+        frontendSusFee && new FrontendSusFeeMsgValue(frontendSusFee),
     });
   }
 }

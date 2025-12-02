@@ -27,6 +27,7 @@ import {
   WrapperTxMsgValue,
 } from "./schema";
 import { OsmosisSwapMsgValue } from "./schema/osmosisSwap";
+import { FrontendSusFeeMsgValue } from "./schema/frontendSusFee";
 import { RevealPkMsgValue } from "./schema/revealPk";
 
 export type BatchTxResultProps = BatchTxResultMsgValue;
@@ -57,6 +58,8 @@ export type WithdrawProps = WithdrawMsgValue;
 export type WrapperTxProps = WrapperTxMsgValue;
 export type RevealPkProps = RevealPkMsgValue;
 export type OsmosisSwapProps = OsmosisSwapMsgValue;
+
+export type FrontendSusFeeProps = FrontendSusFeeMsgValue;
 
 export type SupportedTxProps =
   | BondProps

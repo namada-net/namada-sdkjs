@@ -57,6 +57,7 @@ use std::collections::BTreeMap;
 use std::str::FromStr;
 use tx::MaspSigningData;
 use wasm_bindgen::{prelude::wasm_bindgen, JsError, JsValue};
+use namada_sdk::dec::Dec;
 
 /// Represents the Sdk public API.
 #[wasm_bindgen]
@@ -576,12 +577,7 @@ impl Sdk {
             txs.push((tx, namada_signing_data));
         }
 
-        let (tx, signing_data) = build_batch(txs.clone())?;
-        let wrapper_signing_data = match signing_data {
-            Either::Left(sd) => Ok(sd),
-            Either::Right(_) => Err(JsError::new("Expected Left signing data for batch Tx")),
-        }?;
-
+        let (tx, wrapper_signing_data) = build_batch(txs.clone())?;
         let masp_sd = wrapper_signing_data.signing_data.iter().find_map(|sd| {
             if let Some(sh) = sd.shielded_hash {
                 masp_map.get(&sh).cloned()
@@ -1003,7 +999,7 @@ impl Sdk {
                 port_id: PortId::transfer(),
                 channel_id,
             },
-            frontend_sus_fee: None,
+            frontend_sus_fee: None
         };
 
         if let Some(masp_tx) = gen_ibc_shielding_transfer(&self.namada, args).await? {
