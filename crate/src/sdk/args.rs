@@ -707,11 +707,7 @@ pub fn shielding_transfer_tx_args(
     let tx = tx_msg_into_args(tx_msg)?;
     let bparams = bparams_msg_into_bparams(bparams_msg);
 
-    let frontend_sus_fee = frontend_sus_fee.map(|(addr_str, fee)| {
-        let frontend_sus_target = TransferTarget::PaymentAddress(PaymentAddress::from_str(&addr_str)?);
-        Ok::<(TransferTarget, Dec), JsError>((frontend_sus_target, Dec::from(fee)))
-    }).transpose()?;
-
+    let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
     let args = args::TxShieldingTransfer {
         sources,
         targets,
@@ -719,7 +715,6 @@ pub fn shielding_transfer_tx_args(
         tx_code_path: PathBuf::from("tx_transfer.wasm"),
         frontend_sus_fee,
     };
-    web_sys::console::log_1(&format!("Shielding transfer args: {:?}", args).into());
 
     Ok((args, bparams))
 }
@@ -797,11 +792,7 @@ pub fn unshielding_transfer_tx_args(
 
     let tx = tx_msg_into_args(tx_msg)?;
     let bparams = bparams_msg_into_bparams(bparams_msg);
-
-    let frontend_sus_fee = frontend_sus_fee.map(|(addr_str, fee)| {
-        let frontend_sus_target = TransferTarget::Address(Address::from_str(&addr_str)?);
-        Ok::<(TransferTarget, Dec), JsError>((frontend_sus_target, Dec::from(fee)))
-    }).transpose()?;
+    let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
 
     let args = args::TxUnshieldingTransfer {
         sources,
@@ -949,11 +940,7 @@ pub fn ibc_transfer_tx_args(
 
     let tx = tx_msg_into_args(tx_msg)?;
     let bparams = bparams_msg_into_bparams(bparams_msg);
-
-    let frontend_sus_fee = frontend_sus_fee.map(|(addr_str, fee)| {
-        let frontend_sus_target = TransferTarget::Address(Address::from_str(&addr_str)?);
-        Ok::<(TransferTarget, Dec), JsError>((frontend_sus_target, Dec::from(fee)))
-    }).transpose()?;
+    let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
 
     let args = args::TxIbcTransfer {
         tx,
@@ -1226,7 +1213,7 @@ pub fn osmosis_swap_tx_args(
         local_recovery_addr,
         route,
         osmosis_lcd_rpc,
-        frontend_sus_fee,
+        frontend_sus_fee: _,
     } = osmosis_swap_msg;
 
     let (ibc_transfer_args, bparams) =
@@ -1246,11 +1233,6 @@ pub fn osmosis_swap_tx_args(
             .map(args::OsmosisPoolHop::from)
             .collect::<Vec<_>>()
     });
-
-    let frontend_sus_fee = frontend_sus_fee.map(|(addr_str, fee)| {
-        let frontend_sus_target = TransferTarget::Address(Address::from_str(&addr_str)?);
-        Ok::<(TransferTarget, Dec), JsError>((frontend_sus_target, Dec::from(fee)))
-    }).transpose()?;
 
     let tx_osmosis_swap_args = args::TxOsmosisSwap {
         transfer: ibc_transfer_args,
@@ -1381,6 +1363,25 @@ fn bparams_msg_into_bparams(bparams_msg: Option<Vec<BparamsMsg>>) -> Option<Stor
         }
         bparams
     })
+}
+
+fn parse_frontend_sus_fee(
+    frontend_sus_fee: Option<(String, u64)>,
+) -> Result<Option<(TransferTarget, Dec)>, JsError> {
+    match frontend_sus_fee {
+        Some((addr_str, fee)) => {
+            let target = match Address::from_str(&addr_str) {
+                Ok(addr) => TransferTarget::Address(addr),
+                Err(e1) => match PaymentAddress::from_str(&addr_str) {
+                    Ok(xvk) => TransferTarget::PaymentAddress(xvk),
+                    Err(e2) => return Err(JsError::new(&format!("{} {}", e1, e2))),
+                },
+            };
+
+            Ok(Some((target, Dec::from(fee))))
+        }
+        None => Ok(None),
+    }
 }
 
 pub struct MapSaplingSigAuth(
