@@ -51,7 +51,7 @@ use namada_sdk::tx::{
 };
 use namada_sdk::wallet::{Store, Wallet};
 use namada_sdk::{
-    ExtendedViewingKey, Namada, NamadaImpl, PaymentAddress, TransferSource, TransferTarget,
+    ExtendedViewingKey, Namada, NamadaImpl, PaymentAddress, TransferSource,
 };
 use std::collections::BTreeMap;
 use std::str::FromStr;
@@ -977,9 +977,7 @@ impl Sdk {
             .await;
 
         let ledger_address = Url::from_str(&self.rpc_url).expect("RPC URL is a valid URL");
-        let target = TransferTarget::PaymentAddress(
-            PaymentAddress::from_str(target).expect("target is a valid shielded address"),
-        );
+        let target = PaymentAddress::from_str(target).expect("target is a valid shielded address");
 
         // As the value we get is always in the base denom, we can use from_string_precise to get the
         // amount and drop denom info
@@ -1005,6 +1003,7 @@ impl Sdk {
                 port_id: PortId::transfer(),
                 channel_id,
             },
+            frontend_sus_fee: None,
         };
 
         if let Some(masp_tx) = gen_ibc_shielding_transfer(&self.namada, args).await? {
