@@ -1,6 +1,6 @@
 {
   "name": "@namada/sdk-node",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "description": "Namada NodeJS SDK",
   "repository": "https://github.com/anoma/namada-sdkjs/",
   "author": "Heliax Dev <info@heliax.dev>",
