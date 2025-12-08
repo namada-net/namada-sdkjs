@@ -55,7 +55,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/lib/src/types/errors.ts:11](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/errors.ts#L11)
+[packages/lib/src/types/errors.ts:11](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/errors.ts#L11)
 
 ## Properties
 
@@ -151,7 +151,7 @@ TxResponseProps
 
 #### Defined in
 
-[packages/lib/src/types/errors.ts:35](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/errors.ts#L35)
+[packages/lib/src/types/errors.ts:35](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/errors.ts#L35)
 
 ___
 
@@ -167,7 +167,7 @@ string
 
 #### Defined in
 
-[packages/lib/src/types/errors.ts:19](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/errors.ts#L19)
+[packages/lib/src/types/errors.ts:19](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/errors.ts#L19)
 
 ___
 

@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/bparams.ts:32](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/bparams.ts#L32)
+[packages/lib/src/types/schema/bparams.ts:32](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/bparams.ts#L32)
 
 ## Properties
 
@@ -40,4 +40,4 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/bparams.ts:30](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/bparams.ts#L30)
+[packages/lib/src/types/schema/bparams.ts:30](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/bparams.ts#L30)

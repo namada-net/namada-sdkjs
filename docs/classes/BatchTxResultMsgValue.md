@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/batchTxResult.ts:15](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/batchTxResult.ts#L15)
+[packages/lib/src/types/schema/batchTxResult.ts:15](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/batchTxResult.ts#L15)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/batchTxResult.ts:13](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/batchTxResult.ts#L13)
+[packages/lib/src/types/schema/batchTxResult.ts:13](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/batchTxResult.ts#L13)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/batchTxResult.ts:7](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/batchTxResult.ts#L7)
+[packages/lib/src/types/schema/batchTxResult.ts:7](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/batchTxResult.ts#L7)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/batchTxResult.ts:10](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/batchTxResult.ts#L10)
+[packages/lib/src/types/schema/batchTxResult.ts:10](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/batchTxResult.ts#L10)

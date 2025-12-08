@@ -11,6 +11,7 @@
 - [ClaimRewards](TxType.md#claimrewards)
 - [EthBridgeTransfer](TxType.md#ethbridgetransfer)
 - [IBCTransfer](TxType.md#ibctransfer)
+- [OsmosisSwap](TxType.md#osmosisswap)
 - [Redelegate](TxType.md#redelegate)
 - [RevealPK](TxType.md#revealpk)
 - [Transfer](TxType.md#transfer)
@@ -67,6 +68,16 @@ ___
 #### Defined in
 
 packages/wasm/src/sdk/sdk.d.ts:25
+
+___
+
+### OsmosisSwap
+
+• **OsmosisSwap** = ``12``
+
+#### Defined in
+
+packages/wasm/src/sdk/sdk.d.ts:32
 
 ___
 
