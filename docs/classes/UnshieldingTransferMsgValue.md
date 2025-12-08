@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:176](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L176)
+[packages/lib/src/types/schema/transfer.ts:176](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L176)
 
 ## Properties
 
@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:174](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L174)
+[packages/lib/src/types/schema/transfer.ts:174](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L174)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:168](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L168)
+[packages/lib/src/types/schema/transfer.ts:168](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L168)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:171](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L171)
+[packages/lib/src/types/schema/transfer.ts:171](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L171)
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:165](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L165)
+[packages/lib/src/types/schema/transfer.ts:165](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L165)

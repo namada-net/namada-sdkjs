@@ -27,7 +27,7 @@
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:188
+packages/wasm/src/sdk/sdk.d.ts:189
 
 ## Methods
 
@@ -41,7 +41,7 @@ packages/wasm/src/sdk/sdk.d.ts:188
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:191
+packages/wasm/src/sdk/sdk.d.ts:192
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:189
+packages/wasm/src/sdk/sdk.d.ts:190
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:192
+packages/wasm/src/sdk/sdk.d.ts:193
 
 ___
 
@@ -96,4 +96,4 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:190
+packages/wasm/src/sdk/sdk.d.ts:191

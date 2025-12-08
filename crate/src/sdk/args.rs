@@ -710,6 +710,7 @@ pub fn shielding_transfer_tx_args(
         targets,
         tx,
         tx_code_path: PathBuf::from("tx_transfer.wasm"),
+        frontend_sus_fee: None,
     };
 
     Ok((args, bparams))
@@ -793,6 +794,7 @@ pub fn unshielding_transfer_tx_args(
         tx,
         gas_spending_key,
         tx_code_path: PathBuf::from("tx_transfer.wasm"),
+        frontend_sus_fee: None,
     };
 
     Ok((args, bparams))
@@ -946,6 +948,7 @@ pub fn ibc_transfer_tx_args(
         refund_target,
         // We do not support ibc unshielding for now
         gas_spending_key,
+        frontend_sus_fee: None,
     };
 
     Ok((args, bparams))
@@ -1228,6 +1231,7 @@ pub fn osmosis_swap_tx_args(
         route,
         osmosis_lcd_rpc: Some(osmosis_lcd_rpc),
         osmosis_sqs_rpc: None,
+        frontend_sus_fee: None,
     };
 
     Ok((tx_osmosis_swap_args, bparams))

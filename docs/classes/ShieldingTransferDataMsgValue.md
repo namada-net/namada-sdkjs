@@ -34,7 +34,7 @@ Shielding Transfer schemas
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:119](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L119)
+[packages/lib/src/types/schema/transfer.ts:119](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L119)
 
 ## Properties
 
@@ -44,7 +44,7 @@ Shielding Transfer schemas
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:117](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L117)
+[packages/lib/src/types/schema/transfer.ts:117](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L117)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:111](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L111)
+[packages/lib/src/types/schema/transfer.ts:111](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L111)
 
 ___
 
@@ -64,4 +64,4 @@ ___
 
 #### Defined in
 
-[packages/lib/src/types/schema/transfer.ts:114](https://github.com/anoma/namada-sdkjs/blob/e80842ddd4efc976aa8ca5c36c7787d825591628/packages/lib/src/types/schema/transfer.ts#L114)
+[packages/lib/src/types/schema/transfer.ts:114](https://github.com/anoma/namada-sdkjs/blob/ddb1fbe158b34c3d0747a37bae4f012eab37a978/packages/lib/src/types/schema/transfer.ts#L114)

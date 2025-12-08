@@ -31,7 +31,7 @@ Wrap ExtendedSpendingKey
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:198
+packages/wasm/src/sdk/sdk.d.ts:199
 
 ## Methods
 
@@ -45,7 +45,7 @@ packages/wasm/src/sdk/sdk.d.ts:198
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:200
+packages/wasm/src/sdk/sdk.d.ts:201
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:199
+packages/wasm/src/sdk/sdk.d.ts:200
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:204
+packages/wasm/src/sdk/sdk.d.ts:205
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:202
+packages/wasm/src/sdk/sdk.d.ts:203
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:201
+packages/wasm/src/sdk/sdk.d.ts:202
 
 ___
 
@@ -134,4 +134,4 @@ ___
 
 #### Defined in
 
-packages/wasm/src/sdk/sdk.d.ts:203
+packages/wasm/src/sdk/sdk.d.ts:204
