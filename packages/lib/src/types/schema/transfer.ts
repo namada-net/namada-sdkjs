@@ -2,6 +2,7 @@
 import { field, option, vec } from "@dao-xyz/borsh";
 import BigNumber from "bignumber.js";
 import {
+  GenerateIbcShieldingMemoProps,
   ShieldedTransferDataProps,
   ShieldedTransferProps,
   ShieldingTransferDataProps,
@@ -108,6 +109,40 @@ export class ShieldedTransferMsgValue {
           convert: new BparamsConvertMsgValue(bparam.convert),
         });
       }),
+      frontendSusFee:
+        frontendSusFee && new FrontendSusFeeMsgValue(frontendSusFee),
+    });
+  }
+}
+
+export class GenerateIbcShieldingMemoMsgValue {
+  @field({ type: "string" })
+  target!: string;
+
+  @field({ type: "string" })
+  token!: string;
+
+  @field(BigNumberSerializer)
+  amount!: BigNumber;
+
+  @field({ type: "string" })
+  channelId!: string;
+
+  @field({ type: option(FrontendSusFeeMsgValue) })
+  frontendSusFee?: FrontendSusFeeMsgValue;
+
+  constructor({
+    target,
+    token,
+    amount,
+    channelId,
+    frontendSusFee,
+  }: GenerateIbcShieldingMemoProps) {
+    Object.assign(this, {
+      target,
+      token,
+      amount,
+      channelId,
       frontendSusFee:
         frontendSusFee && new FrontendSusFeeMsgValue(frontendSusFee),
     });

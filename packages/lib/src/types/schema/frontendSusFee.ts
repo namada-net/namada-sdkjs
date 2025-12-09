@@ -5,8 +5,8 @@ export class FrontendSusFeeMsgValue {
   @field({ type: "string" })
   address!: string;
 
-  @field({ type: "u64" })
-  amount!: bigint;
+  @field({ type: "string" })
+  amount!: string;
 
   constructor(props: FrontendSusFeeProps) {
     Object.assign(this, props);

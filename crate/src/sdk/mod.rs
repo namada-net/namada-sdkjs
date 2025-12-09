@@ -51,13 +51,12 @@ use namada_sdk::tx::{
 };
 use namada_sdk::wallet::{Store, Wallet};
 use namada_sdk::{
-    ExtendedViewingKey, Namada, NamadaImpl, PaymentAddress, TransferSource,
+    ExtendedViewingKey, Namada, NamadaImpl, PaymentAddress, TransferSource
 };
 use std::collections::BTreeMap;
 use std::str::FromStr;
 use tx::MaspSigningData;
 use wasm_bindgen::{prelude::wasm_bindgen, JsError, JsValue};
-use namada_sdk::dec::Dec;
 
 /// Represents the Sdk public API.
 #[wasm_bindgen]
@@ -959,10 +958,7 @@ impl Sdk {
 
     pub async fn generate_ibc_shielding_memo(
         &self,
-        target: &str,
-        token: String,
-        amount: &str,
-        channel_id: &str,
+        generate_ibc_shielding_memo_msg: &[u8],
     ) -> Result<JsValue, JsError> {
         // TODO: pass handler
         let _ = &self
@@ -972,35 +968,8 @@ impl Sdk {
             .try_load(async |_| {})
             .await;
 
-        let ledger_address = Url::from_str(&self.rpc_url).expect("RPC URL is a valid URL");
-        let target = PaymentAddress::from_str(target).expect("target is a valid shielded address");
-
-        // As the value we get is always in the base denom, we can use from_string_precise to get the
-        // amount and drop denom info
-        let amount = Amount::from_string_precise(amount).expect("Amount to be valid.");
-
-        let denominated_amount = if token.contains(&self.namada.native_token().to_string()) {
-            DenominatedAmount::native(amount)
-        } else {
-            DenominatedAmount::new(amount, 0u8.into())
-        };
-        let amount = InputAmount::Validated(denominated_amount);
-
-        let channel_id = ChannelId::from_str(channel_id).expect("channel ID is valid");
-
-        let args = GenIbcShieldingTransfer {
-            query: Query { ledger_address },
-            output_folder: None,
-            target,
-            amount,
-            expiration: TxExpiration::Default,
-            asset: IbcShieldingTransferAsset::LookupNamadaAddress {
-                token,
-                port_id: PortId::transfer(),
-                channel_id,
-            },
-            frontend_sus_fee: None
-        };
+        let ledger_address = Url::from_str(&self.rpc_url)?;
+        let args = args::generate_ibc_shielding_memo_tx_args(generate_ibc_shielding_memo_msg, ledger_address)?;
 
         if let Some(masp_tx) = gen_ibc_shielding_transfer(&self.namada, args).await? {
             let memo = convert_masp_tx_to_ibc_memo(&masp_tx);

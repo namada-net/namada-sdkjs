@@ -3,6 +3,7 @@ import {
   BondMsgValue,
   ClaimRewardsMsgValue,
   EthBridgeTransferMsgValue,
+  GenerateIbcShieldingMemoMsgValue,
   IbcTransferMsgValue,
   MaspTxIn,
   MaspTxOut,
@@ -39,6 +40,7 @@ export type SignatureProps = SignatureMsgValue;
 export type ShieldedTransferProps = ShieldedTransferMsgValue;
 export type ShieldedTransferDataProps = ShieldedTransferDataMsgValue;
 export type ShieldingTransferProps = ShieldingTransferMsgValue;
+export type GenerateIbcShieldingMemoProps = GenerateIbcShieldingMemoMsgValue;
 export type ShieldingTransferDataProps = ShieldingTransferDataMsgValue;
 export type UnshieldingTransferDataProps = UnshieldingTransferDataMsgValue;
 export type UnshieldingTransferProps = UnshieldingTransferMsgValue;

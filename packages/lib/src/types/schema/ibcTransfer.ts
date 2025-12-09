@@ -52,7 +52,7 @@ export class IbcTransferMsgValue {
   refundTarget?: string;
 
   @field({ type: option(FrontendSusFeeMsgValue) })
-  frontend_sus_fee?: FrontendSusFeeMsgValue;
+  frontendSusFee?: FrontendSusFeeMsgValue;
 
   constructor(data: IbcTransferProps) {
     Object.assign(this, {
@@ -64,9 +64,8 @@ export class IbcTransferMsgValue {
           convert: new BparamsConvertMsgValue(bparam.convert),
         });
       }),
-      frontend_sus_fee:
-        data.frontend_sus_fee &&
-        new FrontendSusFeeMsgValue(data.frontend_sus_fee),
+      frontendSusFee:
+        data.frontendSusFee && new FrontendSusFeeMsgValue(data.frontendSusFee),
     });
   }
 }

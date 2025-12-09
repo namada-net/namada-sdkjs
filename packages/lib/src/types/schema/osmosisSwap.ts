@@ -81,7 +81,7 @@ export class OsmosisSwapMsgValue {
   osmosisRestRpc!: string;
 
   @field({ type: option(FrontendSusFeeMsgValue) })
-  frontend_sus_fee?: FrontendSusFeeMsgValue;
+  frontendSusFee?: FrontendSusFeeMsgValue;
 
   constructor(data: OsmosisSwapProps) {
     let slippage;
@@ -100,9 +100,8 @@ export class OsmosisSwapMsgValue {
       route: data.route?.map((hop) => {
         return new OsmosisPoolHop(hop);
       }),
-      frontend_sus_fee:
-        data.frontend_sus_fee &&
-        new FrontendSusFeeMsgValue(data.frontend_sus_fee),
+      frontendSusFee:
+        data.frontendSusFee && new FrontendSusFeeMsgValue(data.frontendSusFee),
     });
   }
 }
