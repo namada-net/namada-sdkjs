@@ -1,12 +1,13 @@
 import { field } from "@dao-xyz/borsh";
 import { FrontendSusFeeProps } from "../types";
+import { BigNumberSerializer } from "./utils";
 
 export class FrontendSusFeeMsgValue {
   @field({ type: "string" })
-  address!: string;
+  target!: string;
 
-  @field({ type: "string" })
-  amount!: string;
+  @field(BigNumberSerializer)
+  percentage!: BigNumber;
 
   constructor(props: FrontendSusFeeProps) {
     Object.assign(this, props);

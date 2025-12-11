@@ -764,7 +764,6 @@ pub fn shielding_transfer_tx_args(
     let bparams = bparams_msg_into_bparams(bparams_msg);
 
     let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
-    web_sys::console::log_1(&format!("Parsed frontend_sus_fee: {:?}", frontend_sus_fee).into());
     let args = args::TxShieldingTransfer {
         sources,
         targets,
@@ -1013,7 +1012,6 @@ pub fn ibc_transfer_tx_args(
         timeout_sec_offset,
         tx_code_path: PathBuf::from("tx_ibc.wasm"),
         refund_target,
-        // We do not support ibc unshielding for now
         gas_spending_key,
         frontend_sus_fee,
     };
