@@ -43,6 +43,8 @@ import {
   WithdrawProps,
   WrapperTxMsgValue,
   WrapperTxProps,
+  GenerateIbcShieldingMemoProps,
+  GenerateIbcShieldingMemoMsgValue,
 } from "../types";
 import { ResponseSign } from "@zondax/ledger-namada";
 import BigNumber from "bignumber.js";
@@ -503,24 +505,18 @@ export class Tx {
    * Generate the memo needed for performing an IBC transfer to a Namada shielded
    * address.
    * @async
-   * @param target - the Namada shielded address to send tokens to
-   * @param token - the token to transfer
-   * @param amount - the amount to transfer
-   * @param channelId - the IBC channel ID on the Namada side
+   * @param generateIbcShieldingMemoProps - properties for generating the IBC shielding memo
    * @returns promise that resolves to the shielding memo
    */
   generateIbcShieldingMemo(
-    target: string,
-    token: string,
-    amount: BigNumber,
-    channelId: string,
+    generateIbcShieldingMemoProps: GenerateIbcShieldingMemoProps,
   ): Promise<string> {
-    return this.sdk.generate_ibc_shielding_memo(
-      target,
-      token,
-      amount.toString(),
-      channelId,
+    const generateIbcShieldingMemoMsg =
+      new Message<GenerateIbcShieldingMemoProps>();
+    const encodedIbcShieldingMemoMsg = generateIbcShieldingMemoMsg.encode(
+      new GenerateIbcShieldingMemoMsgValue(generateIbcShieldingMemoProps),
     );
+    return this.sdk.generate_ibc_shielding_memo(encodedIbcShieldingMemoMsg);
   }
 
   /**

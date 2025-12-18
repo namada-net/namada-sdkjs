@@ -280,6 +280,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "async-compression"
+version = "0.4.36"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "98ec5f6c2f8bc326c994cb9e241cc257ddaba9afa8555a43cffbb5dd86efaa37"
+dependencies = [
+ "compression-codecs",
+ "compression-core",
+ "futures-core",
+ "pin-project-lite",
+ "tokio",
+]
+
+[[package]]
 name = "async-trait"
 version = "0.1.89"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -905,6 +918,23 @@ dependencies = [
  "sha3",
  "thiserror 1.0.69",
 ]
+
+[[package]]
+name = "compression-codecs"
+version = "0.4.35"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b0f7ac3e5b97fdce45e8922fb05cae2c37f7bbd63d30dd94821dacfd8f3f2bf2"
+dependencies = [
+ "compression-core",
+ "zstd 0.13.3",
+ "zstd-safe 7.2.4",
+]
+
+[[package]]
+name = "compression-core"
+version = "0.4.31"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "75984efb6ed102a0d42db99afb6c1948f0380d1d91808d5529916e6c08b49d8d"
 
 [[package]]
 name = "console_error_panic_hook"
@@ -4122,8 +4152,8 @@ dependencies = [
 
 [[package]]
 name = "namada_account"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4134,8 +4164,8 @@ dependencies = [
 
 [[package]]
 name = "namada_controller"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "namada_core",
  "smooth-operator",
@@ -4144,8 +4174,8 @@ dependencies = [
 
 [[package]]
 name = "namada_core"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "bech32 0.11.0",
  "borsh",
@@ -4193,8 +4223,8 @@ dependencies = [
 
 [[package]]
 name = "namada_ethereum_bridge"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "ethers",
@@ -4221,8 +4251,8 @@ dependencies = [
 
 [[package]]
 name = "namada_events"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4235,8 +4265,8 @@ dependencies = [
 
 [[package]]
 name = "namada_gas"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4248,8 +4278,8 @@ dependencies = [
 
 [[package]]
 name = "namada_governance"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4271,8 +4301,8 @@ dependencies = [
 
 [[package]]
 name = "namada_ibc"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "data-encoding",
@@ -4306,8 +4336,8 @@ dependencies = [
 
 [[package]]
 name = "namada_io"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "async-trait",
  "kdam",
@@ -4319,8 +4349,8 @@ dependencies = [
 
 [[package]]
 name = "namada_macros"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "data-encoding",
  "proc-macro2",
@@ -4331,8 +4361,8 @@ dependencies = [
 
 [[package]]
 name = "namada_merkle_tree"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "eyre",
@@ -4346,8 +4376,8 @@ dependencies = [
 
 [[package]]
 name = "namada_parameters"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "namada_core",
  "namada_macros",
@@ -4361,8 +4391,8 @@ dependencies = [
 
 [[package]]
 name = "namada_proof_of_stake"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4385,16 +4415,16 @@ dependencies = [
 
 [[package]]
 name = "namada_replay_protection"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "namada_core",
 ]
 
 [[package]]
 name = "namada_sdk"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "async-trait",
  "bech32 0.11.0",
@@ -4462,8 +4492,8 @@ dependencies = [
 
 [[package]]
 name = "namada_shielded_token"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "async-trait",
  "borsh",
@@ -4505,8 +4535,8 @@ dependencies = [
 
 [[package]]
 name = "namada_state"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "clru",
@@ -4528,8 +4558,8 @@ dependencies = [
 
 [[package]]
 name = "namada_storage"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "itertools 0.14.0",
@@ -4547,8 +4577,8 @@ dependencies = [
 
 [[package]]
 name = "namada_systems"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4557,8 +4587,8 @@ dependencies = [
 
 [[package]]
 name = "namada_token"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4575,8 +4605,8 @@ dependencies = [
 
 [[package]]
 name = "namada_trans_token"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "konst",
  "namada_core",
@@ -4592,8 +4622,8 @@ dependencies = [
 
 [[package]]
 name = "namada_tx"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "ark-bls12-381",
  "bitflags 2.9.4",
@@ -4621,8 +4651,8 @@ dependencies = [
 
 [[package]]
 name = "namada_tx_env"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4631,8 +4661,8 @@ dependencies = [
 
 [[package]]
 name = "namada_vm"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "clru",
@@ -4655,8 +4685,8 @@ dependencies = [
 
 [[package]]
 name = "namada_vote_ext"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "borsh",
  "namada_core",
@@ -4667,8 +4697,8 @@ dependencies = [
 
 [[package]]
 name = "namada_vp"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "namada_core",
  "namada_events",
@@ -4683,8 +4713,8 @@ dependencies = [
 
 [[package]]
 name = "namada_vp_env"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "derivative",
  "masp_primitives",
@@ -4698,8 +4728,8 @@ dependencies = [
 
 [[package]]
 name = "namada_wallet"
-version = "0.251.4"
-source = "git+https://github.com/anoma/namada?tag=libs-v0.251.4#39d350c52698fdc18439385fd07651678223eb46"
+version = "0.251.0"
+source = "git+https://github.com/anoma/namada?rev=b6bf629d07db603b1aa8d3e521f095c4010cce50#b6bf629d07db603b1aa8d3e521f095c4010cce50"
 dependencies = [
  "bimap",
  "bip32",
@@ -5745,10 +5775,12 @@ version = "0.12.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d429f34c8092b2d42c7c93cec323bb4adeb7c67698f70839adec842ec10c7ceb"
 dependencies = [
+ "async-compression",
  "base64 0.22.1",
  "bytes",
  "encoding_rs",
  "futures-core",
+ "futures-util",
  "h2 0.4.12",
  "http 1.3.1",
  "http-body 1.0.1",
@@ -5770,6 +5802,7 @@ dependencies = [
  "sync_wrapper 1.0.2",
  "tokio",
  "tokio-native-tls",
+ "tokio-util",
  "tower",
  "tower-http",
  "tower-service",
@@ -8324,7 +8357,7 @@ dependencies = [
  "pbkdf2 0.11.0",
  "sha1",
  "time",
- "zstd",
+ "zstd 0.11.2+zstd.1.5.2",
 ]
 
 [[package]]
@@ -8333,7 +8366,16 @@ version = "0.11.2+zstd.1.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "20cc960326ece64f010d2d2107537f26dc589a6573a316bd5b1dba685fa5fde4"
 dependencies = [
- "zstd-safe",
+ "zstd-safe 5.0.2+zstd.1.5.2",
+]
+
+[[package]]
+name = "zstd"
+version = "0.13.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e91ee311a569c327171651566e07972200e76fcfe2242a4fa446149a3881c08a"
+dependencies = [
+ "zstd-safe 7.2.4",
 ]
 
 [[package]]
@@ -8343,6 +8385,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1d2a5585e04f9eea4b2a3d1eca508c4dee9592a89ef6f450c11719da0726f4db"
 dependencies = [
  "libc",
+ "zstd-sys",
+]
+
+[[package]]
+name = "zstd-safe"
+version = "7.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8f49c4d5f0abb602a93fb8736af2a4f4dd9512e36f7f570d66e65ff867ed3b9d"
+dependencies = [
  "zstd-sys",
 ]
 

@@ -3,6 +3,7 @@ import {
   BondMsgValue,
   ClaimRewardsMsgValue,
   EthBridgeTransferMsgValue,
+  GenerateIbcShieldingMemoMsgValue,
   IbcTransferMsgValue,
   MaspTxIn,
   MaspTxOut,
@@ -27,6 +28,7 @@ import {
   WrapperTxMsgValue,
 } from "./schema";
 import { OsmosisSwapMsgValue } from "./schema/osmosisSwap";
+import { FrontendSusFeeMsgValue } from "./schema/frontendSusFee";
 import { RevealPkMsgValue } from "./schema/revealPk";
 
 export type BatchTxResultProps = BatchTxResultMsgValue;
@@ -38,6 +40,7 @@ export type SignatureProps = SignatureMsgValue;
 export type ShieldedTransferProps = ShieldedTransferMsgValue;
 export type ShieldedTransferDataProps = ShieldedTransferDataMsgValue;
 export type ShieldingTransferProps = ShieldingTransferMsgValue;
+export type GenerateIbcShieldingMemoProps = GenerateIbcShieldingMemoMsgValue;
 export type ShieldingTransferDataProps = ShieldingTransferDataMsgValue;
 export type UnshieldingTransferDataProps = UnshieldingTransferDataMsgValue;
 export type UnshieldingTransferProps = UnshieldingTransferMsgValue;
@@ -57,6 +60,8 @@ export type WithdrawProps = WithdrawMsgValue;
 export type WrapperTxProps = WrapperTxMsgValue;
 export type RevealPkProps = RevealPkMsgValue;
 export type OsmosisSwapProps = OsmosisSwapMsgValue;
+
+export type FrontendSusFeeProps = FrontendSusFeeMsgValue;
 
 export type SupportedTxProps =
   | BondProps

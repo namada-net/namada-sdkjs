@@ -21,6 +21,7 @@ use namada_sdk::masp_primitives::transaction::sighash::{signature_hash, Signable
 use namada_sdk::masp_primitives::transaction::txid::TxIdDigester;
 use namada_sdk::masp_primitives::zip32;
 use namada_sdk::signing::SigningTxData;
+use namada_sdk::tendermint_rpc::Url;
 use namada_sdk::time::DateTimeUtc;
 use namada_sdk::tx::data::GasLimit;
 use namada_sdk::tx::either::Either;
@@ -532,6 +533,64 @@ pub fn transparent_transfer_tx_args(
 
 #[derive(BorshSerialize, BorshDeserialize, Debug)]
 #[borsh(crate = "namada_sdk::borsh")]
+pub struct GenerateIbcShieldingMemoMsg {
+    target: String,
+    token: String,
+    amount: String,
+    channel_id: String,
+    frontend_sus_fee: Option<(String, String)>,
+}
+
+pub fn generate_ibc_shielding_memo_tx_args(
+    generate_ibc_shielding_memo_msg: &[u8],
+    ledger_address: Url,
+) -> Result<args::GenIbcShieldingTransfer, JsError> {
+    let generate_ibc_shielding_memo_msg =
+        GenerateIbcShieldingMemoMsg::try_from_slice(generate_ibc_shielding_memo_msg)?;
+    let GenerateIbcShieldingMemoMsg {
+        target,
+        token,
+        amount,
+        channel_id,
+        frontend_sus_fee,
+    } = generate_ibc_shielding_memo_msg;
+
+    let target = PaymentAddress::from_str(&target)?;
+    let denom_amount = DenominatedAmount::from_str(&amount).expect("Amount to be valid.");
+    let amount = InputAmount::Unvalidated(denom_amount);
+    let channel_id = ChannelId::from_str(&channel_id).expect("Channel id to be valid");
+    let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
+
+    // Not sure why we have to pass the PaymentAddress here instead of TransferTarget
+    let frontend_sus_fee = frontend_sus_fee
+        .map(|fee| {
+            let pa = fee
+                .0
+                .payment_address()
+                .ok_or(JsError::new("Invalid payment address"))?;
+            Ok::<(PaymentAddress, Dec), JsError>((pa, fee.1))
+        })
+        .transpose()?;
+
+    let args = args::GenIbcShieldingTransfer {
+        query: args::Query { ledger_address },
+        output_folder: None,
+        target,
+        amount,
+        expiration: TxExpiration::Default,
+        asset: args::IbcShieldingTransferAsset::LookupNamadaAddress {
+            token,
+            port_id: PortId::transfer(),
+            channel_id,
+        },
+        frontend_sus_fee,
+    };
+
+    Ok(args)
+}
+
+#[derive(BorshSerialize, BorshDeserialize, Debug)]
+#[borsh(crate = "namada_sdk::borsh")]
 pub struct BparamsSpendMsg {
     rcv: Vec<u8>,
     alpha: Vec<u8>,
@@ -654,6 +713,7 @@ pub struct ShieldingTransferMsg {
     target: String,
     data: Vec<ShieldingTransferDataMsg>,
     bparams: Option<Vec<BparamsMsg>>,
+    frontend_sus_fee: Option<(String, String)>,
 }
 
 /// Maps serialized tx_msg into TxShieldingTransfer args.
@@ -676,6 +736,7 @@ pub fn shielding_transfer_tx_args(
         target,
         data,
         bparams: bparams_msg,
+        frontend_sus_fee,
     } = shielding_transfer_msg;
     let target = PaymentAddress::from_str(&target)?;
 
@@ -705,12 +766,13 @@ pub fn shielding_transfer_tx_args(
     let tx = tx_msg_into_args(tx_msg)?;
     let bparams = bparams_msg_into_bparams(bparams_msg);
 
+    let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
     let args = args::TxShieldingTransfer {
         sources,
         targets,
         tx,
         tx_code_path: PathBuf::from("tx_transfer.wasm"),
-        frontend_sus_fee: None,
+        frontend_sus_fee,
     };
 
     Ok((args, bparams))
@@ -731,6 +793,7 @@ pub struct UnshieldingTransferMsg {
     data: Vec<UnshieldingTransferDataMsg>,
     gas_spending_key: Option<String>,
     bparams: Option<Vec<BparamsMsg>>,
+    frontend_sus_fee: Option<(String, String)>,
 }
 
 /// Maps serialized tx_msg into TxUnshieldingTransfer args.
@@ -755,6 +818,7 @@ pub fn unshielding_transfer_tx_args(
         data,
         gas_spending_key,
         bparams: bparams_msg,
+        frontend_sus_fee,
     } = unshielding_transfer_msg;
     let source = PseudoExtendedKey::decode(source)?.0;
     let gas_spending_key = gas_spending_key
@@ -787,6 +851,7 @@ pub fn unshielding_transfer_tx_args(
 
     let tx = tx_msg_into_args(tx_msg)?;
     let bparams = bparams_msg_into_bparams(bparams_msg);
+    let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
 
     let args = args::TxUnshieldingTransfer {
         sources,
@@ -794,7 +859,7 @@ pub fn unshielding_transfer_tx_args(
         tx,
         gas_spending_key,
         tx_code_path: PathBuf::from("tx_transfer.wasm"),
-        frontend_sus_fee: None,
+        frontend_sus_fee,
     };
 
     Ok((args, bparams))
@@ -816,6 +881,7 @@ pub struct IbcTransferMsg {
     gas_spending_key: Option<String>,
     bparams: Option<Vec<BparamsMsg>>,
     refund_target: Option<String>,
+    frontend_sus_fee: Option<(String, String)>,
 }
 
 impl IbcTransferMsg {
@@ -846,6 +912,7 @@ impl IbcTransferMsg {
             gas_spending_key: None,
             bparams: None,
             refund_target: None,
+            frontend_sus_fee: None,
         }
     }
 }
@@ -881,6 +948,7 @@ pub fn ibc_transfer_tx_args(
         gas_spending_key,
         bparams: bparams_msg,
         refund_target,
+        frontend_sus_fee,
     } = ibc_transfer_msg;
 
     let source = match Address::from_str(&source) {
@@ -931,6 +999,7 @@ pub fn ibc_transfer_tx_args(
 
     let tx = tx_msg_into_args(tx_msg)?;
     let bparams = bparams_msg_into_bparams(bparams_msg);
+    let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
 
     let args = args::TxIbcTransfer {
         tx,
@@ -946,9 +1015,8 @@ pub fn ibc_transfer_tx_args(
         timeout_sec_offset,
         tx_code_path: PathBuf::from("tx_ibc.wasm"),
         refund_target,
-        // We do not support ibc unshielding for now
         gas_spending_key,
-        frontend_sus_fee: None,
+        frontend_sus_fee,
     };
 
     Ok((args, bparams))
@@ -1183,6 +1251,8 @@ pub struct OsmosisSwapMsg {
     /// The route to take through Osmosis pools
     /// A REST rpc endpoint to Osmosis
     pub osmosis_lcd_rpc: String,
+
+    pub frontend_sus_fee: Option<(String, String)>,
 }
 
 pub fn osmosis_swap_tx_args(
@@ -1201,6 +1271,7 @@ pub fn osmosis_swap_tx_args(
         local_recovery_addr,
         route,
         osmosis_lcd_rpc,
+        frontend_sus_fee: _,
     } = osmosis_swap_msg;
 
     let (ibc_transfer_args, bparams) =
@@ -1231,6 +1302,7 @@ pub fn osmosis_swap_tx_args(
         route,
         osmosis_lcd_rpc: Some(osmosis_lcd_rpc),
         osmosis_sqs_rpc: None,
+        // None as we are always swapping from shielded to shielded
         frontend_sus_fee: None,
     };
 
@@ -1349,6 +1421,25 @@ fn bparams_msg_into_bparams(bparams_msg: Option<Vec<BparamsMsg>>) -> Option<Stor
         }
         bparams
     })
+}
+
+fn parse_frontend_sus_fee(
+    frontend_sus_fee: Option<(String, String)>,
+) -> Result<Option<(TransferTarget, Dec)>, JsError> {
+    match frontend_sus_fee {
+        Some((addr_str, fee)) => {
+            let target = match Address::from_str(&addr_str) {
+                Ok(addr) => TransferTarget::Address(addr),
+                Err(e1) => match PaymentAddress::from_str(&addr_str) {
+                    Ok(xvk) => TransferTarget::PaymentAddress(xvk),
+                    Err(e2) => return Err(JsError::new(&format!("{} {}", e1, e2))),
+                },
+            };
+
+            Ok(Some((target, Dec::from_str(&fee)?)))
+        }
+        None => Ok(None),
+    }
 }
 
 pub struct MapSaplingSigAuth(

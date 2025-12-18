@@ -1,6 +1,7 @@
 import { field, option, variant, vec } from "@dao-xyz/borsh";
 import { OsmosisSwapProps } from "../types";
 import { IbcTransferMsgValue } from "./ibcTransfer";
+import { FrontendSusFeeMsgValue } from "./frontendSusFee";
 
 abstract class SlippageMsgValue {}
 
@@ -79,6 +80,9 @@ export class OsmosisSwapMsgValue {
   @field({ type: "string" })
   osmosisRestRpc!: string;
 
+  @field({ type: option(FrontendSusFeeMsgValue) })
+  frontendSusFee?: FrontendSusFeeMsgValue;
+
   constructor(data: OsmosisSwapProps) {
     let slippage;
     if (isMinOutputAmount(data.slippage)) {
@@ -96,6 +100,8 @@ export class OsmosisSwapMsgValue {
       route: data.route?.map((hop) => {
         return new OsmosisPoolHop(hop);
       }),
+      frontendSusFee:
+        data.frontendSusFee && new FrontendSusFeeMsgValue(data.frontendSusFee),
     });
   }
 }

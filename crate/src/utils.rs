@@ -1,5 +1,5 @@
 use gloo_utils::format::JsValueSerdeExt;
-use js_sys::{Promise, Uint8Array, Function, Reflect};
+use js_sys::{Function, Promise, Reflect, Uint8Array};
 use serde::Serialize;
 use std::fmt::Debug;
 use wasm_bindgen::prelude::*;
@@ -56,11 +56,7 @@ pub async fn sleep(ms: i32) {
             .dyn_into::<Function>()
             .unwrap();
 
-        let _ = set_timeout.call2(
-            &JsValue::NULL,
-            &resolve,
-            &JsValue::from(ms),
-        );
+        let _ = set_timeout.call2(&JsValue::NULL, &resolve, &JsValue::from(ms));
     });
 
     let _ = JsFuture::from(promise).await;
