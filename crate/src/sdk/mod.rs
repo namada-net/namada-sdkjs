@@ -15,18 +15,15 @@ use crate::utils::to_bytes;
 use crate::utils::to_js_result;
 use args::{generate_rng_build_params, masp_sign, BuildParams, MapSaplingSigAuth};
 use gloo_utils::format::JsValueSerdeExt;
-use js_sys::Uint8Array;
+use js_sys::{JsString, Uint8Array};
 use namada_sdk::address::{Address, ImplicitAddress, MASP};
-use namada_sdk::args::{
-    GenIbcShieldingTransfer, IbcShieldingTransferAsset, InputAmount, Query, TxExpiration,
-};
 use namada_sdk::borsh::{self, BorshDeserialize};
 use namada_sdk::collections::HashMap;
 use namada_sdk::control_flow::time;
+use namada_sdk::dec::Dec;
 use namada_sdk::eth_bridge::bridge_pool::build_bridge_pool_tx;
 use namada_sdk::hash::Hash;
 use namada_sdk::ibc::convert_masp_tx_to_ibc_memo;
-use namada_sdk::ibc::core::host::types::identifiers::{ChannelId, PortId};
 use namada_sdk::io::{Client, NamadaIo};
 use namada_sdk::key::{common, ed25519, RefTo, SigScheme};
 use namada_sdk::masp::shielded_wallet::ShieldedApi;
@@ -42,17 +39,15 @@ use namada_sdk::tendermint_rpc::Url;
 use namada_sdk::token::{Amount, DenominatedAmount};
 use namada_sdk::token::{MaspTxId, OptionExt};
 use namada_sdk::tx::data::{ResultCode, TxType};
-use namada_sdk::tx::Section;
 use namada_sdk::tx::{
     build_batch, build_bond, build_claim_rewards, build_ibc_transfer, build_redelegation,
     build_reveal_pk, build_shielded_transfer, build_shielding_transfer, build_transparent_transfer,
     build_unbond, build_unshielding_transfer, build_vote_proposal, build_withdraw,
     data::compute_inner_tx_hash, either::Either, gen_ibc_shielding_transfer, Tx,
 };
+use namada_sdk::tx::{compute_masp_frontend_sus_fee, Section};
 use namada_sdk::wallet::{Store, Wallet};
-use namada_sdk::{
-    ExtendedViewingKey, Namada, NamadaImpl, PaymentAddress, TransferSource
-};
+use namada_sdk::{ExtendedViewingKey, Namada, NamadaImpl, TransferSource};
 use std::collections::BTreeMap;
 use std::str::FromStr;
 use tx::MaspSigningData;
@@ -576,7 +571,17 @@ impl Sdk {
             txs.push((tx, namada_signing_data));
         }
 
-        let (tx, wrapper_signing_data) = build_batch(txs.clone())?;
+        let (tx, signing_data) = build_batch(txs.clone())?;
+
+        let wrapper_signing_data = match signing_data {
+            Either::Left(sd) => sd,
+            Either::Right(_) => {
+                return Err(JsError::new(
+                    "Sdk sign_batch only supports wrapper signing data",
+                ))
+            }
+        };
+
         let masp_sd = wrapper_signing_data.signing_data.iter().find_map(|sd| {
             if let Some(sh) = sd.shielded_hash {
                 masp_map.get(&sh).cloned()
@@ -770,7 +775,7 @@ impl Sdk {
         shielding_transfer_msg: &[u8],
         wrapper_tx_msg: &[u8],
     ) -> Result<JsValue, JsError> {
-        let (mut args, bparams) =
+        let (args, bparams) =
             args::shielding_transfer_tx_args(shielding_transfer_msg, wrapper_tx_msg)?;
         let bparams = if let Some(bparams) = bparams {
             BuildParams::StoredBuildParams(bparams)
@@ -787,10 +792,10 @@ impl Sdk {
 
         let (tx, signing_data, _) = match bparams {
             BuildParams::RngBuildParams(mut bparams) => {
-                build_shielding_transfer(&self.namada, &mut args, &mut bparams).await?
+                build_shielding_transfer(&self.namada, &args, &mut bparams).await?
             }
             BuildParams::StoredBuildParams(mut bparams) => {
-                build_shielding_transfer(&self.namada, &mut args, &mut bparams).await?
+                build_shielding_transfer(&self.namada, &args, &mut bparams).await?
             }
         };
 
@@ -969,7 +974,10 @@ impl Sdk {
             .await;
 
         let ledger_address = Url::from_str(&self.rpc_url)?;
-        let args = args::generate_ibc_shielding_memo_tx_args(generate_ibc_shielding_memo_msg, ledger_address)?;
+        let args = args::generate_ibc_shielding_memo_tx_args(
+            generate_ibc_shielding_memo_msg,
+            ledger_address,
+        )?;
 
         if let Some(masp_tx) = gen_ibc_shielding_transfer(&self.namada, args).await? {
             let memo = convert_masp_tx_to_ibc_memo(&masp_tx);
@@ -1298,6 +1306,24 @@ impl Sdk {
         )?;
 
         to_js_result(borsh::to_vec(&tx)?)
+    }
+
+    pub async fn compute_masp_frontend_sus_fee(
+        &self,
+        amount: String,
+        token: String,
+        percentage: String,
+    ) -> Result<JsString, JsError> {
+        let denom_amount = DenominatedAmount::from_str(&amount)?;
+        let percentage = Dec::from_str(&percentage)?;
+        let token = Address::from_str(&token)?;
+
+        let fee =
+            compute_masp_frontend_sus_fee(&self.namada, &denom_amount, &percentage, &token, false)
+                .await
+                .map_err(|e| JsError::new(&e.to_string()))?;
+
+        Ok(JsString::from(fee.to_string()))
     }
 }
 

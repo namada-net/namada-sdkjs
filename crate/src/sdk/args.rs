@@ -556,17 +556,21 @@ pub fn generate_ibc_shielding_memo_tx_args(
     } = generate_ibc_shielding_memo_msg;
 
     let target = PaymentAddress::from_str(&target)?;
-    let denom_amount =
-        DenominatedAmount::from_str(&amount).expect("Amount to be valid.");
+    let denom_amount = DenominatedAmount::from_str(&amount).expect("Amount to be valid.");
     let amount = InputAmount::Unvalidated(denom_amount);
     let channel_id = ChannelId::from_str(&channel_id).expect("Channel id to be valid");
     let frontend_sus_fee = parse_frontend_sus_fee(frontend_sus_fee)?;
 
     // Not sure why we have to pass the PaymentAddress here instead of TransferTarget
-    let frontend_sus_fee = frontend_sus_fee.map(|fee| {
-        let pa = fee.0.payment_address().ok_or(JsError::new("Invalid payment address"))?;
-        Ok::<(PaymentAddress, Dec), JsError>((pa, fee.1))
-    }).transpose()?;
+    let frontend_sus_fee = frontend_sus_fee
+        .map(|fee| {
+            let pa = fee
+                .0
+                .payment_address()
+                .ok_or(JsError::new("Invalid payment address"))?;
+            Ok::<(PaymentAddress, Dec), JsError>((pa, fee.1))
+        })
+        .transpose()?;
 
     let args = args::GenIbcShieldingTransfer {
         query: args::Query { ledger_address },
@@ -579,12 +583,11 @@ pub fn generate_ibc_shielding_memo_tx_args(
             port_id: PortId::transfer(),
             channel_id,
         },
-        frontend_sus_fee
+        frontend_sus_fee,
     };
 
     Ok(args)
 }
-
 
 #[derive(BorshSerialize, BorshDeserialize, Debug)]
 #[borsh(crate = "namada_sdk::borsh")]
