@@ -1,1 +1,1 @@
-export const NAMADA_LIB_VERSION = "0.23.0";
+export const NAMADA_LIB_VERSION = "0.24.0-beta.1";

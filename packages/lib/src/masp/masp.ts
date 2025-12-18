@@ -120,6 +120,15 @@ export class Masp {
     return await this.sdk.query_notes_to_spend(viewingKey, chainId);
   }
 
+  /**
+   * Calculate MASP frontend sus fee
+   *
+   * @async
+   * @param amount - Amount to calculate fee for
+   * @param token - Token to calculate fee for
+   * @param percentage - Percentage to calculate fee with
+   * @returns Promise resolving to the calculated fee as a string
+   */
   async calculateMaspFrontendSusFee(
     amount: string,
     token: string,
